@@ -35,7 +35,7 @@ export default function ContactSection() {
               Get In Touch
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-              Let&apos;s Work Together
+              How Can We Help?
             </h2>
             <p className="text-white/70 text-base leading-relaxed max-w-md">
               Whether you need a one-off tidy or regular garden maintenance, we&apos;re here to help.

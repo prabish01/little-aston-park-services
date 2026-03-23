@@ -91,12 +91,12 @@ export default function StatsTestimonialSection() {
               className="text-7xl sm:text-8xl font-bold text-white leading-none tracking-tight"
               style={{ fontVariantNumeric: "tabular-nums" }}
             >
-              500+
+              100+
             </span>
 
             {/* Label */}
-            <p className="text-white font-semibold text-base sm:text-lg leading-snug max-w-[200px]">
-              Global Clients Happy to Get Our Gardening Services
+            <p className="text-white font-semibold text-base sm:text-lg leading-snug max-w-65">
+              Transformations Ranging from Garden Overhauls to Outdoor Maintenance to Jet Washing
             </p>
             </div>
           </div>

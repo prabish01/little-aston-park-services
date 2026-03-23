@@ -1,12 +1,13 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ServicesSection from "./components/ServicesSection";
-import AboutSection from "./components/AboutSection";
+import ServicesTeaserStrip from "./components/ServicesTeaserStrip";
+import WhyChooseUs from "./components/WhyChooseUs";
+import CoverageStrip from "./components/CoverageStrip";
 import BeforeAfterSection from "./components/BeforeAfterSection";
+import RecentWorkSection from "./components/RecentWorkSection";
 import StatsTestimonialSection from "./components/StatsTestimonialSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
-import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -15,13 +16,14 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col w-full">
         <Hero />
-        <ServicesSection />
-        <AboutSection />
+        <ServicesTeaserStrip />
+        <WhyChooseUs />
+        <CoverageStrip />
         <BeforeAfterSection />
+        <RecentWorkSection />
         <StatsTestimonialSection />
         <TestimonialsSection />
         <FAQSection />
-        <ContactSection />
       </main>
       <Footer />
     </>

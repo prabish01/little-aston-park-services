@@ -98,7 +98,7 @@ export default function FAQSection() {
             Everything you need to know about our services. Can&apos;t find an
             answer?{" "}
             <a
-              href="#contact"
+              href="/contact"
               className="text-emerald-700 font-semibold hover:underline"
             >
               Get in touch
@@ -125,7 +125,7 @@ export default function FAQSection() {
         <FadeIn delay={0.3} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <p className="text-gray-500 text-sm">Still have questions?</p>
           <a
-            href="#contact"
+            href="/contact"
             className="px-7 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20"
           >
             Contact Us

@@ -1,72 +1,89 @@
-"use client";
+import FadeIn from "./FadeIn";
 
-import { useState, useEffect } from "react";
+const usps = [
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+    title: "Fully Insured",
+    body: "We carry full public liability insurance so you have complete peace of mind from start to finish.",
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+    title: "Same-Week Bookings",
+    body: "We work around your schedule and can often get to you within the same week — no long waits.",
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Free No-Obligation Quotes",
+    body: "We visit your property, assess the work, and give you a clear upfront quote — completely free.",
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    title: "Local Family-Run Business",
+    body: "We're based right here in the West Midlands — you're supporting a local team who genuinely cares.",
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+      </svg>
+    ),
+    title: "5★ Rated Service",
+    body: "Our customers consistently rate us 5 stars for quality, reliability and leaving things spotless.",
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    ),
+    title: "100% Satisfaction Guarantee",
+    body: "Not happy with the result? We'll come back and make it right — no arguments, no extra charge.",
+  },
+];
 
 export default function WhyChooseUs() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.15 },
-    );
-    const el = document.getElementById("why-choose-us");
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="why-choose-us" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image — swap src for your own photo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          // Replace this with: backgroundImage: "url('/your-image.jpg')"
-          background: "linear-gradient(135deg, #1a4731 0%, #2d7a4f 40%, #1b5e35 70%, #0f3320 100%)",
-        }}
-      />
+    <section className="w-full bg-[#f8f9f3] py-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        <FadeIn className="text-center mb-12">
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Why Us</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-2 leading-tight">
+            The Honest Choice for Your Garden
+          </h2>
+          <p className="text-gray-500 text-base mt-3 max-w-xl mx-auto">
+            We&apos;re not the biggest company — but we&apos;re one of the most trusted in the area.
+          </p>
+        </FadeIn>
 
-      {/* Dark overlay — same as hero */}
-      <div className="absolute inset-0 bg-black/45" />
-
-      {/* Content */}
-      <div className={`relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        {/* Eyebrow label */}
-        <span className="inline-block mb-5 text-xs font-bold text-white/60 uppercase tracking-widest">Why Choose Us</span>
-
-        {/* Heading */}
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-          Trusted Garden Care, <span className="text-emerald-400">Every Season</span>
-        </h2>
-
-        {/* Sub-text */}
-        <p className="text-white/80 text-lg sm:text-xl max-w-2xl mb-4 leading-relaxed">From spring planting to winter clean-ups, our experienced team keeps your outdoor spaces looking immaculate all year round.</p>
-
-        <p className="text-white/60 text-base mb-10">Serving Sutton Coldfield, Lichfield, Tamworth &amp; surrounding areas</p>
-
-        {/* CTA row */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <a href="#services" className="px-8 py-3.5 rounded-full bg-emerald-600 text-white font-semibold text-base hover:bg-emerald-500 transition-colors duration-300 shadow-lg shadow-emerald-900/40">
-            View Our Services
-          </a>
-          <a href="#contact" className="px-8 py-3.5 rounded-full border border-white/40 text-white font-semibold text-base hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm">
-            Get a Free Quote
-          </a>
-        </div>
-
-        {/* Stats row */}
-        <div className="mt-16 grid grid-cols-3 gap-8 sm:gap-16 border-t border-white/20 pt-10">
-          {[
-            { value: "10+", label: "Years Experience" },
-            { value: "500+", label: "Happy Clients" },
-            { value: "5★", label: "Rated Service" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1">
-              <span className="text-3xl sm:text-4xl font-bold text-white">{stat.value}</span>
-              <span className="text-white/60 text-xs sm:text-sm tracking-wide uppercase">{stat.label}</span>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {usps.map((u, i) => (
+            <FadeIn key={u.title} delay={i * 0.08}>
+              <div className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200">
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">
+                  {u.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-emerald-950 text-base mb-1">{u.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{u.body}</p>
+                </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>

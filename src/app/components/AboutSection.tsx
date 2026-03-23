@@ -123,7 +123,7 @@ export default function AboutSection() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2">
             {/* Discover More button */}
             <a
-              href="#services"
+              href="/services"
               className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#c5e84a] text-emerald-900 font-semibold text-sm underline underline-offset-2 hover:bg-[#b5d83a] transition-colors duration-200"
             >
               Discover More

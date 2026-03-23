@@ -138,14 +138,10 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom CTA bar */}
-        <FadeIn delay={0.4} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Hurry —</span>
-          <span className="text-gray-600 text-sm">
-            Choose from our selection of the best services.{" "}
-            <a href="#contact" className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-600 transition-colors">
-              Get a project in mind?
-            </a>
-          </span>
+        <FadeIn delay={0.4} className="mt-12 flex items-center justify-center">
+          <a href="#contact" className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-600 transition-colors text-sm">
+            Got a project in mind?
+          </a>
         </FadeIn>
       </div>
     </section>

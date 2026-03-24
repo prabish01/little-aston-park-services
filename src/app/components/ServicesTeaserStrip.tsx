@@ -8,7 +8,7 @@ const services = [
   {
     label: "Lawn Care",
     description: "Regular mowing, edging, and feeding to keep your lawn lush, green, and perfectly manicured all year round.",
-    num: "01",
+    // num: "01",
     accent: "#c5e84a",
     image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80",
     icon: (
@@ -20,7 +20,7 @@ const services = [
   {
     label: "Jet Washing",
     description: "Professional high-pressure cleaning of patios, driveways, decking and paths — restoring them to like-new condition.",
-    num: "02",
+    // num: "02",
     accent: "#34d399",
     image: "/after-image.png",
     icon: (
@@ -32,7 +32,7 @@ const services = [
   {
     label: "Hedge Trimming",
     description: "Precise shaping and cutting of hedges, shrubs, and borders to give your garden clean, defined lines.",
-    num: "03",
+    // num: "03",
     accent: "#6ee7b7",
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
     icon: (
@@ -44,7 +44,7 @@ const services = [
   {
     label: "Garden Design",
     description: "From planting plans to full redesigns — we create beautiful, functional outdoor spaces tailored to your lifestyle.",
-    num: "04",
+    // num: "04",
     accent: "#a3e635",
     image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
     icon: (
@@ -56,7 +56,7 @@ const services = [
   {
     label: "Seasonal Clean-Up",
     description: "Autumn leaf clearance, spring tidy-ups, and everything in between — we keep your garden pristine year-round.",
-    num: "05",
+    // num: "05",
     accent: "#86efac",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     icon: (
@@ -68,7 +68,7 @@ const services = [
   {
     label: "Drainage",
     description: "Effective solutions to prevent waterlogging, flooding and water damage — protecting your garden and property.",
-    num: "06",
+    // num: "06",
     accent: "#4ade80",
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
     icon: (
@@ -85,19 +85,13 @@ export default function ServicesTeaserStrip() {
   return (
     <section className="w-full bg-[#f3f4ec] py-16 px-6">
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <FadeIn className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">What We Do</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-1 leading-tight">
-              Our Services
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-1 leading-tight">Our Services</h2>
           </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shrink-0"
-          >
+          <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shrink-0">
             View All Services
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
@@ -106,11 +100,7 @@ export default function ServicesTeaserStrip() {
         </FadeIn>
 
         {/* ── Desktop: expanding accordion panels ── */}
-        <div
-          className="hidden lg:flex gap-2 rounded-3xl overflow-hidden"
-          style={{ height: "380px" }}
-          onMouseLeave={() => setHovered(0)}
-        >
+        <div className="hidden lg:flex gap-2 rounded-3xl overflow-hidden" style={{ height: "380px" }} onMouseLeave={() => setHovered(0)}>
           {services.map((s, i) => (
             <div
               key={s.label}
@@ -133,9 +123,7 @@ export default function ServicesTeaserStrip() {
               <div
                 className="absolute inset-0 transition-all duration-500"
                 style={{
-                  background: hovered === i
-                    ? "linear-gradient(to top, rgba(5,30,15,0.92) 0%, rgba(5,30,15,0.55) 60%, rgba(5,30,15,0.3) 100%)"
-                    : "rgba(5,20,12,0.78)",
+                  background: hovered === i ? "linear-gradient(to top, rgba(5,30,15,0.92) 0%, rgba(5,30,15,0.55) 60%, rgba(5,30,15,0.3) 100%)" : "rgba(5,20,12,0.78)",
                 }}
               />
               {/* Accent left bar */}
@@ -148,11 +136,8 @@ export default function ServicesTeaserStrip() {
               />
 
               {/* Number — top right */}
-              <span
-                className="absolute top-5 right-5 font-bold text-xs transition-all duration-300"
-                style={{ color: hovered === i ? s.accent : "rgba(255,255,255,0.2)" }}
-              >
-                {s.num}
+              <span className="absolute top-5 right-5 font-bold text-xs transition-all duration-300" style={{ color: hovered === i ? s.accent : "rgba(255,255,255,0.2)" }}>
+                {/* {s.num} */}
               </span>
 
               {/* Icon */}
@@ -167,14 +152,8 @@ export default function ServicesTeaserStrip() {
               </div>
 
               {/* Collapsed: rotated label */}
-              <div
-                className="absolute bottom-8 left-0 right-0 flex justify-center transition-all duration-300"
-                style={{ opacity: hovered === i ? 0 : 1 }}
-              >
-                <span
-                  className="text-white/60 font-semibold text-sm whitespace-nowrap"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-                >
+              <div className="absolute bottom-8 left-0 right-0 flex justify-center transition-all duration-300" style={{ opacity: hovered === i ? 0 : 1 }}>
+                <span className="text-white/60 font-semibold text-sm whitespace-nowrap" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                   {s.label}
                 </span>
               </div>
@@ -189,17 +168,13 @@ export default function ServicesTeaserStrip() {
               >
                 <h3 className="text-white font-bold text-xl leading-tight">{s.label}</h3>
                 <p className="text-white/60 text-sm leading-relaxed line-clamp-4">{s.description}</p>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 self-start text-sm font-semibold transition-colors duration-200"
-                  style={{ color: s.accent }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Learn more
+                <Link href="/services" className="bg-emerald-500 hover:bg-emerald-600  rounded-lg p-2 inline-flex items-center gap-2 self-start text-sm  font-semibold transition-colors duration-200 text-white hover:text-emerald-100" style={{ color: s.accent }} onClick={(e) => e.stopPropagation()}>
+                  Contact us
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </Link>
+                <p className="-mt-2 text-white/60 text-xs">Share your outdoor vision with us and we&apos;ll bring it to life</p>
               </div>
             </div>
           ))}
@@ -208,12 +183,7 @@ export default function ServicesTeaserStrip() {
         {/* ── Mobile: 2-col grid ── */}
         <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-3">
           {services.map((s) => (
-            <Link
-              key={s.label}
-              href="/services"
-              className="relative flex flex-col items-end justify-end gap-2 p-4 rounded-2xl overflow-hidden"
-              style={{ minHeight: "140px" }}
-            >
+            <Link key={s.label} href="/services" className="relative flex flex-col items-end justify-end gap-2 p-4 rounded-2xl overflow-hidden" style={{ minHeight: "140px" }}>
               <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${s.image})` }} />
               <div className="absolute inset-0 rounded-2xl" style={{ background: "rgba(5,20,12,0.72)" }} />
               <span className="relative w-10 h-10 rounded-xl flex items-center justify-center self-start" style={{ background: `${s.accent}25`, color: s.accent }}>
@@ -223,7 +193,6 @@ export default function ServicesTeaserStrip() {
             </Link>
           ))}
         </div>
-
       </div>
     </section>
   );

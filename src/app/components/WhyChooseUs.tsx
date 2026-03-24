@@ -40,7 +40,11 @@ const usps = [
   {
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+        />
       </svg>
     ),
     title: "5★ Rated Service",
@@ -63,21 +67,15 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-12">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Why Us</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-2 leading-tight">
-            The Honest Choice for Your Garden
-          </h2>
-          <p className="text-gray-500 text-base mt-3 max-w-xl mx-auto">
-            We&apos;re not the biggest company — but we&apos;re one of the most trusted in the area.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-2 leading-tight">Down-to-Earth Garden Care</h2>
+          <p className="text-gray-500 text-base mt-3 max-w-xl mx-auto">Small team, big reputation: the trusted choice for outdoor maintenance.</p>
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {usps.map((u, i) => (
             <FadeIn key={u.title} delay={i * 0.08}>
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200">
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">
-                  {u.icon}
-                </div>
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">{u.icon}</div>
                 <div>
                   <h3 className="font-bold text-emerald-950 text-base mb-1">{u.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{u.body}</p>

@@ -41,29 +41,25 @@ export default function RecentWorkSection() {
     (current + offset + projects.length) % projects.length;
 
   return (
-    <section className="w-full bg-white py-16 overflow-hidden">
+    <section className="w-full bg-[#f0f1eb] pb-16 pt-4 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header row */}
-        <FadeIn className="flex items-start justify-between mb-10 gap-6">
-          <div className="flex flex-col gap-3">
-            {/* Eyebrow */}
-            <span className="inline-flex items-center gap-2 text-emerald-700 text-xs font-bold uppercase tracking-widest">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5c0-1.5-1-3-3-3S6 4.5 6 6.5c0 3 3 5 3 5s3-2 3-5zM12 6.5c0-1.5 1-3 3-3s3 1.5 3 3c0 3-3 5-3 5s-3-2-3-5z" />
-              </svg>
-              Our Completed Projects
-            </span>
-
-            {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight max-w-lg">
-              View Some of{" "}
-              <span className="text-emerald-600">Our Best<br />Recent Work</span>
-              ...
-            </h2>
+        <FadeIn className="flex items-center justify-between mb-8 gap-6">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-3">
+              <div className="w-px h-6 bg-emerald-400" />
+              <span className="text-emerald-700 text-sm font-bold uppercase tracking-widest">
+                Browse Our Portfolio
+              </span>
+            </div>
+            <div className="flex items-end gap-3 pl-4">
+              <span className="text-6xl font-bold text-emerald-950 leading-none">100+</span>
+              <span className="text-gray-400 text-sm pb-1.5 leading-tight">transformations<br />and counting</span>
+            </div>
           </div>
 
           {/* Prev / Next */}
-          <div className="flex items-center gap-2 shrink-0 mt-2">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={prev}
               className="w-12 h-12 rounded-xl bg-emerald-950 text-white flex items-center justify-center hover:bg-emerald-800 transition-colors"

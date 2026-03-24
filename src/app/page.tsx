@@ -5,9 +5,9 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import CoverageStrip from "./components/CoverageStrip";
 import BeforeAfterSection from "./components/BeforeAfterSection";
 import RecentWorkSection from "./components/RecentWorkSection";
-import StatsTestimonialSection from "./components/StatsTestimonialSection";
-import TestimonialsSection from "./components/TestimonialsSection";
-import FAQSection from "./components/FAQSection";
+import MeetTheTeam from "./components/MeetTheTeam";
+import InstagramSection from "./components/InstagramSection";
+// import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -21,9 +21,9 @@ export default function Home() {
         <CoverageStrip />
         <BeforeAfterSection />
         <RecentWorkSection />
-        <StatsTestimonialSection />
-        <TestimonialsSection />
-        <FAQSection />
+        <MeetTheTeam />
+        <InstagramSection />
+        {/* <FAQSection /> */}
       </main>
       <Footer />
     </>

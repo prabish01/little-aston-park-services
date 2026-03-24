@@ -161,7 +161,7 @@ export default function BeforeAfterSection() {
   return (
     <section
       id="work"
-      className="w-full bg-[#f0f1eb] py-20 px-6"
+      className="w-full bg-[#f0f1eb] pt-20 pb-8 px-6"
     >
       <div className="max-w-3xl mx-auto">
         {/* Heading */}
@@ -170,7 +170,7 @@ export default function BeforeAfterSection() {
             Our Work Speaks for Itself
           </h2>
           <p className="text-gray-500 text-base">
-            See the transformation we can bring to your garden
+            Real transformations and recent projects we&apos;re proud of — drag the slider to compare
           </p>
         </FadeIn>
 

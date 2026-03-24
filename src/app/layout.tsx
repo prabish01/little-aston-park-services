@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import GardenCursor from "./components/GardenCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,25 +16,27 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Little Aston Park Services | Garden & Outdoor Maintenance",
-  description:
-    "Professional jet washing, garden maintenance, lawn care, hedge trimming, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands. Get a free no-obligation quote today.",
-  keywords: [
-    "garden maintenance",
-    "jet washing",
-    "lawn care",
-    "hedge trimming",
-    "landscaping",
-    "Sutton Coldfield",
-    "Lichfield",
-    "Tamworth",
-    "West Midlands",
-    "outdoor services",
-  ],
+  description: "Professional jet washing, garden maintenance, lawn care, hedge trimming, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands. Get a free no-obligation quote today.",
+  keywords: ["garden maintenance", "jet washing", "lawn care", "hedge trimming", "landscaping", "Sutton Coldfield", "Lichfield", "Tamworth", "West Midlands", "outdoor services"],
   authors: [{ name: "Little Aston Park Services" }],
+  icons: {
+    icon: [
+      { url: "/laps.svg", type: "image/svg+xml" },
+      { url: "/laps.svg", sizes: "any" },
+    ],
+    shortcut: "/laps.svg",
+    apple: "/laps.svg",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/laps.svg",
+        color: "#10b981",
+      },
+    ],
+  },
   openGraph: {
     title: "Little Aston Park Services | Garden & Outdoor Maintenance",
-    description:
-      "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
+    description: "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
     type: "website",
     locale: "en_GB",
     siteName: "Little Aston Park Services",
@@ -41,8 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Little Aston Park Services | Garden & Outdoor Maintenance",
-    description:
-      "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
+    description: "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
   },
   robots: {
     index: true,
@@ -56,12 +58,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
+        <GardenCursor />
         <Analytics />
       </body>
     </html>

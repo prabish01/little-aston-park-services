@@ -20,4 +20,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 5 C3 10 3 15 9 19 C11 20 14 20 16 18 C18 16 18 13 16 9 C14 5 9 2 5 5Z' fill='%233a3a3a'/%3E%3Cpath d='M8 7 C7 10 7 14 10 17' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M15 18 L18 22 L20 20 L17 16Z' fill='%23aaaaaa'/%3E%3Cpath d='M18 21 C20 23 24 27 26 28 C27 29 29 27 28 26 C27 24 23 20 21 19Z' fill='%23f59e0b'/%3E%3Cpath d='M20 22 C22 24 25 27 26.5 27.5' stroke='%23d97706' stroke-width='0.9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") 5 5, auto;
+}
+
+/* Force custom cursor on every element — no exceptions */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 5 C3 10 3 15 9 19 C11 20 14 20 16 18 C18 16 18 13 16 9 C14 5 9 2 5 5Z' fill='%233a3a3a'/%3E%3Cpath d='M8 7 C7 10 7 14 10 17' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M15 18 L18 22 L20 20 L17 16Z' fill='%23aaaaaa'/%3E%3Cpath d='M18 21 C20 23 24 27 26 28 C27 29 29 27 28 26 C27 24 23 20 21 19Z' fill='%23f59e0b'/%3E%3Cpath d='M20 22 C22 24 25 27 26.5 27.5' stroke='%23d97706' stroke-width='0.9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") 5 5, auto !important;
 }

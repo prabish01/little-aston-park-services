@@ -1,35 +1,55 @@
 "use client";
 
-import { useState } from "react";
 import FadeIn from "./FadeIn";
 
 const reviews = [
   {
-    stars: 4.5,
-    quote:
-      "Our backyard was transformed into a peaceful retreat. The team listened to our ideas, added their expertise, and delivered beyond our expectations.",
-    name: "Bessie Cooper",
-    role: "Business Developer",
-    initials: "BC",
-    color: "bg-amber-700",
+    stars: 5,
+    quote: "Outstanding Gardening Service – Highly Recommended! I can't recommend Little Aston Park Services highly enough. From the very first visit, Nikos was professional, punctual, and passionate about his work.",
+    name: "Alexander Smith",
+    role: "Google Review · 1 month ago",
+    initials: "AS",
+    color: "bg-emerald-700",
   },
   {
-    stars: 4.5,
-    quote:
-      "Our backyard was transformed into a peaceful retreat. The team listened to our ideas, added their expertise, and delivered beyond our expectations.",
-    name: "Dianne Russell",
-    role: "Planner, Francisco",
-    initials: "DR",
-    color: "bg-orange-500",
+    stars: 5,
+    quote: "I am so pleased with the work Nikos did maintaining my garden throughout the last year. He has handled everything from keeping the lawns and hedges perfectly neat, to pruning my overgrown fir tree which was blocking our light.",
+    name: "O. Stavrou-Migchels",
+    role: "Google Review · 1 month ago",
+    initials: "OS",
+    color: "bg-teal-600",
   },
   {
-    stars: 4,
-    quote:
-      "Our backyard was transformed into a peaceful retreat. The team listened to our ideas, added their expertise, and delivered beyond our expectations.",
-    name: "Eleanor Pena",
-    role: "Web Developer",
-    initials: "EP",
-    color: "bg-sky-600",
+    stars: 5,
+    quote: "Nikos first helped me tackle my completely neglected garden when I moved in and got it back to a manageable state… which I quickly realised I still couldn't keep on top of 😂 So now he comes regularly!",
+    name: "Joseph Minas",
+    role: "Google Review · 3 weeks ago",
+    initials: "JM",
+    color: "bg-green-700",
+  },
+  {
+    stars: 5,
+    quote: "Nikos transformed my uninteresting garden into something more pleasing to the eye! He suggested putting my plants in the ground, created a small rockery, and now my plants are happily growing. Absolutely brilliant.",
+    name: "Tina M.",
+    role: "Google Review · 10 months ago",
+    initials: "TM",
+    color: "bg-lime-700",
+  },
+  {
+    stars: 5,
+    quote: "I would highly recommend Nikos for any gardening project. Before he came, our gardens, front and back, were overgrown jungles. No longer! He worked tirelessly, arriving early and working long hours to get the job done.",
+    name: "Gill Hillitt",
+    role: "Google Review · 1 year ago",
+    initials: "GH",
+    color: "bg-emerald-800",
+  },
+  {
+    stars: 5,
+    quote: "Niko was an excellent worker, would definitely recommend. 10/10.",
+    name: "Anne Dimascio",
+    role: "Google Review · 10 months ago",
+    initials: "AD",
+    color: "bg-cyan-700",
   },
 ];
 
@@ -52,74 +72,43 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-const SLIDES_PER_PAGE = 3;
-const TOTAL_PAGES = Math.ceil(reviews.length / SLIDES_PER_PAGE);
-
 export default function TestimonialsSection() {
-  const [page, setPage] = useState(0);
 
   return (
     <section
       id="testimonials-cards"
-      className="w-full bg-[#f8f9f3] py-20 px-6"
+      className="relative w-full bg-[#f0f1eb] py-20 px-6 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+      {/* Decorative leaf — bottom right */}
+      <svg className="absolute -bottom-4 -right-4 w-48 h-48 opacity-[0.07] pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M100 10 Q160 40 150 110 Q120 170 70 150 Q20 120 40 60 Q60 10 100 10Z" fill="#2d7a47"/>
+        <line x1="100" y1="10" x2="90" y2="160" stroke="#1a5c33" strokeWidth="2"/>
+        <line x1="92" y1="60" x2="60" y2="80" stroke="#1a5c33" strokeWidth="1.5"/>
+        <line x1="92" y1="90" x2="125" y2="105" stroke="#1a5c33" strokeWidth="1.5"/>
+        <line x1="91" y1="120" x2="65" y2="135" stroke="#1a5c33" strokeWidth="1.5"/>
+      </svg>
+      {/* Decorative sprig — top left */}
+      <svg className="absolute -top-4 -left-4 w-40 h-40 opacity-[0.07] pointer-events-none" viewBox="0 0 160 160" fill="none">
+        <path d="M30 130 Q40 80 80 50 Q120 30 140 20" stroke="#2d7a47" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M80 50 Q60 30 50 10" stroke="#2d7a47" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M80 50 Q95 25 110 15" stroke="#2d7a47" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M105 38 Q85 20 90 5" stroke="#3a8c52" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M105 38 Q120 18 130 12" stroke="#3a8c52" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
 
-        {/* ── Top two-column ────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
-          {/* Left */}
-          <FadeIn className="flex flex-col gap-6">
-            {/* Eyebrow */}
-            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">
-              Testimonials
-            </span>
-
-            {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight">
-              Hear from Our Happy Customers.
-            </h2>
-
-            {/* Stats card */}
-            <div className="flex items-center gap-0 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm divide-x divide-gray-200">
-              {/* Avatars */}
-              <div className="flex flex-col gap-2 px-6 py-5">
-                <p className="text-xs font-semibold text-gray-500">10m+ Trusted Clients</p>
-                <div className="flex items-center">
-                  {["bg-amber-700", "bg-sky-600", "bg-emerald-600"].map((c, i) => (
-                    <div
-                      key={i}
-                      className={`w-9 h-9 rounded-full ${c} border-2 border-white flex items-center justify-center text-white text-xs font-bold ${i > 0 ? "-ml-2" : ""}`}
-                    >
-                      {["BC", "DR", "EP"][i]}
-                    </div>
-                  ))}
-                  <div className="-ml-2 w-9 h-9 rounded-full bg-emerald-800 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-                    +
-                  </div>
-                </div>
-              </div>
-
-              {/* Rating */}
-              <div className="flex flex-col gap-1.5 px-6 py-5">
-                <p className="text-4xl font-bold text-gray-900">4.8</p>
-                <div className="flex items-center gap-2">
-                  <Stars rating={4} />
-                  <span className="text-xs text-gray-400">5k reviews</span>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Right — image */}
-          <FadeIn x={32} delay={0.15} className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-[#d4e4c8]">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Happy clients" className="w-full h-full object-cover" />
-          </FadeIn>
-        </div>
+        {/* Header */}
+        <FadeIn className="flex flex-col gap-2">
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Testimonials</span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight">
+            Hear from Our Happy Customers.
+          </h2>
+        </FadeIn>
 
         {/* ── Review cards ──────────────────────────────── */}
-        <FadeIn delay={0.2}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <FadeIn delay={0.1}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {reviews.map((r) => (
               <div
                 key={r.name}
@@ -143,21 +132,6 @@ export default function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        {/* Dot nav */}
-        <FadeIn delay={0.3} className="flex items-center justify-center gap-2">
-          {Array.from({ length: TOTAL_PAGES + 2 }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPage(i % TOTAL_PAGES)}
-              className={`rounded-full transition-all duration-300 ${
-                i === page
-                  ? "w-6 h-2.5 bg-emerald-600"
-                  : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
-              }`}
-              aria-label={`Page ${i + 1}`}
-            />
-          ))}
-        </FadeIn>
       </div>
     </section>
   );

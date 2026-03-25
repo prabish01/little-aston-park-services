@@ -70,11 +70,11 @@ export default function Footer() {
           {/* Contact */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-1">Get In Touch</h4>
-            <a href="tel:+441234567890" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-              +44 1234 567 890
+            <a href="tel:+447500732083" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
+              +44 7500 732083
             </a>
-            <a href="mailto:info@littleastonparkservices.co.uk" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-              info@littleastonpark.co.uk
+            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
+              nik.gardenservices@gmail.com
             </a>
             <a
               href="https://www.instagram.com/littleastonparkservices/"

@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import ServicesHero from "../components/ServicesHero";
 import ServicesSection from "../components/ServicesSection";
-import TestimonialsSection from "../components/TestimonialsSection";
+import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 
 export default function ServicesPage() {
@@ -11,8 +11,8 @@ export default function ServicesPage() {
       <main className="flex flex-col w-full pt-16">
         <ServicesHero />
         <ServicesSection />
-        <TestimonialsSection />
       </main>
+      <PageNav />
       <Footer />
     </>
   );

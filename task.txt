@@ -1,18 +1,5 @@
-Homepage
->Remove ‘Hurry —Choose from our selection of the best services Get a project in mind?’ Change to Got a project in mind?
->Remove 500+ Global Clients Happy to Get Our Gardening Services. Change to Over 100 Transformations Ranging from Garden Overhauls to Outdoor Maintenance to Jet Washing. 
-
--Footer
->Remove all social media except Instagram, include a link to the insta on the site. 
-https://www.instagram.com/littleastonparkservices/ 
->Change ‘Before & After’ to ‘Our Work’
->Remove opening/closing hours
->Change ‘Phone’ to ‘Contact Details’
->Remove address and info below it
->Remove Stay Updated With Expert Advice and all contents
->Change Let's Work Together to How Can We Help?
+>No company logo on the home page, needs to feature top left as well as homepage and throughout the website. 
 
 
 
->Will need a separate page for home, services, about us and contact us
--small drop-down menu, same way for mise media site for services 
+>Have more garden graphics dotted around the website, can we use graphics/clip art instead eg. gardening, jet washing, trees, leaves.  Must fit in line with the site.  Play around with AI too. 

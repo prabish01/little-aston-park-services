@@ -6,7 +6,6 @@ import FadeIn from "./FadeIn";
 interface Slide {
   title: string;
   description: string;
-  // Replace null with "/your-before.jpg" and "/your-after.jpg"
   beforeImage: string | null;
   afterImage: string | null;
   beforeBg: string;
@@ -40,8 +39,36 @@ const slides: Slide[] = [
   },
 ];
 
+const projects = [
+  {
+    title: "Lawn Care & Mowing",
+    category: "Garden Maintenance",
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+  },
+  {
+    title: "Patio Jet Washing",
+    category: "Jet Washing",
+    image: "/after-image.png",
+  },
+  {
+    title: "Hedge Trimming",
+    category: "Garden Maintenance",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+  },
+  {
+    title: "Garden Clearance",
+    category: "Seasonal Clean-Up",
+    image: "/before-image.png",
+  },
+  {
+    title: "Planting & Design",
+    category: "Design & Planning",
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
+  },
+];
+
 function ComparisonSlider({ slide }: { slide: Slide }) {
-  const [position, setPosition] = useState(50); // 0–100
+  const [position, setPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +79,6 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
     setPosition((x / rect.width) * 100);
   }, []);
 
-  // Mouse
   const onMouseDown = () => setDragging(true);
   const onMouseMove = useCallback(
     (e: MouseEvent) => { if (dragging) getPosition(e.clientX); },
@@ -60,7 +86,6 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
   );
   const onMouseUp = () => setDragging(false);
 
-  // Touch
   const onTouchStart = () => setDragging(true);
   const onTouchMove = useCallback(
     (e: TouchEvent) => { if (dragging) getPosition(e.touches[0].clientX); },
@@ -84,11 +109,11 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden select-none cursor-col-resize"
+      className="relative w-full aspect-video rounded-2xl overflow-hidden select-none cursor-col-resize"
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}
     >
-      {/* AFTER (full width underneath) */}
+      {/* AFTER */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -104,7 +129,7 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
         )}
       </div>
 
-      {/* BEFORE (clipped to left portion) */}
+      {/* BEFORE */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -122,13 +147,13 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
         )}
       </div>
 
-      {/* Divider line */}
+      {/* Divider */}
       <div
         className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg pointer-events-none"
         style={{ left: `${position}%` }}
       />
 
-      {/* Drag handle */}
+      {/* Handle */}
       <div
         className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center pointer-events-none"
         style={{ left: `${position}%` }}
@@ -139,12 +164,9 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
         </svg>
       </div>
 
-      {/* Before badge */}
       <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-gray-900/80 text-white text-xs font-semibold backdrop-blur-sm pointer-events-none">
         Before
       </div>
-
-      {/* After badge */}
       <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-semibold pointer-events-none">
         After
       </div>
@@ -152,41 +174,80 @@ function ComparisonSlider({ slide }: { slide: Slide }) {
   );
 }
 
-export default function BeforeAfterSection() {
-  const [current, setCurrent] = useState(0);
+export default function WorkSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentProject, setCurrentProject] = useState(1);
 
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((c) => (c - 1 + slides.length) % slides.length);
+  const nextSlide = () => setCurrentSlide((c) => (c + 1) % slides.length);
+
+  const prevProject = () => setCurrentProject((c) => (c - 1 + projects.length) % projects.length);
+  const nextProject = () => setCurrentProject((c) => (c + 1) % projects.length);
+
+  const getProjectIndex = (offset: number) =>
+    (currentProject + offset + projects.length) % projects.length;
 
   return (
     <section
       id="work"
-      className="w-full bg-[#f0f1eb] pt-20 pb-8 px-6"
+      className="relative w-full bg-[#f0f1eb] py-20 px-6 overflow-hidden"
     >
-      <div className="max-w-3xl mx-auto">
-        {/* Heading */}
-        <FadeIn className="text-center mb-10">
-          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mb-3">
-            Our Work Speaks for Itself
-          </h2>
-          <p className="text-gray-500 text-base">
-            Real transformations and recent projects we&apos;re proud of — drag the slider to compare
-          </p>
+      {/* Decorative flower — top right */}
+      <svg className="absolute top-10 right-6 w-32 h-32 opacity-[0.08] pointer-events-none" viewBox="0 0 130 130" fill="none">
+        {/* Petals */}
+        <ellipse cx="65" cy="30" rx="12" ry="22" fill="#4a9e6b"/>
+        <ellipse cx="65" cy="30" rx="12" ry="22" fill="#4a9e6b" transform="rotate(45 65 65)"/>
+        <ellipse cx="65" cy="30" rx="12" ry="22" fill="#4a9e6b" transform="rotate(90 65 65)"/>
+        <ellipse cx="65" cy="30" rx="12" ry="22" fill="#4a9e6b" transform="rotate(135 65 65)"/>
+        {/* Centre */}
+        <circle cx="65" cy="65" r="16" fill="#2d7a47"/>
+        {/* Stem */}
+        <line x1="65" y1="105" x2="65" y2="130" stroke="#2d7a47" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M65 118 Q50 108 42 112" stroke="#3a8c52" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      </svg>
+      {/* Decorative water drops / jet wash */}
+      <svg className="absolute bottom-20 left-4 w-20 h-20 opacity-[0.07] pointer-events-none" viewBox="0 0 80 80" fill="none">
+        <path d="M10 70 Q20 40 40 10" stroke="#2d7a47" strokeWidth="2.5" strokeLinecap="round"/>
+        <path d="M25 70 Q35 45 50 18" stroke="#3a8c52" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M40 70 Q48 48 60 28" stroke="#2d7a47" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="40" cy="8" r="4" fill="#4a9e6b"/>
+        <circle cx="50" cy="16" r="3" fill="#4a9e6b"/>
+        <circle cx="60" cy="26" r="3" fill="#4a9e6b"/>
+        <circle cx="10" cy="68" r="3" fill="#2d7a47"/>
+        <circle cx="25" cy="68" r="3" fill="#2d7a47"/>
+      </svg>
+
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
+
+        {/* ── Shared header ── */}
+        <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Work</span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight">
+              Our Work Speaks<br />for Itself
+            </h2>
+          </div>
+          <div className="flex flex-col items-start sm:items-end gap-1">
+            <div className="flex items-end gap-2">
+              <span className="text-6xl font-bold text-emerald-950 leading-none">100+</span>
+              <span className="text-gray-400 text-sm pb-1.5 leading-tight">transformations<br />and counting</span>
+            </div>
+          </div>
         </FadeIn>
 
-        {/* Card */}
-        <FadeIn delay={0.15}>
+        {/* ── Before & After ── */}
+        <FadeIn delay={0.1}>
+          <div className="flex flex-col gap-2 mb-6">
+            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Before &amp; After</span>
+            <p className="text-gray-500 text-sm">Drag the slider to compare — real transformations we&apos;re proud of</p>
+          </div>
           <div className="bg-white rounded-3xl shadow-sm overflow-hidden">
-            {/* Slider */}
             <div className="p-4 pb-0">
-              <ComparisonSlider slide={slides[current]} />
+              <ComparisonSlider slide={slides[currentSlide]} />
             </div>
-
-            {/* Caption + navigation */}
             <div className="flex items-center justify-between px-6 py-5">
-              {/* Prev arrow */}
               <button
-                onClick={prev}
+                onClick={prevSlide}
                 className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-emerald-600 hover:text-emerald-600 transition-colors"
                 aria-label="Previous"
               >
@@ -194,20 +255,16 @@ export default function BeforeAfterSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-
-              {/* Title + dots */}
               <div className="flex flex-col items-center gap-2">
-                <h3 className="font-bold text-gray-900 text-base">
-                  {slides[current].title}
-                </h3>
-                <p className="text-gray-400 text-sm">{slides[current].description}</p>
+                <h3 className="font-bold text-gray-900 text-base">{slides[currentSlide].title}</h3>
+                <p className="text-gray-400 text-sm">{slides[currentSlide].description}</p>
                 <div className="flex items-center gap-1.5 mt-1">
                   {slides.map((_, i) => (
                     <button
                       key={i}
-                      onClick={() => setCurrent(i)}
+                      onClick={() => setCurrentSlide(i)}
                       className={`rounded-full transition-all duration-300 ${
-                        i === current
+                        i === currentSlide
                           ? "w-6 h-2 bg-emerald-600"
                           : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
                       }`}
@@ -216,10 +273,8 @@ export default function BeforeAfterSection() {
                   ))}
                 </div>
               </div>
-
-              {/* Next arrow */}
               <button
-                onClick={next}
+                onClick={nextSlide}
                 className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-emerald-600 hover:text-emerald-600 transition-colors"
                 aria-label="Next"
               >
@@ -230,6 +285,113 @@ export default function BeforeAfterSection() {
             </div>
           </div>
         </FadeIn>
+
+        {/* ── Portfolio carousel ── */}
+        <div>
+          <FadeIn className="flex items-center justify-between mb-8 gap-6">
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Portfolio</span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950 leading-tight">Browse Our Projects</h3>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={prevProject}
+                className="w-12 h-12 rounded-xl bg-emerald-950 text-white flex items-center justify-center hover:bg-emerald-800 transition-colors"
+                aria-label="Previous project"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextProject}
+                className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center hover:bg-emerald-400 transition-colors"
+                aria-label="Next project"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div className="flex items-stretch gap-4 overflow-hidden">
+              {/* Left card */}
+              <div
+                className="relative flex-1 rounded-3xl overflow-hidden cursor-pointer"
+                style={{ minHeight: "360px" }}
+                onClick={prevProject}
+              >
+                <img
+                  src={projects[getProjectIndex(-1)].image}
+                  alt={projects[getProjectIndex(-1)].title}
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: "360px" }}
+                />
+                <div className="absolute inset-0 bg-emerald-950/20" />
+              </div>
+
+              {/* Center featured card */}
+              <div
+                className="relative rounded-3xl overflow-hidden flex-[1.6] shrink-0"
+                style={{ minHeight: "420px" }}
+              >
+                <img
+                  src={projects[currentProject].image}
+                  alt={projects[currentProject].title}
+                  className="w-full h-full object-cover transition-all duration-500"
+                  style={{ minHeight: "420px" }}
+                />
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-[85%] bg-white rounded-2xl px-5 py-4 flex items-center justify-between gap-4 shadow-xl">
+                  <div>
+                    <h3 className="font-bold text-emerald-950 text-base">{projects[currentProject].title}</h3>
+                    <p className="text-emerald-600 text-sm font-medium">{projects[currentProject].category}</p>
+                  </div>
+                  <button
+                    onClick={nextProject}
+                    className="shrink-0 w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center hover:bg-emerald-400 transition-colors"
+                    aria-label="Next"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Right card */}
+              <div
+                className="relative flex-1 rounded-3xl overflow-hidden cursor-pointer"
+                style={{ minHeight: "360px" }}
+                onClick={nextProject}
+              >
+                <img
+                  src={projects[getProjectIndex(1)].image}
+                  alt={projects[getProjectIndex(1)].title}
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: "360px" }}
+                />
+                <div className="absolute inset-0 bg-emerald-950/20" />
+              </div>
+            </div>
+
+            {/* Dots */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {projects.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentProject(i)}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === currentProject ? "w-6 h-2 bg-emerald-600" : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Project ${i + 1}`}
+                />
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+
       </div>
     </section>
   );

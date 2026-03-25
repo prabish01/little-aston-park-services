@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import ContactSection from "../components/ContactSection";
 import FAQSection from "../components/FAQSection";
+import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 
 export default function ContactPage() {
@@ -11,6 +12,7 @@ export default function ContactPage() {
         <ContactSection />
         <FAQSection />
       </main>
+      <PageNav />
       <Footer />
     </>
   );

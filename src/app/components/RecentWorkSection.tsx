@@ -41,15 +41,15 @@ export default function RecentWorkSection() {
     (current + offset + projects.length) % projects.length;
 
   return (
-    <section className="w-full bg-[#f0f1eb] pb-16 pt-4 overflow-hidden">
+    <section className="w-full bg-[#f0f1eb] py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header row */}
         <FadeIn className="flex items-center justify-between mb-8 gap-6">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-3">
               <div className="w-px h-6 bg-emerald-400" />
-              <span className="text-emerald-700 text-sm font-bold uppercase tracking-widest">
-                Browse Our Portfolio
+              <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">
+                Our Portfolio
               </span>
             </div>
             <div className="flex items-end gap-3 pl-4">

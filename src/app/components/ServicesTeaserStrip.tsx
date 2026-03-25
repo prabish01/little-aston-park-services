@@ -83,13 +83,13 @@ export default function ServicesTeaserStrip() {
   const [hovered, setHovered] = useState<number>(0);
 
   return (
-    <section className="w-full bg-[#f3f4ec] py-16 px-6">
+    <section className="w-full bg-[#f0f1eb] py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <FadeIn className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">What We Do</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-1 leading-tight">Our Services</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mt-1 leading-tight">Our Services</h2>
           </div>
           <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shrink-0">
             View All Services
@@ -168,13 +168,15 @@ export default function ServicesTeaserStrip() {
               >
                 <h3 className="text-white font-bold text-xl leading-tight">{s.label}</h3>
                 <p className="text-white/60 text-sm leading-relaxed line-clamp-4">{s.description}</p>
-                <Link href="/services" className="bg-emerald-500 hover:bg-emerald-600  rounded-lg p-2 inline-flex items-center gap-2 self-start text-sm  font-semibold transition-colors duration-200 text-white hover:text-emerald-100" style={{ color: s.accent }} onClick={(e) => e.stopPropagation()}>
-                  Contact us
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                <Link href="/contact" className="inline-flex flex-col gap-1 self-start" onClick={(e) => e.stopPropagation()}>
+                  <span className="bg-emerald-500 hover:bg-emerald-400 rounded-lg px-4 py-2 inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 text-white">
+                    Contact Us
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <span className="text-white/50 text-xs leading-snug pl-1">Share your outdoor vision with us<br />and we&apos;ll bring it to life</span>
                 </Link>
-                <p className="-mt-2 text-white/60 text-xs">Share your outdoor vision with us and we&apos;ll bring it to life</p>
               </div>
             </div>
           ))}

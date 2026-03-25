@@ -6,11 +6,23 @@ const areas = ["Sutton Coldfield", "Lichfield", "Tamworth", "Four Oaks", "Street
 export default function CoverageStrip() {
   return (
     <section
-      className="w-full py-14 px-6 overflow-hidden"
+      className="relative w-full py-20 px-6 overflow-hidden"
       style={{
         background: "linear-gradient(160deg, #0d3520 0%, #1a5c33 60%, #0a2e1a 100%)",
       }}
     >
+      {/* Decorative tree — right side */}
+      <svg className="absolute right-0 top-0 h-full w-auto opacity-[0.06] pointer-events-none" viewBox="0 0 160 400" fill="none">
+        {/* Pine tree silhouette */}
+        <polygon points="80,20 30,120 60,120 15,210 50,210 5,320 155,320 110,210 145,210 100,120 130,120" fill="#4a9e6b"/>
+        <rect x="68" y="320" width="24" height="60" fill="#3a8c52"/>
+      </svg>
+      {/* Decorative leaves — left */}
+      <svg className="absolute left-0 bottom-0 w-32 h-32 opacity-[0.06] pointer-events-none" viewBox="0 0 130 130" fill="none">
+        <path d="M10 120 Q20 60 70 20 Q110 5 120 10 Q125 15 110 55 Q80 100 30 120Z" fill="#4a9e6b"/>
+        <line x1="10" y1="120" x2="110" y2="20" stroke="#2d7a47" strokeWidth="2"/>
+      </svg>
+
       <div className="max-w-7xl mx-auto">
         <FadeIn className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
           {/* Left text */}
@@ -34,8 +46,8 @@ export default function CoverageStrip() {
           <div className="flex flex-wrap gap-3 flex-1">
             {areas.map((area, i) => (
               <FadeIn key={area} delay={i * 0.05}>
-                <span className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/80 text-sm font-medium hover:bg-emerald-600/40 hover:border-emerald-500/50 transition-colors cursor-default min-w-36">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/15 text-white/80 text-sm font-medium whitespace-nowrap hover:bg-emerald-600/40 hover:border-emerald-500/50 transition-colors cursor-default">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-px" />
                   {area}
                 </span>
               </FadeIn>

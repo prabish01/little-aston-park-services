@@ -4,9 +4,11 @@ import ServicesTeaserStrip from "./components/ServicesTeaserStrip";
 import WhyChooseUs from "./components/WhyChooseUs";
 import CoverageStrip from "./components/CoverageStrip";
 import BeforeAfterSection from "./components/BeforeAfterSection";
-import RecentWorkSection from "./components/RecentWorkSection";
 import MeetTheTeam from "./components/MeetTheTeam";
 import InstagramSection from "./components/InstagramSection";
+import LawnMowerStrip from "./components/LawnMowerStrip";
+import GrowingPlant from "./components/GrowingPlant";
+import PageNav from "./components/PageNav";
 // import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 
@@ -16,16 +18,19 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col w-full">
         <Hero />
+        <LawnMowerStrip />
         <ServicesTeaserStrip />
         <WhyChooseUs />
+        <LawnMowerStrip />
         <CoverageStrip />
         <BeforeAfterSection />
-        <RecentWorkSection />
         <MeetTheTeam />
         <InstagramSection />
         {/* <FAQSection /> */}
       </main>
+      <PageNav />
       <Footer />
+      <GrowingPlant />
     </>
   );
 }

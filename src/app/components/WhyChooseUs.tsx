@@ -63,11 +63,27 @@ const usps = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="w-full bg-[#f8f9f3] py-16 px-6">
+    <section className="relative w-full bg-[#f7f8f2] py-20 px-6 overflow-hidden">
+      {/* Decorative spade — top right */}
+      <svg className="absolute top-8 right-10 w-24 h-24 opacity-[0.08] pointer-events-none" viewBox="0 0 100 120" fill="none">
+        {/* Spade blade */}
+        <path d="M50 5 Q80 15 82 45 Q82 70 50 80 Q18 70 18 45 Q20 15 50 5Z" fill="#2d7a47"/>
+        {/* Spade handle */}
+        <rect x="46" y="78" width="8" height="30" rx="4" fill="#2d7a47"/>
+        {/* Handle grip */}
+        <rect x="36" y="104" width="28" height="8" rx="4" fill="#2d7a47"/>
+      </svg>
+      {/* Decorative leaves — bottom left */}
+      <svg className="absolute bottom-6 left-8 w-36 h-36 opacity-[0.07] pointer-events-none" viewBox="0 0 150 150" fill="none">
+        <path d="M20 130 Q30 80 75 45 Q110 20 130 25 Q135 30 120 65 Q95 105 35 130Z" fill="#3a8c52"/>
+        <line x1="20" y1="130" x2="120" y2="30" stroke="#2d7a47" strokeWidth="1.5"/>
+        <path d="M5 100 Q15 60 55 35 Q85 18 100 22" stroke="#4a9e6b" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      </svg>
+
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-12">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Why Us</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-950 mt-2 leading-tight">Down-to-Earth Garden Care</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mt-2 leading-tight">Down-to-Earth Garden Care</h2>
           <p className="text-gray-500 text-base mt-3 max-w-xl mx-auto">Small team, big reputation: the trusted choice for outdoor maintenance.</p>
         </FadeIn>
 

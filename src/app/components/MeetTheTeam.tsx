@@ -39,9 +39,10 @@ export default function MeetTheTeam() {
           <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight max-w-xl">
             Meet the Team
           </h2>
-          <p className="text-gray-500 text-base max-w-lg leading-relaxed">
-            We&apos;re a small, dedicated crew — every job gets the same level of care whether it&apos;s your first booking or your fiftieth.
-          </p>
+          <div className="text-gray-500 text-base leading-relaxed flex flex-col gap-4">
+            <p>We have a small, highly dedicated team of garden maintenance professionals who have a great local knowledge and take pride in delivering consistent, high-quality results. Since launching in the 2020s, we&apos;ve put real value on a strong work ethic and a commitment to the highest standards.</p>
+            <p>That&apos;s reflected in the services we provide, with reliability, attention to detail and respect for our clients&apos; homes and outdoor spaces at the heart of what we do. Every job is treated with the same level of professionalism - it&apos;s why we&apos;ve become a trusted and dependable choice for many people across the Midlands.</p>
+          </div>
         </FadeIn>
 
         {/* Cards */}

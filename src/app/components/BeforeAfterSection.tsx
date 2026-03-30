@@ -16,54 +16,62 @@ const slides: Slide[] = [
   {
     title: "Garden Transformation",
     description: "Complete garden maintenance and leaf clearance",
-    beforeImage: "/before-image.png",
-    afterImage: "/after-image.png",
+    beforeImage: "/before-after/before1.jpeg",
+    afterImage: "/before-after/after1.jpeg",
     beforeBg: "linear-gradient(135deg, #8B7355 0%, #A0845C 40%, #7A6245 100%)",
     afterBg: "linear-gradient(135deg, #2d7a4f 0%, #4a9e6b 40%, #1a5c33 100%)",
   },
   {
     title: "Lawn Revival",
     description: "Full lawn restoration and re-seeding service",
-    beforeImage: null,
-    afterImage: null,
+    beforeImage: "/before-after/before3.jpeg",
+    afterImage: "/before-after/after3.jpeg",
     beforeBg: "linear-gradient(135deg, #6b5a3e 0%, #8a7250 40%, #5c4b30 100%)",
     afterBg: "linear-gradient(135deg, #3a8c55 0%, #5aab72 40%, #2a6e40 100%)",
   },
   {
     title: "Hedge Shaping",
     description: "Precision hedge trimming and shaping",
-    beforeImage: null,
-    afterImage: null,
+    beforeImage: "/before-after/before4.jpeg",
+    afterImage: "/before-after/after4.jpeg",
     beforeBg: "linear-gradient(135deg, #7a6a4a 0%, #9a8560 40%, #695a3a 100%)",
     afterBg: "linear-gradient(135deg, #1e6b42 0%, #3a8c5a 40%, #155235 100%)",
+  },
+  {
+    title: "Lawn Revival",
+    description: "Full lawn restoration and re-seeding service",
+    beforeImage: "/before-after/before6.png",
+    afterImage: "/before-after/after6.png",
+    beforeBg: "linear-gradient(135deg, #8B7355 0%, #A0845C 40%, #7A6245 100%)",
+    afterBg: "linear-gradient(135deg, #2d7a4f 0%, #4a9e6b 40%, #1a5c33 100%)",
   },
 ];
 
 const projects = [
   {
-    title: "Lawn Care & Mowing",
+    title: "Garden Transformation",
     category: "Garden Maintenance",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-  },
-  {
-    title: "Patio Jet Washing",
-    category: "Jet Washing",
-    image: "/after-image.png",
-  },
-  {
-    title: "Hedge Trimming",
-    category: "Garden Maintenance",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: "/before-after/after1.jpeg",
   },
   {
     title: "Garden Clearance",
     category: "Seasonal Clean-Up",
-    image: "/before-image.png",
+    image: "/before-after/after2.jpeg",
   },
   {
-    title: "Planting & Design",
-    category: "Design & Planning",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
+    title: "Lawn Revival",
+    category: "Garden Maintenance",
+    image: "/before-after/after3.jpeg",
+  },
+  {
+    title: "Hedge Shaping",
+    category: "Garden Maintenance",
+    image: "/before-after/after4.jpeg",
+  },
+  {
+    title: "Lawn Revival",
+    category: "Lawn Care",
+    image: "/before-after/after5.jpeg",
   },
 ];
 
@@ -237,9 +245,13 @@ export default function WorkSection() {
 
         {/* ── Before & After ── */}
         <FadeIn delay={0.1}>
-          <div className="flex flex-col gap-2 mb-6">
+          <div className="flex flex-col gap-3 mb-6">
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Before &amp; After</span>
-            <p className="text-gray-500 text-sm">Drag the slider to compare — real transformations we&apos;re proud of</p>
+            <div className="text-gray-500 text-sm flex flex-col gap-3">
+              <p>We believe the results of our work say far more than we ever could and over the years, we&apos;ve transformed hundreds of gardens across the Midlands, from small pruning and strimming jobs to give an established garden its shine back to full outdoor makeovers, creating a space to enjoy, as well as adding value to a property.</p>
+              <p>We relish every project we take on, thriving on the opportunity to bring a space back to life and we take pride in delivering visible, lasting improvements for every homeowner. Whether you want to reclaim your space or refine an already well-kept space, we&apos;re here to help.</p>
+              <p>But don&apos;t just take our word for it, take a look at some of our recent work and see the difference yourself. Simply slide across to see some before and after shots of our recent transformations…</p>
+            </div>
           </div>
           <div className="bg-white rounded-3xl shadow-sm overflow-hidden">
             <div className="p-4 pb-0">
@@ -292,6 +304,11 @@ export default function WorkSection() {
             <div className="flex flex-col gap-1">
               <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Portfolio</span>
               <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950 leading-tight">Browse Our Projects</h3>
+              <div className="text-gray-500 text-sm leading-relaxed mt-1 flex flex-col gap-3">
+                <p>Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of our services. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our commitment to detail and professionalism.</p>
+                <p>We&apos;ve also worked on planting schemes and garden design improvements, helping clients create spaces that are not only tidy but also visually appealing and functional. In addition, our patio and driveway jet washing services restore hard surfaces, bringing them back to their original condition.</p>
+                <p>Every project is approached with the same level of care, regardless of size. Browse through our recent work to get a better idea of what we do and how we can help transform your garden.</p>
+              </div>
             </div>
             <div className="flex items-center gap-2 shrink-0">
               <button
@@ -320,14 +337,13 @@ export default function WorkSection() {
               {/* Left card */}
               <div
                 className="relative flex-1 rounded-3xl overflow-hidden cursor-pointer"
-                style={{ minHeight: "360px" }}
+                style={{ height: "360px" }}
                 onClick={prevProject}
               >
                 <img
                   src={projects[getProjectIndex(-1)].image}
                   alt={projects[getProjectIndex(-1)].title}
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: "360px" }}
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-emerald-950/20" />
               </div>
@@ -335,13 +351,12 @@ export default function WorkSection() {
               {/* Center featured card */}
               <div
                 className="relative rounded-3xl overflow-hidden flex-[1.6] shrink-0"
-                style={{ minHeight: "420px" }}
+                style={{ height: "360px" }}
               >
                 <img
                   src={projects[currentProject].image}
                   alt={projects[currentProject].title}
-                  className="w-full h-full object-cover transition-all duration-500"
-                  style={{ minHeight: "420px" }}
+                  className="w-full h-full object-cover object-center transition-all duration-500"
                 />
                 <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-[85%] bg-white rounded-2xl px-5 py-4 flex items-center justify-between gap-4 shadow-xl">
                   <div>
@@ -363,14 +378,13 @@ export default function WorkSection() {
               {/* Right card */}
               <div
                 className="relative flex-1 rounded-3xl overflow-hidden cursor-pointer"
-                style={{ minHeight: "360px" }}
+                style={{ height: "360px" }}
                 onClick={nextProject}
               >
                 <img
                   src={projects[getProjectIndex(1)].image}
                   alt={projects[getProjectIndex(1)].title}
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: "360px" }}
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-emerald-950/20" />
               </div>

@@ -18,10 +18,8 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col w-full">
         <Hero />
-        <LawnMowerStrip />
         <ServicesTeaserStrip />
         <WhyChooseUs />
-        <LawnMowerStrip />
         <CoverageStrip />
         <BeforeAfterSection />
         <MeetTheTeam />
@@ -29,6 +27,7 @@ export default function Home() {
         {/* <FAQSection /> */}
       </main>
       <PageNav />
+      <LawnMowerStrip />
       <Footer />
       <GrowingPlant />
     </>

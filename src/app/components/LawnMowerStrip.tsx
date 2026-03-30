@@ -89,7 +89,7 @@ export default function LawnMowerStrip() {
   const mowerPct = (mowerX / SVG_W) * 100;
 
   return (
-    <div ref={ref} className="w-full relative" style={{ background: "#e9ede5" }} aria-hidden="true">
+    <div ref={ref} className="w-full relative" aria-hidden="true">
       {/* CSS for grass sway */}
       <style>{`
         .grass-g {

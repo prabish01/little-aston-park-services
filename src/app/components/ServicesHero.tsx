@@ -4,9 +4,9 @@ import Link from "next/link";
 import FadeIn from "./FadeIn";
 
 const bullets = [
-  "Same-week service available — we work around YOUR schedule",
-  "Free, no-obligation quotes — know exactly what you'll pay",
-  "100% satisfaction guarantee — we're not done until you're happy",
+  "Same-week service available - we work around your schedule",
+  "Free, no-obligation quotes - clear and transparent pricing",
+  "100% satisfaction guarantee - we're not finished until you're satisfied",
 ];
 
 export default function ServicesHero() {
@@ -36,11 +36,10 @@ export default function ServicesHero() {
           </div>
 
           {/* Description */}
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-lg">
-            We&apos;re your local garden maintenance experts in{" "}
-            <strong className="text-emerald-950">Sutton Coldfield, Lichfield &amp; Tamworth</strong>.
-            No job too big or small — just honest, reliable service that brings your outdoor space back to life.
-          </p>
+          <div className="text-gray-600 text-base sm:text-lg leading-relaxed flex flex-col gap-4">
+            <p>We provide a comprehensive range of professional garden maintenance and outdoor services across <strong className="text-emerald-950">Sutton Coldfield, Lichfield, and Tamworth</strong>. Whether you&apos;re looking for regular upkeep or a one-off project, our team is equipped to deliver reliable, high-quality results tailored to your needs.</p>
+            <p>From routine lawn care to full garden clearances and landscaping improvements, we approach every job with attention to detail and a commitment to excellence. Our goal is to take the hassle out of maintaining your outdoor space, leaving you with a garden that is tidy, functional, and enjoyable all year round.</p>
+          </div>
 
           {/* Bullets */}
           <ul className="flex flex-col gap-3">
@@ -59,13 +58,13 @@ export default function ServicesHero() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <a
-              href="tel:+441234567890"
+              href="tel:+447500732083"
               className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call: 01234 567 890
+              Call: +44 7500 732083
             </a>
             <Link
               href="/contact"
@@ -80,7 +79,7 @@ export default function ServicesHero() {
             <svg className="w-5 h-5 text-emerald-700 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            <span>Fully insured&nbsp;•&nbsp;Family-run business&nbsp;•&nbsp;Established 2015</span>
+            <span>Fully insured&nbsp;•&nbsp;Family-run business&nbsp;•&nbsp;Established 2022</span>
           </div>
         </FadeIn>
 

@@ -8,7 +8,7 @@ const usps = [
       </svg>
     ),
     title: "Fully Insured",
-    body: "We carry full public liability insurance so you have complete peace of mind from start to finish.",
+    body: "We maintain comprehensive public liability insurance, ensuring complete peace of mind throughout every stage of your project.",
   },
   {
     icon: (
@@ -17,7 +17,7 @@ const usps = [
       </svg>
     ),
     title: "Same-Week Bookings",
-    body: "We work around your schedule and can often get to you within the same week — no long waits.",
+    body: "We offer flexible scheduling and can often accommodate bookings within the same week, helping you avoid unnecessary delays.",
   },
   {
     icon: (
@@ -26,7 +26,7 @@ const usps = [
       </svg>
     ),
     title: "Free No-Obligation Quotes",
-    body: "We visit your property, assess the work, and give you a clear upfront quote — completely free.",
+    body: "We provide on-site assessments and transparent, detailed quotations at no cost, allowing you to make informed decisions with confidence.",
   },
   {
     icon: (
@@ -35,7 +35,7 @@ const usps = [
       </svg>
     ),
     title: "Local Family-Run Business",
-    body: "We're based right here in the West Midlands — you're supporting a local team who genuinely cares.",
+    body: "As a locally based, family-operated business in the West Midlands, we are committed to delivering a personal and dependable service to our community.",
   },
   {
     icon: (
@@ -48,7 +48,7 @@ const usps = [
       </svg>
     ),
     title: "5★ Rated Service",
-    body: "Our customers consistently rate us 5 stars for quality, reliability and leaving things spotless.",
+    body: "Our reputation is built on consistently high customer satisfaction, with clients recognising our reliability, quality workmanship, and attention to detail.",
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const usps = [
       </svg>
     ),
     title: "100% Satisfaction Guarantee",
-    body: "Not happy with the result? We'll come back and make it right — no arguments, no extra charge.",
+    body: "We stand behind our work. If you are not completely satisfied, we will return promptly to resolve any issues at no additional cost.",
   },
 ];
 
@@ -84,7 +84,10 @@ export default function WhyChooseUs() {
         <FadeIn className="text-center mb-12">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Why Us</span>
           <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mt-2 leading-tight">Down-to-Earth Garden Care</h2>
-          <p className="text-gray-500 text-base mt-3 max-w-xl mx-auto">Small team, big reputation: the trusted choice for outdoor maintenance.</p>
+          <div className="text-gray-500 text-base mt-3 max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
+            <p>We&apos;re a small, dedicated team with years in the business. We&apos;ve built a strong reputation built on trust, consistency and quality results. Every garden we work on gets our full care and attention, regardless of size or scope and our approach is simple - we turn up when we say we will, we do the job properly and we make sure we leave your outdoor space looking its absolute best!</p>
+            <p>We don&apos;t just take pride in the finished result, but the entire experience, keeping communication clear, pricing fair and showing your home the respect we show our own. It&apos;s this commitment that keeps our customers coming back time and again.</p>
+          </div>
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

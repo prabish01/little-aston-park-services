@@ -21,14 +21,16 @@ export default function InstagramSection() {
         {/* Header */}
         <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div className="flex flex-col gap-3">
-            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Follow Along</span>
+            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Follow Us</span>
             <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight">
-              See Our Work<br />
-              <span className="text-emerald-600">In Real Time</span>
+              Check out our latest work<br />
+              <span className="text-emerald-600">across our social channels</span>
             </h2>
-            <p className="text-gray-500 text-base max-w-sm leading-relaxed">
-              We post before &amp; afters, seasonal tips, and behind-the-scenes looks at every project.
-            </p>
+            <div className="text-gray-500 text-base max-w-xl leading-relaxed flex flex-col gap-3">
+              <p>Stay connected with us on social media to see our latest projects, transformations, and day-to-day work in action. We regularly share before-and-after photos, seasonal gardening tips, and behind-the-scenes insights into how we bring outdoor spaces back to life.</p>
+              <p>Following us is a great way to get inspiration for your own garden and see the standard of work you can expect. Simply search for and follow {HANDLE} to keep up to date.</p>
+              <p>Who knows - your garden could be our next featured transformation!</p>
+            </div>
           </div>
 
           {/* CTA */}

@@ -5,23 +5,23 @@ import FadeIn from "./FadeIn";
 
 const services = [
   {
-    title: "Design & Planning",
-    description: "Expert garden design and planning tailored to your outdoor space, style, and budget.",
+    title: "Lawn Care",
+    description: "We provide comprehensive lawn care services, including mowing, edging, scarification, aeration, overseeding, fertilising, and weed treatment to keep your lawn healthy, green, and well-maintained.",
     image: "/hero-bg-image.png",
   },
   {
-    title: "Tree & Plant Care",
-    description: "Professional pruning, planting, and maintenance to keep your trees and plants thriving.",
+    title: "Hedge Trimming and Shaping",
+    description: "Our hedge cutting services ensure your hedges remain neat, well-shaped, and healthy, enhancing both appearance and structure.",
     image: "/after-image.png",
   },
   {
-    title: "Drainage Systems",
-    description: "Effective drainage solutions to protect your garden from waterlogging and flood damage.",
+    title: "Garden Clearance and Renovation",
+    description: "We restore overgrown or neglected gardens by removing unwanted vegetation, clearing waste, and preparing the space for future use or redesign.",
     image: "/before-image.png",
   },
   {
-    title: "Seasonal Clean-up",
-    description: "Thorough seasonal tidy-ups ensuring your garden looks pristine through every season.",
+    title: "Seasonal Maintenance",
+    description: "We offer tailored seasonal services, including spring preparation, summer upkeep, autumn leaf clearance, and winter tidy-ups.",
     image: "/hero-bg-image.png",
   },
 ];
@@ -60,9 +60,10 @@ export default function ServicesSection() {
         {/* Heading */}
         <FadeIn className="text-center mb-14">
           <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight mb-4">Our Services</h2>
-          <p className="text-gray-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Comprehensive garden and outdoor maintenance services tailored to your needs
-          </p>
+          <div className="text-gray-500 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
+            <p>We offer a wide range of garden and outdoor maintenance services designed to keep your space looking its best right across the year. From routine care like mowing and hedge trimming to more involved projects like garden clearances, planting and landscaping, our expert team is here to provide you with a tailored and high-quality service.</p>
+            <p>Take a look at some of the services we specialise in below and understand how we can transform, refine and maintain your green space, no matter how big or small.</p>
+          </div>
         </FadeIn>
 
         {/* Cards */}
@@ -138,9 +139,15 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom CTA bar */}
-        <FadeIn delay={0.4} className="mt-12 flex items-center justify-center">
-          <a href="#contact" className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-600 transition-colors text-sm">
-            Got a project in mind?
+        <FadeIn delay={0.4} className="mt-16 flex flex-col items-center text-center gap-6 bg-white rounded-3xl p-10 border border-gray-100">
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Got a Project in Mind?</span>
+          <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950">Speak to our team today!</h3>
+          <div className="text-gray-500 text-base max-w-3xl flex flex-col gap-4">
+            <p>If you&apos;re planning improvements to your garden or simply need a reliable team to maintain your space, then the Little Aston Park team is here to help.</p>
+            <p>We always take the time to understand your needs and requirements and provide practical, tailored solutions to achieve the best results for your space. Get in touch with our team today to discuss your project. We&apos;re always happy to offer advice and help you take the next steps towards a garden you can enjoy all year round.</p>
+          </div>
+          <a href="/contact" className="px-8 py-3.5 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20">
+            Get in Touch
           </a>
         </FadeIn>
       </div>

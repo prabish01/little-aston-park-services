@@ -1,7 +1,7 @@
 import Link from "next/link";
 import FadeIn from "./FadeIn";
 
-const areas = ["Sutton Coldfield", "Lichfield", "Tamworth", "Four Oaks", "Streetly", "Aldridge", "Walmley", "Erdington", "Great Barr", "Brownhills", "Burntwood", "Cannock"];
+const areas = ["Sutton Coldfield", "Lichfield", "Tamworth", "Four Oaks", "Streetly", "Aldridge", "Walmley", "Erdington", "Great Barr", "Brownhills", "Burntwood", "Cannock", "& Surrounding Areas"];
 
 export default function CoverageStrip() {
   return (
@@ -33,7 +33,10 @@ export default function CoverageStrip() {
               <br />
               <span className="text-emerald-400">Across the Midlands</span>
             </h2>
-            <p className="text-white/60 text-sm leading-relaxed max-w-xs">Not sure if your garden&apos;s in our patch? We&apos;re flexible so contact us and we&apos;ll do our best to make it happen.</p>
+            <div className="text-white/60 text-sm leading-relaxed max-w-xs flex flex-col gap-3">
+              <p>We provide our expert gardening and maintenance services right across the Midlands, including Tamworth, Lichfield, Sutton Coldfield and surrounding areas. Proud of where we&apos;re from, our local knowledge allows us to work quickly, efficiently and deliver a service that is tailored to the needs of the region&apos;s properties.</p>
+              <p>If you&apos;re unsure whether your property falls within our local service area, get in touch, as we always aim to be as flexible as we can to accommodate your needs and location.</p>
+            </div>
             <Link href="/contact" className="inline-flex items-center gap-2 self-start mt-2 px-6 py-2.5 rounded-full border border-emerald-500/60 text-emerald-400 text-sm font-semibold hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-200">
               Check Your Area
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -44,17 +47,23 @@ export default function CoverageStrip() {
 
           {/* Area pills */}
           <div className="flex flex-wrap gap-3 flex-1">
-            {areas.map((area, i) => (
-              <FadeIn key={area} delay={i * 0.05}>
-                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/15 text-white/80 text-sm font-medium whitespace-nowrap hover:bg-emerald-600/40 hover:border-emerald-500/50 transition-colors cursor-default">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-px" />
-                  {area}
-                </span>
-              </FadeIn>
-            ))}
-            <FadeIn delay={areas.length * 0.05}>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-sm font-medium">& surrounding areas</span>
-            </FadeIn>
+            {areas.map((area, i) => {
+              const isSurrounding = area.startsWith("&");
+              return (
+                <FadeIn key={area} delay={i * 0.05}>
+                  <span
+                    className={`inline-flex items-center justify-center gap-2 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-default`}
+                    style={{ width: "160px", ...(isSurrounding
+                      ? { background: "rgba(22,101,52,0.35)", border: "1px solid rgba(74,158,107,0.45)", color: "#86efac" }
+                      : { background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)" }
+                    )}}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSurrounding ? "bg-emerald-400" : "bg-emerald-400"}`} />
+                    {area}
+                  </span>
+                </FadeIn>
+              );
+            })}
           </div>
         </FadeIn>
       </div>

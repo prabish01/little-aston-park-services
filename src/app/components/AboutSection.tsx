@@ -15,7 +15,7 @@ const features = [
     ),
     title: "Our Mission",
     description:
-      "To deliver exceptional garden and outdoor maintenance services, creating spaces that feel natural, functional, and visually stunning for every client.",
+      "Our mission is to deliver high-quality garden and outdoor maintenance services that consistently exceed customer expectations. We are committed to creating outdoor spaces that are not only visually appealing but also practical, well-maintained, and suited to each client's individual needs. Through reliable service, attention to detail, and clear communication, we aim to make garden care simple and stress-free for every customer we work with.",
   },
   {
     icon: (
@@ -28,7 +28,7 @@ const features = [
     ),
     title: "Our Vision",
     description:
-      "To be the most trusted outdoor services provider in the Midlands — recognised for quality, reliability and a genuine passion for all things green.",
+      "Our vision is to become one of the most trusted and recognised garden maintenance providers across the Midlands. We strive to be known for our professionalism, consistency, and dedication to delivering outstanding results on every project. By continually improving our services and maintaining strong relationships with our clients, we aim to set the standard for quality and reliability within the industry, while staying true to our passion for outdoor spaces.",
   },
 ];
 
@@ -71,11 +71,11 @@ export default function AboutSection() {
           </h2>
 
           {/* Description */}
-          <p className="text-gray-500 text-base leading-relaxed max-w-lg">
-            From our very first project, we&apos;ve been committed to creating outdoor
-            spaces that feel natural, functional, and visually stunning. Our
-            passion for landscaping drives everything we do.
-          </p>
+          <div className="text-gray-500 text-base leading-relaxed flex flex-col gap-4">
+            <p>With over a decade in the business, we&apos;ve been committed to delivering highly functional, visually striking outdoor spaces from day dot, with our approach combining practical garden maintenance with a keen eye for detail to ensure total balance of your green space, keeping it both natural and enjoyable to use and spend time in.</p>
+            <p>We&apos;ve developed a strong reputation across the Midlands, priding ourselves on reliability, quality workmanship and allowing our genuine passion for what we do shine through. We&apos;re always approachable, value your input and respect your home.</p>
+            <p>Every project we take on, whether large or small, is approached with the same level of care and professionalism and we enjoy the pay-off of a well-maintained or completely transformed green space as much as you do - the people that will get to enjoy it year-round.</p>
+          </div>
 
           {/* Features + video thumbnail row */}
           <div className="flex flex-col sm:flex-row gap-6 items-start">

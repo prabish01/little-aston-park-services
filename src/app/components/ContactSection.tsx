@@ -35,12 +35,13 @@ export default function ContactSection() {
               Get In Touch
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-              How Can We Help?
+              Your Garden Deserves Better
             </h2>
-            <p className="text-white/70 text-base leading-relaxed max-w-md">
-              Whether you need a one-off tidy or regular garden maintenance, we&apos;re here to help.
-              Get in touch for a free, no-obligation quote.
-            </p>
+            <div className="text-white/70 text-base leading-relaxed flex flex-col gap-4">
+              <p>Whether you&apos;re planning improvements to transform your garden into a relaxing new green space, or you simply need a friendly, reliable and good value team to keep on top of your garden maintenance, then our team at Little Aston Park Services is here to help.</p>
+              <p>We&apos;ve helped hundreds of customers across the Midlands and have developed many long-standing relationships, keeping gardens looking spotless right across the year.</p>
+              <p>Get in touch with a member of our team today and we&apos;ll take the time to understand your needs and provide you with the solutions to provide the best results for your space. We&apos;ll provide you with a free, no-obligation quote and get your journey to a garden you love started.</p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-5">
@@ -51,7 +52,7 @@ export default function ContactSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-              <span className="text-white text-sm font-medium">+44 1234 567 890</span>
+              <span className="text-white text-sm font-medium">+44 7500 732083</span>
             </div>
 
             {/* Email */}
@@ -61,7 +62,7 @@ export default function ContactSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <span className="text-white text-sm font-medium">info@littleastonpark.co.uk</span>
+              <span className="text-white text-sm font-medium">nik.gardenservices@gmail.com</span>
             </div>
 
             {/* Location */}

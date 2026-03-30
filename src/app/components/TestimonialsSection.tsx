@@ -102,8 +102,12 @@ export default function TestimonialsSection() {
         <FadeIn className="flex flex-col gap-2">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Testimonials</span>
           <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight">
-            Hear from Our Happy Customers.
+            Hear From Our Happy Customers
           </h2>
+          <div className="text-gray-500 text-base leading-relaxed flex flex-col gap-4 max-w-4xl">
+            <p>Don&apos;t just take our word for it, though. We have hundreds of happy customers, many of whom we&apos;ve developed long-term relationships with. We value feedback from all our customers, and our testimonials reflect the quality of our work, our reliability and the care and attention we put into every single project.</p>
+            <p>Whether it be full garden transformations or regular maintenance visits, our clients consistently highlight our professionalism and our friendly approach.</p>
+          </div>
         </FadeIn>
 
         {/* ── Review cards ──────────────────────────────── */}

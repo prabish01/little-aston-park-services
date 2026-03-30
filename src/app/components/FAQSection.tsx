@@ -94,17 +94,10 @@ export default function FAQSection() {
           <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight max-w-xl">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-500 text-base max-w-lg">
-            Everything you need to know about our services. Can&apos;t find an
-            answer?{" "}
-            <a
-              href="/contact"
-              className="text-emerald-700 font-semibold hover:underline"
-            >
-              Get in touch
-            </a>
-            .
-          </p>
+          <div className="text-gray-500 text-base max-w-4xl flex flex-col gap-4">
+            <p>Use the form or contact information above to get in touch with our team and ask any questions you may have. Our team of gardening experts are always on hand to provide you with the information you need and guide you through any services we offer.</p>
+            <p>Alternatively, you can find a series of commonly asked questions below about our services.</p>
+          </div>
         </FadeIn>
 
         {/* Two-column FAQ grid */}
@@ -123,7 +116,7 @@ export default function FAQSection() {
 
         {/* Bottom CTA */}
         <FadeIn delay={0.3} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <p className="text-gray-500 text-sm">Still have questions?</p>
+          <p className="text-gray-500 text-sm">Still have questions? Get in touch with our team today!</p>
           <a
             href="/contact"
             className="px-7 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20"

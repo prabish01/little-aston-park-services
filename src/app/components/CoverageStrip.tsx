@@ -28,7 +28,7 @@ export default function CoverageStrip() {
           {/* Left text */}
           <div className="flex flex-col gap-3 lg:min-w-72">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Areas We Cover</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+            <h2 className="font-bold text-white uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
               Local to You,
               <br />
               <span className="text-emerald-400">Across the Midlands</span>
@@ -51,16 +51,19 @@ export default function CoverageStrip() {
               const isSurrounding = area.startsWith("&");
               return (
                 <FadeIn key={area} delay={i * 0.05}>
-                  <span
-                    className={`inline-flex items-center justify-center gap-2 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-default`}
-                    style={{ width: "160px", ...(isSurrounding
-                      ? { background: "rgba(22,101,52,0.35)", border: "1px solid rgba(74,158,107,0.45)", color: "#86efac" }
-                      : { background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)" }
-                    )}}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSurrounding ? "bg-emerald-400" : "bg-emerald-400"}`} />
-                    {area}
-                  </span>
+                  {isSurrounding ? (
+                    <span className="text-sm font-medium text-emerald-400/80 whitespace-nowrap cursor-default">
+                      {area}
+                    </span>
+                  ) : (
+                    <span
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap cursor-default"
+                      style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)" }}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-emerald-400" />
+                      {area}
+                    </span>
+                  )}
                 </FadeIn>
               );
             })}

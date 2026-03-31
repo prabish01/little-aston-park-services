@@ -125,7 +125,8 @@ export default function Navbar() {
                   onMouseEnter={openServices}
                   onMouseLeave={closeServices}
                 >
-                  <button
+                  <Link
+                    href={link.href}
                     className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 ${
                       pathname === link.href
                         ? "bg-emerald-600 text-white shadow-sm shadow-emerald-600/30"
@@ -139,7 +140,7 @@ export default function Navbar() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
-                  </button>
+                  </Link>
 
                   {/* Services dropdown */}
                   <div

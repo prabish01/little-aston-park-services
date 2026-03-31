@@ -41,7 +41,6 @@ function Leaf({ cx, cy, side, visible }: { cx: number; cy: number; side: "left" 
 
 export default function GrowingPlant() {
   const [progress, setProgress] = useState(0);
-  const [hovered,  setHovered]  = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -49,58 +48,23 @@ export default function GrowingPlant() {
       setProgress(Math.min(window.scrollY / maxScroll, 1));
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // seed on mount
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const stemProgress = progress;
-  const stemHeight   = 20 + stemProgress * 132;
-  const stemBottom   = 162;
-  const stemTop      = stemBottom - stemHeight;
-  const showBud      = progress >= 0.88;
-
-  const pct = Math.round(progress * 100);
-  const label =
-    pct < 12  ? "Just starting 🌱" :
-    pct < 45  ? "Growing nicely 🌿" :
-    pct < 80  ? "Blooming away 🍃" :
-                "Full bloom! 🌸";
+  const stemHeight = 20 + progress * 132;
+  const stemBottom = 162;
+  const stemTop    = stemBottom - stemHeight;
+  const showBud    = progress >= 0.88;
 
   return (
     <div
-      className="fixed bottom-5 right-5 z-50 select-none"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="fixed bottom-5 right-5 z-40 select-none pointer-events-none"
       style={{
-        filter: hovered
-          ? "drop-shadow(0 6px 18px rgba(34,197,94,0.35))"
-          : "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
-        transition: "filter 0.3s ease",
+        filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
       }}
-      aria-label={`Page progress: ${pct}% explored`}
+      aria-hidden="true"
     >
-      {/* Tooltip */}
-      {hovered && (
-        <div
-          className="absolute bottom-full right-0 mb-3 w-40 px-3.5 py-2.5 bg-emerald-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl"
-          style={{ animation: "fadeSlideUp 0.18s ease both" }}
-        >
-          <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-0.5">
-            Page explored
-          </div>
-          <div className="text-2xl font-bold leading-none mb-1.5">
-            {pct}<span className="text-sm font-normal text-emerald-300">%</span>
-          </div>
-          <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-linear-to-r from-emerald-400 to-green-300 rounded-full"
-              style={{ width: `${pct}%`, transition: "width 0.25s ease" }}
-            />
-          </div>
-          <div className="text-[10px] text-emerald-400/80 mt-1.5">{label}</div>
-          <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-emerald-950/95 rotate-45 rounded-sm" />
-        </div>
-      )}
 
       <svg width="100" height="175" viewBox="0 0 100 175" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Pot rim */}
@@ -169,12 +133,6 @@ export default function GrowingPlant() {
         </g>
       </svg>
 
-      <style>{`
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(6px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }

@@ -7,17 +7,17 @@ const services = [
   {
     title: "Lawn Care",
     description: "We provide comprehensive lawn care services, including mowing, edging, scarification, aeration, overseeding, fertilising, and weed treatment to keep your lawn healthy, green, and well-maintained.",
-    image: "/hero-bg-image.png",
+    image: "/before-after/after6.png",
   },
   {
     title: "Hedge Trimming and Shaping",
     description: "Our hedge cutting services ensure your hedges remain neat, well-shaped, and healthy, enhancing both appearance and structure.",
-    image: "/after-image.png",
+    image: "/before-after/after5.jpeg",
   },
   {
     title: "Garden Clearance and Renovation",
     description: "We restore overgrown or neglected gardens by removing unwanted vegetation, clearing waste, and preparing the space for future use or redesign.",
-    image: "/before-image.png",
+    image: "/before-after/after3.jpeg",
   },
   {
     title: "Seasonal Maintenance",
@@ -59,25 +59,26 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <FadeIn className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight mb-4">Our Services</h2>
+          <h2 className="font-bold uppercase mb-4" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
+            <span style={{ color: "#0d2e1a" }}>Our </span>
+            <span style={{ color: "#3a8c52" }}>Services</span>
+          </h2>
           <div className="text-gray-500 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
-            <p>We offer a wide range of garden and outdoor maintenance services designed to keep your space looking its best right across the year. From routine care like mowing and hedge trimming to more involved projects like garden clearances, planting and landscaping, our expert team is here to provide you with a tailored and high-quality service.</p>
+            <p>
+              We offer a wide range of garden and outdoor maintenance services designed to keep your space looking its best right across the year. From routine care like mowing and hedge trimming to more involved projects like garden clearances, planting and landscaping, our expert team is here to
+              provide you with a tailored and high-quality service.
+            </p>
             <p>Take a look at some of the services we specialise in below and understand how we can transform, refine and maintain your green space, no matter how big or small.</p>
           </div>
         </FadeIn>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {services.map((service, i) => {
             const active = hovered === i;
             return (
-              <FadeIn key={service.title} delay={i * 0.1}>
-                <div
-                  onMouseEnter={() => setHovered(i)}
-                  onMouseLeave={() => setHovered(null)}
-                  className="rounded-3xl overflow-hidden flex flex-col cursor-default transition-colors duration-300"
-                  style={{ background: active ? "#c5e84a" : "#ffffff" }}
-                >
+              <FadeIn key={service.title} delay={i * 0.1} className="h-full">
+                <div onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)} className="rounded-3xl overflow-hidden flex flex-col cursor-default transition-colors duration-300 h-full" style={{ background: active ? "#c5e84a" : "#ffffff" }}>
                   {/* Blob top area */}
                   <div className="relative h-52 shrink-0">
                     {/* Outer outline blob */}
@@ -106,11 +107,7 @@ export default function ServicesSection() {
                     >
                       {service.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        />
+                        <img src={service.image} alt={service.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                       ) : (
                         <div style={{ width: "100%", height: "100%", background: "#d4e8ce" }} />
                       )}
@@ -118,17 +115,11 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Text */}
-                  <div className="flex flex-col gap-2 px-6 pb-6">
-                    <h3
-                      className="text-lg font-bold underline underline-offset-4 decoration-2 transition-colors duration-300"
-                      style={{ color: active ? "#14532d" : "#111827" }}
-                    >
+                  <div className="flex flex-col gap-2 px-6 pb-6 flex-1">
+                    <h3 className="text-lg font-bold underline underline-offset-4 decoration-2 transition-colors duration-300" style={{ color: active ? "#14532d" : "#111827" }}>
                       {service.title}
                     </h3>
-                    <p
-                      className="text-sm leading-relaxed transition-colors duration-300"
-                      style={{ color: active ? "#166534cc" : "#6b7280" }}
-                    >
+                    <p className="text-sm leading-relaxed transition-colors duration-300" style={{ color: active ? "#166534cc" : "#6b7280" }}>
                       {service.description}
                     </p>
                   </div>
@@ -139,12 +130,18 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom CTA bar */}
-        <FadeIn delay={0.4} className="mt-16 flex flex-col items-center text-center gap-6 bg-white rounded-3xl p-10 border border-gray-100">
+        <FadeIn delay={0.4} className="mt-16 flex flex-col items-center text-center gap-6 bg-white rounded-3xl p-6 sm:p-10 border border-gray-100">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Got a Project in Mind?</span>
-          <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950">Speak to our team today!</h3>
+          <h3 className="font-bold uppercase" style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)", lineHeight: 1.05 }}>
+            <span style={{ color: "#0d2e1a" }}>Speak to our </span>
+            <span style={{ color: "#3a8c52" }}>team today!</span>
+          </h3>
           <div className="text-gray-500 text-base max-w-3xl flex flex-col gap-4">
             <p>If you&apos;re planning improvements to your garden or simply need a reliable team to maintain your space, then the Little Aston Park team is here to help.</p>
-            <p>We always take the time to understand your needs and requirements and provide practical, tailored solutions to achieve the best results for your space. Get in touch with our team today to discuss your project. We&apos;re always happy to offer advice and help you take the next steps towards a garden you can enjoy all year round.</p>
+            <p>
+              We always take the time to understand your needs and requirements and provide practical, tailored solutions to achieve the best results for your space. Get in touch with our team today to discuss your project. We&apos;re always happy to offer advice and help you take the next steps
+              towards a garden you can enjoy all year round.
+            </p>
           </div>
           <a href="/contact" className="px-8 py-3.5 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20">
             Get in Touch

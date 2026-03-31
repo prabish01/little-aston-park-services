@@ -48,7 +48,7 @@ function FAQItem({
         open ? "border-emerald-300 shadow-md shadow-emerald-900/10" : "border-gray-200"
       }`}
     >
-      <div className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+      <div className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 text-left">
         <span className={`font-semibold text-base transition-colors duration-200 ${open ? "text-emerald-700" : "text-emerald-950"}`}>
           {q}
         </span>
@@ -72,7 +72,7 @@ function FAQItem({
       </div>
 
       <div
-        className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out ${
           open ? "max-h-40 pb-5 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -91,8 +91,9 @@ export default function FAQSection() {
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">
             FAQ
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 leading-tight max-w-xl">
-            Frequently Asked Questions
+          <h2 className="font-bold uppercase max-w-xl" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
+            <span style={{ color: "#0d2e1a" }}>Frequently Asked </span>
+            <span style={{ color: "#3a8c52" }}>Questions</span>
           </h2>
           <div className="text-gray-500 text-base max-w-4xl flex flex-col gap-4">
             <p>Use the form or contact information above to get in touch with our team and ask any questions you may have. Our team of gardening experts are always on hand to provide you with the information you need and guide you through any services we offer.</p>

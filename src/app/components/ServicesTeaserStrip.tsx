@@ -22,7 +22,7 @@ const services = [
     description: "Professional high-pressure cleaning of patios, driveways, decking and paths — restoring them to like-new condition.",
     // num: "02",
     accent: "#34d399",
-    image: "/after-image.png",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12H3m18 0h-2M12 5V3m0 18v-2m4.95-13.95-1.41 1.41M6.46 17.54l-1.41 1.41M17.54 17.54l1.41 1.41M6.46 6.46 5.05 5.05M12 8a4 4 0 100 8 4 4 0 000-8z" />
@@ -34,7 +34,7 @@ const services = [
     description: "Precise shaping and cutting of hedges, shrubs, and borders to give your garden clean, defined lines.",
     // num: "03",
     accent: "#6ee7b7",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M14.12 14.12L19 19m-7-7 7-7m-7 7-2.88 2.88M12 12 9.12 9.12m0 5.76a3 3 0 10-4.24-4.24 3 3 0 004.24 4.24z" />
@@ -58,7 +58,7 @@ const services = [
     description: "Autumn leaf clearance, spring tidy-ups, and everything in between — we keep your garden pristine year-round.",
     // num: "05",
     accent: "#86efac",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800&q=80",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.43 15.43a2 2 0 00-1.02-.55l-2.39-.48a6 6 0 00-3.86.52l-.32.16a6 6 0 01-3.86.52l-1.93-.39a2 2 0 00-1.81.55M8 4h8l-1 1v5.17a2 2 0 00.59 1.42l5 5c1.26 1.26.37 3.41-1.41 3.41H4.83c-1.78 0-2.68-2.15-1.42-3.41l5-5A2 2 0 009 10.17V5L8 4z" />
@@ -70,7 +70,7 @@ const services = [
     description: "Effective solutions to prevent waterlogging, flooding and water damage — protecting your garden and property.",
     // num: "06",
     accent: "#4ade80",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1601598851547-4302969d0614?w=800&q=80",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -89,7 +89,10 @@ export default function ServicesTeaserStrip() {
         <FadeIn className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">What We Do</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mt-1 leading-tight">Our Services</h2>
+            <h2 className="font-bold mt-1 uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
+              <span style={{ color: "#0d2e1a" }}>Our </span>
+              <span style={{ color: "#3a8c52" }}>Services</span>
+            </h2>
           </div>
           <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shrink-0">
             View All Services
@@ -168,15 +171,6 @@ export default function ServicesTeaserStrip() {
               >
                 <h3 className="text-white font-bold text-xl leading-tight">{s.label}</h3>
                 <p className="text-white/60 text-sm leading-relaxed line-clamp-4">{s.description}</p>
-                <Link href="/contact" className="inline-flex flex-col gap-1 self-start" onClick={(e) => e.stopPropagation()}>
-                  <span className="bg-emerald-500 hover:bg-emerald-400 rounded-lg px-4 py-2 inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 text-white">
-                    Contact Us
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <span className="text-white/50 text-xs leading-snug pl-1">Share your outdoor vision with us<br />and we&apos;ll bring it to life</span>
-                </Link>
               </div>
             </div>
           ))}
@@ -194,6 +188,20 @@ export default function ServicesTeaserStrip() {
               <span className="relative text-white font-semibold text-sm leading-snug self-start">{s.label}</span>
             </Link>
           ))}
+        </div>
+
+        {/* ── Single CTA below ── */}
+        <div className="mt-10 flex flex-col items-center gap-3">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-900/20"
+          >
+            Contact Us
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
+          <p className="text-gray-400 text-xs">Share your outdoor vision with us and we&apos;ll bring it to life</p>
         </div>
       </div>
     </section>

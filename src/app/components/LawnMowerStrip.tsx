@@ -6,7 +6,7 @@ const SVG_W = 1000;
 const SVG_H = 160;
 const BASE_Y = SVG_H - 8;
 const BLADE_COUNT = 110;
-const SCROLL_RANGE = 360;
+const SCROLL_RANGE = 200;
 
 // seeded pseudo-random so blades are consistent on every render
 function sr(seed: number) {
@@ -77,15 +77,15 @@ export default function LawnMowerStrip() {
       const trigger = window.innerHeight * 0.65;
       const dist = trigger - rect.top;
       const p = Math.max(0, Math.min(dist / SCROLL_RANGE, 1));
-      // -90 = off left, 1090 = off right (SVG coords)
-      setMowerX(-90 + p * 1180);
+      // -90 = off left, 1120 = off right (SVG coords)
+      setMowerX(-90 + p * 1210);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isMoving = mowerX > -85 && mowerX < 1085;
+  const isMoving = mowerX > -85 && mowerX < 1115;
   const mowerPct = (mowerX / SVG_W) * 100;
 
   return (
@@ -166,8 +166,8 @@ export default function LawnMowerStrip() {
             <ellipse key={`clip-${b.id}`} cx={b.x + (sr(i * 7) - 0.5) * 16} cy={BASE_Y - 2 - sr(i * 11) * 7} rx={2 + sr(i * 3) * 3} ry={1 + sr(i * 5) * 1.5} fill="#4ade80" opacity={0.35 + sr(i * 17) * 0.25} transform={`rotate(${(sr(i * 13) - 0.5) * 60} ${b.x} ${BASE_Y - 4})`} />
           ))}
 
-        {/* Lawnmower — positioned in SVG coords */}
-        <g transform={`translate(${mowerX}, ${BASE_Y - 58})`}>
+        {/* Lawnmower — positioned in SVG coords, flipped to face right */}
+        <g transform={`translate(${mowerX}, ${BASE_Y - 58}) scale(-1, 1)`}>
           {/* Shadow */}
           <ellipse cx="35" cy="58" rx="32" ry="5" fill="#000" opacity="0.07" />
 

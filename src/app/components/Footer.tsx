@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           {/* Right group */}
-          <div className="flex flex-wrap gap-10 lg:gap-16 lg:ml-auto">
+          <div className="flex flex-wrap gap-6 lg:gap-16 lg:ml-auto">
 
           {/* Company */}
           <div className="flex flex-col gap-3">

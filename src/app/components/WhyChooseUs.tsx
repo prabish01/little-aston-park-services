@@ -83,17 +83,20 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-12">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Why Us</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-emerald-950 mt-2 leading-tight">Down-to-Earth Garden Care</h2>
+          <h2 className="font-bold mt-2 uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
+            <span style={{ color: "#0d2e1a" }}>Down-to-Earth </span>
+            <span style={{ color: "#3a8c52" }}>Garden Care</span>
+          </h2>
           <div className="text-gray-500 text-base mt-3 max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
             <p>We&apos;re a small, dedicated team with years in the business. We&apos;ve built a strong reputation built on trust, consistency and quality results. Every garden we work on gets our full care and attention, regardless of size or scope and our approach is simple - we turn up when we say we will, we do the job properly and we make sure we leave your outdoor space looking its absolute best!</p>
             <p>We don&apos;t just take pride in the finished result, but the entire experience, keeping communication clear, pricing fair and showing your home the respect we show our own. It&apos;s this commitment that keeps our customers coming back time and again.</p>
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
           {usps.map((u, i) => (
-            <FadeIn key={u.title} delay={i * 0.08}>
-              <div className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200">
+            <FadeIn key={u.title} delay={i * 0.08} className="h-full">
+              <div className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200 h-full">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">{u.icon}</div>
                 <div>
                   <h3 className="font-bold text-emerald-950 text-base mb-1">{u.title}</h3>

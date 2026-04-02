@@ -16,16 +16,16 @@ const slides: Slide[] = [
   {
     title: "Driveway Transformation",
     description: "High-pressure jet wash clean including weeding, removal of algae and complete tidy-up.",
-    beforeImage: "/before-after/after1.jpeg",
-    afterImage: "/before-after/before1.jpeg",
+    beforeImage: "/before-after/before6.png",
+    afterImage: "/before-after/after6.png",
     beforeBg: "linear-gradient(135deg, #8B7355 0%, #A0845C 40%, #7A6245 100%)",
     afterBg: "linear-gradient(135deg, #2d7a4f 0%, #4a9e6b 40%, #1a5c33 100%)",
   },
   {
     title: "Patio Restoration",
     description: "Professional jet washing to remove years of grime, restoring patios and paving to their original beauty.",
-    beforeImage: "/before-after/before2.jpeg",
-    afterImage: "/before-after/after2.jpeg",
+    beforeImage: "/before-after/before7.png",
+    afterImage: "/before-after/after7.png",
     beforeBg: "linear-gradient(135deg, #7a6a4a 0%, #9a8560 40%, #695a3a 100%)",
     afterBg: "linear-gradient(135deg, #2d7a4f 0%, #4a9e6b 40%, #1a5c33 100%)",
   },
@@ -46,20 +46,12 @@ const slides: Slide[] = [
     afterBg: "linear-gradient(135deg, #1e6b42 0%, #3a8c5a 40%, #155235 100%)",
   },
   {
-    title: "Wall Plant Trimming",
-    description: "Expert trimming and maintenance of climbing plants and wall vegetation for a neat, well-kept appearance.",
+    title: "Tree & Hedge Trimming",
+    description: "Precision-focused trim and maintenance of vegetation for a neat, well-kept appearance.",
     beforeImage: "/before-after/before5.jpeg",
     afterImage: "/before-after/after5.jpeg",
     beforeBg: "linear-gradient(135deg, #6b5a3e 0%, #8a7250 40%, #5c4b30 100%)",
     afterBg: "linear-gradient(135deg, #1e6b42 0%, #3a8c5a 40%, #155235 100%)",
-  },
-  {
-    title: "Lawn Revival",
-    description: "Full lawn restoration and re-seeding service",
-    beforeImage: "/before-after/before6.png",
-    afterImage: "/before-after/after6.png",
-    beforeBg: "linear-gradient(135deg, #8B7355 0%, #A0845C 40%, #7A6245 100%)",
-    afterBg: "linear-gradient(135deg, #2d7a4f 0%, #4a9e6b 40%, #1a5c33 100%)",
   },
 ];
 
@@ -67,12 +59,12 @@ const projects = [
   {
     title: "Driveway Transformation",
     category: "Pressure Washing",
-    image: "/before-after/after1.jpeg",
+    image: "/before-after/after6.png",
   },
   {
     title: "Patio Restoration",
     category: "Pressure Washing",
-    image: "/before-after/after2.jpeg",
+    image: "/before-after/after7.png",
   },
   {
     title: "Flower Bed Revival",
@@ -85,14 +77,9 @@ const projects = [
     image: "/before-after/after4.jpeg",
   },
   {
-    title: "Wall Plant Trimming",
+    title: "Tree & Hedge Trimming",
     category: "Garden Maintenance",
     image: "/before-after/after5.jpeg",
-  },
-  {
-    title: "Lawn Revival",
-    category: "Lawn Care",
-    image: "/before-after/after6.png",
   },
 ];
 
@@ -229,7 +216,7 @@ export default function WorkSection() {
 
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         {/* ── Shared header ── */}
-        <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 -mb-12">
           <div className="flex flex-col gap-2">
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Work</span>
             <h2 className="font-bold uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
@@ -237,12 +224,6 @@ export default function WorkSection() {
               <br />
               <span style={{ color: "#3a8c52" }}>for Itself</span>
             </h2>
-          </div>
-          <div className="flex flex-col items-start sm:items-end gap-1">
-            {/* <div className="flex items-end gap-2">
-              <span className="text-6xl font-bold text-emerald-950 leading-none">100+</span>
-              <span className="text-gray-400 text-sm pb-1.5 leading-tight">transformations<br />and counting</span>
-            </div> */}
           </div>
         </FadeIn>
 
@@ -289,39 +270,33 @@ export default function WorkSection() {
 
         {/* ── Portfolio carousel ── */}
         <div>
-          <FadeIn className="flex items-center justify-between mb-8 gap-6">
-            <div className="flex flex-col gap-1">
-              <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Portfolio</span>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-950 leading-tight">Browse Our Projects</h3>
-              <div className="text-gray-500 text-sm leading-relaxed mt-1 flex flex-col gap-3">
-                <p>
-                  Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of our services. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects
-                  our commitment to detail and professionalism.
-                </p>
-                <p>
-                  We&apos;ve also worked on planting schemes and garden design improvements, helping clients create spaces that are not only tidy but also visually appealing and functional. In addition, our patio and driveway jet washing services restore hard surfaces, bringing them back to their
-                  original condition.
-                </p>
-                <p>Every project is approached with the same level of care, regardless of size. Browse through our recent work to get a better idea of what we do and how we can help transform your garden.</p>
-              </div>
-            </div>
-            <div className="hidden sm:flex items-center gap-2 shrink-0">
-              <button onClick={prevProject} className="w-12 h-12 rounded-xl bg-emerald-950 text-white flex items-center justify-center hover:bg-emerald-800 transition-colors" aria-label="Previous project">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button onClick={nextProject} className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center hover:bg-emerald-400 transition-colors" aria-label="Next project">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+          <FadeIn className="flex flex-col gap-1 mb-8">
+            <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Our Portfolio</span>
+            <h3 className="font-bold uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
+              <span style={{ color: "#0d2e1a" }}>Browse Our </span>
+              <span style={{ color: "#3a8c52" }}>Projects</span>
+            </h3>
+            <div className="text-gray-500 text-sm leading-relaxed mt-1 flex flex-col gap-3">
+              <p>
+                Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of our services. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our
+                commitment to detail and professionalism.
+              </p>
+              <p>
+                We&apos;ve also worked on planting schemes and garden design improvements, helping clients create spaces that are not only tidy but also visually appealing and functional. In addition, our patio and driveway jet washing services restore hard surfaces, bringing them back to their
+                original condition.
+              </p>
+              <p>Every project is approached with the same level of care, regardless of size. Browse through our recent work to get a better idea of what we do and how we can help transform your garden.</p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            {/* Desktop: 3-card layout */}
-            <div className="hidden sm:flex items-stretch gap-4 overflow-hidden">
+            {/* Desktop: 3-card layout with buttons on either side */}
+            <div className="hidden sm:flex items-center gap-3 overflow-hidden">
+              <button onClick={prevProject} className="w-12 h-12 shrink-0 rounded-xl bg-emerald-950 text-white flex items-center justify-center hover:bg-emerald-800 transition-colors" aria-label="Previous project">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
               <div className="relative flex-1 rounded-3xl overflow-hidden cursor-pointer" style={{ height: "360px" }} onClick={prevProject}>
                 <img src={projects[getProjectIndex(-1)].image} alt={projects[getProjectIndex(-1)].title} className="w-full h-full object-cover object-center" />
                 <div className="absolute inset-0 bg-emerald-950/20" />
@@ -333,16 +308,17 @@ export default function WorkSection() {
                 <img src={projects[getProjectIndex(1)].image} alt={projects[getProjectIndex(1)].title} className="w-full h-full object-cover object-center" />
                 <div className="absolute inset-0 bg-emerald-950/20" />
               </div>
+              <button onClick={nextProject} className="w-12 h-12 shrink-0 rounded-xl bg-emerald-500 text-white flex items-center justify-center hover:bg-emerald-400 transition-colors self-center" aria-label="Next project">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
 
             {/* Mobile: single full-width card */}
             <div className="sm:hidden flex flex-col gap-4">
               <div className="relative w-full rounded-3xl overflow-hidden" style={{ height: "320px" }}>
-                <img
-                  src={projects[currentProject].image}
-                  alt={projects[currentProject].title}
-                  className="w-full h-full object-cover object-center transition-all duration-500"
-                />
+                <img src={projects[currentProject].image} alt={projects[currentProject].title} className="w-full h-full object-cover object-center transition-all duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 px-5 py-4 bg-linear-to-t from-black/60 to-transparent">
                   <p className="text-white font-bold text-base">{projects[currentProject].title}</p>
                   <p className="text-white/70 text-xs mt-0.5">{projects[currentProject].category}</p>

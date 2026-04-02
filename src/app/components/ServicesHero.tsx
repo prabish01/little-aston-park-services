@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import NextImage from "next/image";
 import FadeIn from "./FadeIn";
 
 const bullets = ["Same-week service available - we work around your schedule", "Free, no-obligation quotes - clear and transparent pricing", "100% satisfaction guarantee - we're not finished until you're satisfied"];
@@ -11,6 +12,16 @@ export default function ServicesHero() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* ── Left ─────────────────────────────────────── */}
         <FadeIn x={-24} className="flex flex-col gap-6">
+          {/* Brand lockup */}
+          <div className="flex items-center gap-3">
+            <NextImage src="/laps.svg" alt="Little Aston Park Services" width={52} height={52} className="h-12 w-auto" />
+            <span className="text-xs font-bold uppercase tracking-widest leading-tight text-emerald-600">
+              Little Aston
+              <br />
+              Park Services
+            </span>
+          </div>
+
           {/* Badge */}
           <span className="inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold">
             <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
@@ -81,7 +92,7 @@ export default function ServicesHero() {
         <FadeIn x={24} delay={0.15} className="relative">
           {/* Main image */}
           <div className="relative rounded-3xl overflow-hidden w-full aspect-[4/3]">
-            <img src="/clean-garden.png" alt="Gardeners at work" className="w-full h-full object-cover" />
+            <img src="/services-hero.png" alt="Gardeners at work" className="w-full h-full object-cover" />
 
             {/* Review card overlay */}
             <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-xl">

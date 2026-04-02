@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LawnMowerStrip from "./LawnMowerStrip";
 
 const companyLinks = [
   { label: "About Us",    href: "/about" },
@@ -18,6 +19,8 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
+    <>
+    <LawnMowerStrip />
     <footer className="w-full bg-emerald-950">
       <div className="max-w-7xl mx-auto px-6 py-10">
 
@@ -103,5 +106,6 @@ export default function Footer() {
 
       </div>
     </footer>
+    </>
   );
 }

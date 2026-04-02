@@ -5,7 +5,6 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import CoverageStrip from "./components/CoverageStrip";
 import BeforeAfterSection from "./components/BeforeAfterSection";
 import InstagramSection from "./components/InstagramSection";
-import LawnMowerStrip from "./components/LawnMowerStrip";
 import GrowingPlant from "./components/GrowingPlant";
 import PageNav from "./components/PageNav";
 // import FAQSection from "./components/FAQSection";
@@ -25,7 +24,6 @@ export default function Home() {
         {/* <FAQSection /> */}
       </main>
       <PageNav />
-      <LawnMowerStrip />
       <Footer />
       <GrowingPlant />
     </>

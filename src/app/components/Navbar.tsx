@@ -112,6 +112,11 @@ export default function Navbar() {
             </span>
           </Link>
 
+          {/* Mobile: centred company name */}
+          <span className="md:hidden flex-1 text-center text-xs font-bold text-emerald-900 uppercase tracking-wider">
+            Little Aston <span className="text-emerald-600">Park Services</span>
+          </span>
+
           {/* Thin emerald divider */}
           <div className="hidden md:block w-px h-6 bg-emerald-100 mx-2" />
 

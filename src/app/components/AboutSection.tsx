@@ -104,7 +104,7 @@ export default function AboutSection() {
         {/* ── Right: image ─────────────────── */}
         <FadeIn x={32} delay={0.15}>
           <div className="relative rounded-3xl overflow-hidden w-full aspect-[4/5] max-w-sm ml-auto bg-[#d4e8ce]">
-            <NextImage src="/clean-garden-landscape.png" alt="Garden" fill className="object-cover" />
+            <NextImage src="/about-hero.png" alt="Garden" fill className="object-cover" />
           </div>
         </FadeIn>
       </div>

@@ -74,25 +74,19 @@ export default function ContactSection() {
             </p>
           </FadeIn>
 
-          {/* Quick-contact pills */}
-          <FadeIn delay={0.15} className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-            {contactItems.slice(0, 2).map((item) =>
-              item.href ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/15 bg-white/8 hover:bg-white/15 transition-colors backdrop-blur-sm group"
-                >
-                  <span className="w-9 h-9 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 group-hover:bg-emerald-500/30 transition-colors">
-                    {item.icon}
-                  </span>
-                  <div>
-                    <p className="text-white/50 text-xs font-medium">{item.label}</p>
-                    <p className="text-white font-semibold text-sm">{item.value}</p>
-                  </div>
-                </a>
-              ) : null
-            )}
+          {/* Hero image — stacked cards */}
+          <FadeIn delay={0.15} className="shrink-0 hidden lg:block">
+            <div className="relative" style={{ width: "380px", height: "300px" }}>
+              {/* Card 3 — furthest back */}
+              <div className="absolute inset-0 rounded-2xl" style={{ background: "rgba(110,231,183,0.12)", border: "1px solid rgba(110,231,183,0.2)", transform: "rotate(6deg) translate(12px, 8px)" }} />
+              {/* Card 2 — middle */}
+              <div className="absolute inset-0 rounded-2xl" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", transform: "rotate(3deg) translate(6px, 4px)" }} />
+              {/* Card 1 — front: actual image */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl shadow-black/50" style={{ transform: "rotate(-1deg)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/service-card-thumbnail/patioWork.png" alt="Patio restoration" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </FadeIn>
         </div>
       </div>

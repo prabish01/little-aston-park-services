@@ -61,11 +61,6 @@ const serviceGroups = [
       { title: "Fertilising and Feeding", description: "We apply the correct nutrients to lawns and plants to support healthy growth and long-term vitality.", image: "/service-card-thumbnail/fertilising.png" },
       { title: "Waste Removal and Green Waste Disposal", description: "We responsibly collect and dispose of all garden waste, leaving your property clean and tidy.", image: "/service-card-thumbnail/greenWasteRemoval.png" },
       { title: "Seasonal Extras", description: "We offer additional services such as hanging baskets, seasonal planting, and maintenance for residential or commercial outdoor spaces.", image: "/service-card-thumbnail/seasonalExtras.png" },
-    ],
-  },
-  {
-    category: "Other Offerings",
-    services: [
       { title: "Garden Consulting and Advice", description: "We provide expert guidance on plant selection, garden improvements, and maintenance planning to help you get the most from your outdoor space.", image: "/service-card-thumbnail/softLandscaping.png" },
       { title: "Container and Small-Space Gardening", description: "We maintain and enhance balconies, courtyards, and container gardens, ensuring even smaller spaces are attractive and well cared for.", image: "/service-card-thumbnail/container.png" },
     ],

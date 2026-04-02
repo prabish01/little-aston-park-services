@@ -47,15 +47,6 @@ export default function Hero() {
             we bring the same level of care, attention to detail and professionalism to every job.
           </p>
 
-          {/* Service tags */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5">
-            {["Lawn Care", "Hedge Trimming", "Jet Washing", "Garden Clearance", "Seasonal Clean-Up", "Drainage"].map((s) => (
-              <Link key={s} href="/services" className="flex items-center justify-start px-4 py-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300 transition-colors">
-                {s}
-              </Link>
-            ))}
-          </div>
-
           {/* Expandable remaining copy */}
           <div className="max-w-lg mb-6 w-full">
             <div
@@ -83,11 +74,29 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── RIGHT: SVG image, no animation ── */}
+        {/* ── RIGHT: SVG image + service pills ── */}
         <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
-          <div className="w-full" style={{ maxWidth: "420px" }}>
+          <div className="w-full flex flex-col gap-4" style={{ maxWidth: "420px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/hero-canvas.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
+            <div className="grid grid-cols-3 gap-1.5">
+              {[
+                "Lawn Care", "Hedge Trimming", "Garden Clearance", "Seasonal Maintenance",
+                "Weeding", "Pruning", "General Tidying", "Planting",
+                "Garden Design", "Vegetable Growing", "Patio & Path Work",
+                "Fencing & Gates", "Turfing", "Pond Maintenance",
+                "Tree Surgery", "Disease Control", "Fertilising",
+                "Waste Removal", "Seasonal Extras", "Garden Consulting", "Container Gardening",
+              ].map((s) => (
+                <Link
+                  key={s}
+                  href="/services"
+                  className="px-3 py-1 text-[11px] font-medium text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-200 text-center truncate"
+                >
+                  {s}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

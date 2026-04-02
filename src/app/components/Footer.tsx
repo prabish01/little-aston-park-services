@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* Main row */}
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_130px_1fr_160px] gap-10 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_130px_1fr_220px] gap-10 pb-8 border-b border-white/10">
 
           {/* Brand */}
           <div className="flex flex-col gap-4">
@@ -71,17 +71,34 @@ export default function Footer() {
           {/* Services — 4 sub-columns */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Services</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
-              {serviceCategories.map((cat) => (
-                <div key={cat.heading} className="flex flex-col gap-1.5">
-                  <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{cat.heading}</p>
-                  {cat.links.map((label) => (
-                    <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">
-                      {label}
-                    </Link>
-                  ))}
-                </div>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-6">
+              {/* Col 1: Garden Maintenance */}
+              <div className="flex flex-col gap-1.5">
+                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[0].heading}</p>
+                {serviceCategories[0].links.map((label) => (
+                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                ))}
+              </div>
+
+              {/* Col 2: Planting & Design + Hard Landscaping */}
+              <div className="flex flex-col gap-5">
+                {[serviceCategories[1], serviceCategories[2]].map((cat) => (
+                  <div key={cat.heading} className="flex flex-col gap-1.5">
+                    <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{cat.heading}</p>
+                    {cat.links.map((label) => (
+                      <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Col 3: Specialist Services */}
+              <div className="flex flex-col gap-1.5">
+                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[3].heading}</p>
+                {serviceCategories[3].links.map((label) => (
+                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -89,7 +106,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Get In Touch</h4>
             <a href="tel:+447500732083" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">+44 7500 732083</a>
-            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors break-all">nik.gardenservices@gmail.com</a>
+            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors whitespace-nowrap">nik.gardenservices@gmail.com</a>
             <a
               href="https://www.instagram.com/littleastonparkservices/"
               target="_blank" rel="noopener noreferrer"

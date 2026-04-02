@@ -103,10 +103,10 @@ export default function ServicesHero() {
             {/* Right column — offset down */}
             <div className="flex flex-col gap-3 flex-1 mt-8">
               <div className="rounded-3xl overflow-hidden relative aspect-4/5">
-                <NextImage src="/services-hero-card2.png" alt="Garden service" fill className="object-cover" />
+                <NextImage src="/about-hero.png" alt="Garden service" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden relative aspect-4/5">
-                <NextImage src="/services-hero-card1.png" alt="Garden service" fill className="object-cover" />
+                <NextImage src="/before-after/after6.png" alt="Garden service" fill className="object-cover" />
               </div>
             </div>
           </div>

@@ -148,37 +148,54 @@ export default function Navbar() {
                     className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden shadow-2xl transition-all duration-200 ${
                       servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
-                    style={{ width: "860px", background: "#0d2e1a" }}
+                    style={{ width: "680px", background: "#0d2e1a" }}
                   >
                     {/* Lime top accent line */}
                     <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg, transparent, #c5e84a 30%, #c5e84a 70%, transparent)" }} />
 
-                    {/* Main grid */}
-                    <div className="grid grid-cols-4 p-6 gap-0">
-                      {serviceCategories.map((cat, ci) => (
-                        <div
-                          key={cat.category}
-                          className="flex flex-col gap-2.5 px-5"
-                          style={{ borderRight: ci < serviceCategories.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}
-                        >
-                          {/* Category header */}
-                          <div className="flex items-center gap-2 mb-1">
+                    {/* Main grid — 3 cols: Garden Maintenance | Planting & Design + Hard Landscaping | Specialist Services */}
+                    <div className="grid grid-cols-3 p-6 gap-0">
+                      {/* Col 1: Garden Maintenance */}
+                      {[serviceCategories[0]].map((cat) => (
+                        <div key={cat.category} className="flex flex-col gap-2.5 px-5" style={{ borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                          <div className="mb-1">
                             <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
-                            <div className="flex-1 h-px" style={{ background: "rgba(197,232,74,0.2)" }} />
                           </div>
-
-                          {/* Items */}
                           {cat.items.map((item) => (
-                            <Link
-                              key={item}
-                              href="/services"
-                              className="group flex items-center gap-2.5 text-sm transition-all duration-150"
-                              style={{ color: "rgba(255,255,255,0.9)" }}
-                            >
-                              <span
-                                className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]"
-                                style={{ background: "rgba(197,232,74,0.4)" }}
-                              />
+                            <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                              <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
+                              <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+
+                      {/* Col 2: Planting & Design + Hard Landscaping stacked */}
+                      <div className="flex flex-col gap-6 px-5" style={{ borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                        {[serviceCategories[1], serviceCategories[2]].map((cat) => (
+                          <div key={cat.category} className="flex flex-col gap-2.5">
+                            <div className="mb-1">
+                              <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
+                            </div>
+                            {cat.items.map((item) => (
+                              <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                                <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
+                                <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Col 3: Specialist Services */}
+                      {[serviceCategories[3]].map((cat) => (
+                        <div key={cat.category} className="flex flex-col gap-2.5 px-5">
+                          <div className="mb-1">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
+                          </div>
+                          {cat.items.map((item) => (
+                            <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                              <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
                               <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
                             </Link>
                           ))}

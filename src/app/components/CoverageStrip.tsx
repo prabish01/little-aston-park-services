@@ -1,7 +1,12 @@
 import Link from "next/link";
 import FadeIn from "./FadeIn";
 
-const areas = ["Sutton Coldfield", "Lichfield", "Tamworth", "Four Oaks", "Streetly", "Aldridge", "Walmley", "Erdington", "Great Barr", "Brownhills", "Burntwood", "Cannock", "& Surrounding Areas"];
+// Ordered for 4-col grid: Streetly under Erdington, Brownhills under Great Barr
+const areas = [
+  "Sutton Coldfield", "Lichfield",   "Tamworth",   "Four Oaks",
+  "Aldridge",         "Walmley",     "Erdington",  "Great Barr",
+  "Burntwood",        "Cannock",     "Streetly",   "Brownhills",
+];
 
 export default function CoverageStrip() {
   return (
@@ -48,12 +53,12 @@ export default function CoverageStrip() {
 
         {/* Bottom: pills full width */}
         <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap gap-3">
-            {areas.filter(a => !a.startsWith("&")).map((area, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {areas.map((area, i) => (
               <FadeIn key={area} delay={i * 0.05}>
                 <span
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium cursor-default"
-                  style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)", width: "180px", justifyContent: "flex-start" }}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium cursor-default w-full"
+                  style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-emerald-400" />
                   {area}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import NextImage from "next/image";
 
 export default function Hero() {
@@ -49,9 +50,9 @@ export default function Hero() {
           {/* Service tags */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5">
             {["Lawn Care", "Hedge Trimming", "Jet Washing", "Garden Clearance", "Seasonal Clean-Up", "Drainage"].map((s) => (
-              <span key={s} className="flex items-center justify-start px-4 py-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200">
+              <Link key={s} href="/services" className="flex items-center justify-start px-4 py-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300 transition-colors">
                 {s}
-              </span>
+              </Link>
             ))}
           </div>
 

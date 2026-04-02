@@ -5,16 +5,27 @@ import LawnMowerStrip from "./LawnMowerStrip";
 const companyLinks = [
   { label: "About Us",    href: "/about" },
   { label: "Our Services", href: "/services" },
-  { label: "Our Work",    href: "#work" },
+  { label: "Our Work",    href: "/#work" },
   { label: "Contact Us",  href: "/contact" },
 ];
 
-const serviceLinks = [
-  { label: "Jet Washing",       href: "/services" },
-  { label: "Garden Maintenance", href: "/services" },
-  { label: "Lawn Care",         href: "/services" },
-  { label: "Hedge Trimming",    href: "/services" },
-  { label: "Seasonal Clean-Up", href: "/services" },
+const serviceCategories = [
+  {
+    heading: "Garden Maintenance",
+    links: ["Lawn Care", "Hedge Trimming and Shaping", "Garden Clearance and Renovation", "Seasonal Maintenance", "Weeding and Border Maintenance", "Pruning and Shaping", "General Tidying and Cleaning"],
+  },
+  {
+    heading: "Planting & Design",
+    links: ["Planting", "Garden Design and Soft Landscaping", "Vegetable and Fruit Growing"],
+  },
+  {
+    heading: "Hard Landscaping",
+    links: ["Patio and Path Work", "Fencing and Gates", "Turfing and Levelling", "Pond and Water Feature Maintenance"],
+  },
+  {
+    heading: "Specialist Services",
+    links: ["Tree Surgery and Care", "Disease Control", "Fertilising and Feeding", "Waste Removal and Green Waste Disposal", "Seasonal Extras", "Garden Consulting and Advice", "Container and Small-Space Gardening"],
+  },
 ];
 
 export default function Footer() {
@@ -25,10 +36,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* Main row */}
-        <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_130px_1fr_160px] gap-10 pb-8 border-b border-white/10">
 
           {/* Brand */}
-          <div className="flex flex-col gap-4 lg:max-w-55 shrink-0">
+          <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
               <Image src="/laps.svg" alt="Little Aston Park Services" width={40} height={40} className="h-10 w-auto" />
               <span className="text-white font-bold text-sm leading-tight">
@@ -36,7 +47,7 @@ export default function Footer() {
                 <span className="text-emerald-400 font-medium tracking-widest uppercase text-xs">Park Services</span>
               </span>
             </Link>
-            <p className="text-white/40 text-xs leading-relaxed max-w-56">
+            <p className="text-white/40 text-xs leading-relaxed">
               Professional garden care &amp; jet washing across Sutton Coldfield, Lichfield, Tamworth and surrounding areas.
             </p>
             <Link
@@ -47,12 +58,9 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Right group */}
-          <div className="flex flex-wrap gap-6 lg:gap-16 lg:ml-auto">
-
           {/* Company */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-1">Company</h4>
+            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Company</h4>
             {companyLinks.map((l) => (
               <Link key={l.label} href={l.href} className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
                 {l.label}
@@ -60,29 +68,31 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Services */}
+          {/* Services — 4 sub-columns */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-1">Services</h4>
-            {serviceLinks.map((l) => (
-              <Link key={l.label} href={l.href} className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-                {l.label}
-              </Link>
-            ))}
+            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Services</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
+              {serviceCategories.map((cat) => (
+                <div key={cat.heading} className="flex flex-col gap-1.5">
+                  <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{cat.heading}</p>
+                  {cat.links.map((label) => (
+                    <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-1">Get In Touch</h4>
-            <a href="tel:+447500732083" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-              +44 7500 732083
-            </a>
-            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-              nik.gardenservices@gmail.com
-            </a>
+            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Get In Touch</h4>
+            <a href="tel:+447500732083" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">+44 7500 732083</a>
+            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors break-all">nik.gardenservices@gmail.com</a>
             <a
               href="https://www.instagram.com/littleastonparkservices/"
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-white/40 text-xs hover:text-emerald-400 transition-colors mt-1"
             >
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -92,15 +102,14 @@ export default function Footer() {
             </a>
           </div>
 
-          </div>{/* end right group */}
         </div>
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/25">
           <span>© 2026 Little Aston Park Services. All rights reserved.</span>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-emerald-400 transition-colors">Terms &amp; Conditions</a>
-            <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            <Link href="/terms-and-conditions" className="hover:text-emerald-400 transition-colors">Terms &amp; Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
           </div>
         </div>
 

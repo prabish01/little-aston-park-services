@@ -81,6 +81,16 @@ const projects = [
     category: "Garden Maintenance",
     image: "/before-after/after5.jpeg",
   },
+  {
+    title: "Garden Lawn Care",
+    category: "Lawn Care",
+    image: "/services-hero-card1.png",
+  },
+  {
+    title: "Garden Maintenance",
+    category: "Garden Maintenance",
+    image: "/services-hero-card2.png",
+  },
 ];
 
 function ComparisonSlider({ slide }: { slide: Slide }) {

@@ -105,10 +105,11 @@ export default function ServicesTeaserStrip() {
         {/* ── Desktop: expanding accordion panels ── */}
         <div className="hidden lg:flex gap-2 rounded-3xl overflow-hidden" style={{ height: "380px" }} onMouseLeave={() => setHovered(0)}>
           {services.map((s, i) => (
-            <div
+            <Link
               key={s.label}
+              href="/services"
               onMouseEnter={() => setHovered(i)}
-              className="relative overflow-hidden cursor-default flex flex-col justify-between p-6"
+              className="relative overflow-hidden cursor-pointer flex flex-col justify-between p-6"
               style={{
                 flexBasis: hovered === i ? "34%" : "13.2%",
                 transition: "flex-basis 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -172,7 +173,7 @@ export default function ServicesTeaserStrip() {
                 <h3 className="text-white font-bold text-xl leading-tight">{s.label}</h3>
                 <p className="text-white/60 text-sm leading-relaxed line-clamp-4">{s.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

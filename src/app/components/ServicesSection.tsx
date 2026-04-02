@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 
 const blobs = [
@@ -26,131 +27,47 @@ const serviceGroups = [
   {
     category: "Garden Maintenance",
     services: [
-      {
-        title: "Lawn Care",
-        description: "We provide comprehensive lawn care services, including mowing, edging, scarification, aeration, overseeding, fertilising, and weed treatment to keep your lawn healthy, green, and well-maintained.",
-        image: "/before-after/after6.png",
-      },
-      {
-        title: "Hedge Trimming and Shaping",
-        description: "Our hedge cutting services ensure your hedges remain neat, well-shaped, and healthy, enhancing both appearance and structure.",
-        image: "/before-after/after5.jpeg",
-      },
-      {
-        title: "Garden Clearance and Renovation",
-        description: "We restore overgrown or neglected gardens by removing unwanted vegetation, clearing waste, and preparing the space for future use or redesign.",
-        image: "/before-after/after3.jpeg",
-      },
-      {
-        title: "Seasonal Maintenance",
-        description: "We offer tailored seasonal services, including spring preparation, summer upkeep, autumn leaf clearance, and winter tidy-ups.",
-        image: "/hero-bg-image.png",
-      },
-      {
-        title: "Weeding and Border Maintenance",
-        description: "We remove weeds from beds, borders, and pathways, applying mulch where needed to help suppress regrowth and retain moisture.",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      },
-      {
-        title: "Pruning and Shaping",
-        description: "We carefully prune shrubs, roses, perennials, and small trees to encourage healthy growth, improved structure, and seasonal flowering.",
-        image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
-      },
-      {
-        title: "General Tidying and Cleaning",
-        description: "From leaf clearance to sweeping and debris removal, we keep your garden looking clean, organised, and well-presented.",
-        image: "/seasonal-cleanup.png",
-      },
+      { title: "Lawn Care", description: "We provide comprehensive lawn care services, including mowing, edging, scarification, aeration, overseeding, fertilising, and weed treatment to keep your lawn healthy, green, and well-maintained.", image: "/service-card-thumbnail/lawnCare.png" },
+      { title: "Hedge Trimming and Shaping", description: "Our hedge cutting services ensure your hedges remain neat, well-shaped, and healthy, enhancing both appearance and structure.", image: "/service-card-thumbnail/hedgeTrimming.png" },
+      { title: "Garden Clearance and Renovation", description: "We restore overgrown or neglected gardens by removing unwanted vegetation, clearing waste, and preparing the space for future use or redesign.", image: "/service-card-thumbnail/gardenClearance.png" },
+      { title: "Seasonal Maintenance", description: "We offer tailored seasonal services, including spring preparation, summer upkeep, autumn leaf clearance, and winter tidy-ups.", image: "/service-card-thumbnail/seasonalMaintainence.png" },
+      { title: "Weeding and Border Maintenance", description: "We remove weeds from beds, borders, and pathways, applying mulch where needed to help suppress regrowth and retain moisture.", image: "/service-card-thumbnail/weeding.png" },
+      { title: "Pruning and Shaping", description: "We carefully prune shrubs, roses, perennials, and small trees to encourage healthy growth, improved structure, and seasonal flowering.", image: "/service-card-thumbnail/pruning.png" },
+      { title: "General Tidying and Cleaning", description: "From leaf clearance to sweeping and debris removal, we keep your garden looking clean, organised, and well-presented.", image: "/service-card-thumbnail/generalTidying.png" },
     ],
   },
   {
-    category: "Planting and Design Services",
+    category: "Planting & Design",
     services: [
-      {
-        title: "Planting",
-        description: "We supply and install a variety of plants, including flowers, shrubs, and trees, offering guidance on suitable choices for your garden and local conditions.",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      },
-      {
-        title: "Garden Design and Soft Landscaping",
-        description: "We assist with planning layouts, creating borders, laying turf or gravel, and installing features such as raised beds to enhance your outdoor space.",
-        image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80",
-      },
-      {
-        title: "Vegetable and Fruit Growing",
-        description: "We help set up and maintain productive garden areas, including vegetable patches and fruit trees, with advice on planting and care.",
-        image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80",
-      },
+      { title: "Planting", description: "We supply and install a variety of plants, including flowers, shrubs, and trees, offering guidance on suitable choices for your garden and local conditions.", image: "/service-card-thumbnail/planting.png" },
+      { title: "Garden Design and Soft Landscaping", description: "We assist with planning layouts, creating borders, laying turf or gravel, and installing features such as raised beds to enhance your outdoor space.", image: "/service-card-thumbnail/softLandscaping.png" },
+      { title: "Vegetable and Fruit Growing", description: "We help set up and maintain productive garden areas, including vegetable patches and fruit trees, with advice on planting and care.", image: "/service-card-thumbnail/vegetable.png" },
     ],
   },
   {
     category: "Hard Landscaping and Installation",
     services: [
-      {
-        title: "Patio and Path Work",
-        description: "We clean and restore patios, paths, and driveways using professional jet washing, improving both appearance and safety.",
-        image: "/pressure-washing.png",
-      },
-      {
-        title: "Fencing and Gates",
-        description: "We offer installation, repair, and treatment of fencing and gates to improve security, privacy, and durability.",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      },
-      {
-        title: "Turfing and Levelling",
-        description: "We lay new lawns and level uneven ground to create a smooth, attractive finish.",
-        image: "https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=800&q=80",
-      },
-      {
-        title: "Pond and Water Feature Maintenance",
-        description: "We provide basic cleaning, planting, and maintenance for ponds and water features to keep them looking their best.",
-        image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
-      },
+      { title: "Patio and Path Work", description: "We clean and restore patios, paths, and driveways using professional jet washing, improving both appearance and safety.", image: "/service-card-thumbnail/patioWork.png" },
+      { title: "Fencing and Gates", description: "We offer installation, repair, and treatment of fencing and gates to improve security, privacy, and durability.", image: "/service-card-thumbnail/fence.png" },
+      { title: "Turfing and Levelling", description: "We lay new lawns and level uneven ground to create a smooth, attractive finish.", image: "/service-card-thumbnail/turfing.png" },
+      { title: "Pond and Water Feature Maintenance", description: "We provide basic cleaning, planting, and maintenance for ponds and water features to keep them looking their best.", image: "/service-card-thumbnail/pond.png" },
     ],
   },
   {
     category: "Specialist and Additional Services",
     services: [
-      {
-        title: "Tree Surgery and Care",
-        description: "We carry out light tree work such as pruning and crown lifting to maintain safety and appearance.",
-        image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
-      },
-      {
-        title: "Disease Control",
-        description: "We identify plant health issues and apply appropriate treatments, including environmentally friendly options where possible.",
-        image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80",
-      },
-      {
-        title: "Fertilising and Feeding",
-        description: "We apply the correct nutrients to lawns and plants to support healthy growth and long-term vitality.",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      },
-      {
-        title: "Waste Removal and Green Waste Disposal",
-        description: "We responsibly collect and dispose of all garden waste, leaving your property clean and tidy.",
-        image: "/seasonal-cleanup.png",
-      },
-      {
-        title: "Seasonal Extras",
-        description: "We offer additional services such as hanging baskets, seasonal planting, and maintenance for residential or commercial outdoor spaces.",
-        image: "https://images.unsplash.com/photo-1490750967868-88df5691cc43?w=800&q=80",
-      },
+      { title: "Tree Surgery and Care", description: "We carry out light tree work such as pruning and crown lifting to maintain safety and appearance.", image: "/service-card-thumbnail/treeCare.png" },
+      { title: "Disease Control", description: "We identify plant health issues and apply appropriate treatments, including environmentally friendly options where possible.", image: "/service-card-thumbnail/plantHealth.png" },
+      { title: "Fertilising and Feeding", description: "We apply the correct nutrients to lawns and plants to support healthy growth and long-term vitality.", image: "/service-card-thumbnail/fertilising.png" },
+      { title: "Waste Removal and Green Waste Disposal", description: "We responsibly collect and dispose of all garden waste, leaving your property clean and tidy.", image: "/service-card-thumbnail/greenWasteRemoval.png" },
+      { title: "Seasonal Extras", description: "We offer additional services such as hanging baskets, seasonal planting, and maintenance for residential or commercial outdoor spaces.", image: "/service-card-thumbnail/seasonalExtras.png" },
     ],
   },
   {
     category: "Other Offerings",
     services: [
-      {
-        title: "Garden Consulting and Advice",
-        description: "We provide expert guidance on plant selection, garden improvements, and maintenance planning to help you get the most from your outdoor space.",
-        image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80",
-      },
-      {
-        title: "Container and Small-Space Gardening",
-        description: "We maintain and enhance balconies, courtyards, and container gardens, ensuring even smaller spaces are attractive and well cared for.",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      },
+      { title: "Garden Consulting and Advice", description: "We provide expert guidance on plant selection, garden improvements, and maintenance planning to help you get the most from your outdoor space.", image: "/service-card-thumbnail/softLandscaping.png" },
+      { title: "Container and Small-Space Gardening", description: "We maintain and enhance balconies, courtyards, and container gardens, ensuring even smaller spaces are attractive and well cared for.", image: "/service-card-thumbnail/container.png" },
     ],
   },
 ];
@@ -198,14 +115,14 @@ export default function ServicesSection() {
               </FadeIn>
 
               {/* Cards */}
-              <div className="flex flex-wrap gap-5 justify-center items-stretch">
+              <div className="flex flex-wrap justify-center gap-5">
                 {group.services.map((service) => {
                   const i = globalIndex++;
                   const key = `${group.category}-${service.title}`;
                   const active = hovered === key;
                   const blob = blobs[i % blobs.length];
                   return (
-                    <FadeIn key={key} delay={(i % 4) * 0.1} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(22%-15px)] h-full">
+                    <FadeIn key={key} delay={(i % 4) * 0.1} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-16px)]">
                       <div
                         onMouseEnter={() => setHovered(key)}
                         onMouseLeave={() => setHovered(null)}
@@ -249,10 +166,10 @@ export default function ServicesSection() {
 
                         {/* Text */}
                         <div className="flex flex-col gap-2 px-6 pb-10 flex-1">
-                          <h3 className="text-lg font-bold underline underline-offset-4 decoration-2 transition-colors duration-300" style={{ color: active ? "#14532d" : "#111827" }}>
+                          <Link href="/contact" className="text-lg font-bold underline underline-offset-4 decoration-2 transition-colors duration-300 hover:opacity-80" style={{ color: active ? "#14532d" : "#111827" }}>
                             {service.title}
-                          </h3>
-                          <p className="text-sm leading-relaxed transition-colors duration-300 line-clamp-4" style={{ color: active ? "#166534cc" : "#6b7280" }}>
+                          </Link>
+                          <p className="text-sm leading-relaxed transition-colors duration-300" style={{ color: active ? "#166534cc" : "#6b7280" }}>
                             {service.description}
                           </p>
                         </div>

@@ -35,7 +35,7 @@ const nikos = {
   name: "Nikos",
   role: "Founder & Lead Gardener",
   initials: "N",
-  bio: "A highly dedicated industry professional with a wealth of garden maintenance knowledge. I take pride in delivering consistent, high-quality results, and since launching in the 2020s, I've put real value on a strong work ethic and a commitment to the highest standards. Away from my job, which I absolutely love, I enjoy spending time with family and friends, whether it be on days out, picnics or events.",
+  bio: "A highly dedicated industry professional with a wealth of garden maintenance knowledge. I take pride in delivering consistent, high-quality results, and since launching in 2022, I've put real value on a strong work ethic and a commitment to the highest standards. Away from my job, which I absolutely love, I enjoy spending time with family and friends, whether it be on days out, picnics or events.",
   stats: [
     { icon: <IconYears />, label: "5+ years in the industry" },
     { icon: <IconGarden />, label: "Transformed 100+ gardens" },

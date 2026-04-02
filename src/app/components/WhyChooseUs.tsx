@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 
 const usps = [
@@ -94,8 +95,9 @@ export default function WhyChooseUs() {
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
-          {usps.map((u, i) => (
-            <FadeIn key={u.title} delay={i * 0.08} className="h-full">
+          {usps.map((u, i) => {
+            const href = u.title === "Free No-Obligation Quotes" || u.title === "Same-Week Bookings" ? "/contact" : u.title === "Local Family-Run Business" ? "/about" : null;
+            const inner = (
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200 h-full">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">{u.icon}</div>
                 <div>
@@ -103,8 +105,13 @@ export default function WhyChooseUs() {
                   <p className="text-gray-500 text-sm leading-relaxed">{u.body}</p>
                 </div>
               </div>
-            </FadeIn>
-          ))}
+            );
+            return (
+              <FadeIn key={u.title} delay={i * 0.08} className="h-full">
+                {href ? <Link href={href} className="block h-full">{inner}</Link> : inner}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

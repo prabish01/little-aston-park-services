@@ -11,51 +11,47 @@ const navLinks = [
   { label: "About Us", href: "/about" },
 ];
 
-const serviceDropdownItems = [
+const serviceCategories = [
   {
-    label: "Design & Planning",
-    href: "/services",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.45-2.72A1 1 0 013 16.38V5.62a1 1 0 011.45-.9L9 7m0 13 6-3m-6-10 6-3m6 3-5.45-2.72A1 1 0 0015 5.62v10.76a1 1 0 001.45.9L21 15V5.62" />
-      </svg>
-    ),
+    category: "Garden Maintenance",
+    items: [
+      "Lawn Care",
+      "Hedge Trimming and Shaping",
+      "Garden Clearance and Renovation",
+      "Seasonal Maintenance",
+      "Weeding and Border Maintenance",
+      "Pruning and Shaping",
+      "General Tidying and Cleaning",
+    ],
   },
   {
-    label: "Tree & Plant Care",
-    href: "/services",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C9 2 6 5 6 9c0 2 .7 3.5 1.8 4.7M12 2c3 0 6 3 6 7 0 2-.7 3.5-1.8 4.7M12 2v20" />
-      </svg>
-    ),
+    category: "Planting & Design",
+    items: [
+      "Planting",
+      "Garden Design and Soft Landscaping",
+      "Vegetable and Fruit Growing",
+    ],
   },
   {
-    label: "Drainage Systems",
-    href: "/services",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
+    category: "Hard Landscaping",
+    items: [
+      "Patio and Path Work",
+      "Fencing and Gates",
+      "Turfing and Levelling",
+      "Pond and Water Feature Maintenance",
+    ],
   },
   {
-    label: "Seasonal Clean-up",
-    href: "/services",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.43 15.43a2 2 0 00-1.02-.55l-2.39-.48a6 6 0 00-3.86.52l-.32.16a6 6 0 01-3.86.52l-1.93-.39a2 2 0 00-1.81.55M8 4h8l-1 1v5.17a2 2 0 00.59 1.42l5 5c1.26 1.26.37 3.41-1.41 3.41H4.83c-1.78 0-2.68-2.15-1.42-3.41l5-5A2 2 0 009 10.17V5L8 4z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Jet Washing",
-    href: "/services",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12H3m18 0h-2M12 5V3m0 18v-2m4.95-13.95-1.41 1.41M6.46 17.54l-1.41 1.41M17.54 17.54l1.41 1.41M6.46 6.46 5.05 5.05M12 8a4 4 0 100 8 4 4 0 000-8z" />
-      </svg>
-    ),
+    category: "Specialist Services",
+    items: [
+      "Tree Surgery and Care",
+      "Disease Control",
+      "Fertilising and Feeding",
+      "Waste Removal and Green Waste Disposal",
+      "Seasonal Extras",
+      "Garden Consulting and Advice",
+      "Container and Small-Space Gardening",
+    ],
   },
 ];
 
@@ -147,24 +143,78 @@ export default function Navbar() {
                     </svg>
                   </Link>
 
-                  {/* Services dropdown */}
+                  {/* Mega menu dropdown */}
                   <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 rounded-2xl bg-white border border-emerald-100 shadow-2xl shadow-emerald-900/10 py-2 overflow-hidden transition-all duration-200 ${
+                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden shadow-2xl transition-all duration-200 ${
                       servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
+                    style={{ width: "860px", background: "#0d2e1a" }}
                   >
-                    {serviceDropdownItems.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors"
-                      >
-                        <span className="w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
-                          {item.icon}
-                        </span>
-                        {item.label}
-                      </Link>
-                    ))}
+                    {/* Lime top accent line */}
+                    <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg, transparent, #c5e84a 30%, #c5e84a 70%, transparent)" }} />
+
+                    {/* Main grid */}
+                    <div className="grid grid-cols-4 p-6 gap-0">
+                      {serviceCategories.map((cat, ci) => (
+                        <div
+                          key={cat.category}
+                          className="flex flex-col gap-2.5 px-5"
+                          style={{ borderRight: ci < serviceCategories.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}
+                        >
+                          {/* Category header */}
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
+                            <div className="flex-1 h-px" style={{ background: "rgba(197,232,74,0.2)" }} />
+                          </div>
+
+                          {/* Items */}
+                          {cat.items.map((item) => (
+                            <Link
+                              key={item}
+                              href="/services"
+                              className="group flex items-center gap-2.5 text-sm transition-all duration-150"
+                              style={{ color: "rgba(255,255,255,0.9)" }}
+                            >
+                              <span
+                                className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]"
+                                style={{ background: "rgba(197,232,74,0.4)" }}
+                              />
+                              <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Bottom CTA strip */}
+                    <div
+                      className="flex items-center justify-between px-7 py-3.5"
+                      style={{ background: "rgba(0,0,0,0.25)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+                    >
+                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
+                        Expert garden care across the Midlands
+                      </span>
+                      <div className="flex items-center gap-4">
+                        <Link
+                          href="/services"
+                          className="text-xs font-semibold transition-colors"
+                          style={{ color: "rgba(197,232,74,0.8)" }}
+                          onMouseEnter={e => (e.currentTarget.style.color = "#c5e84a")}
+                          onMouseLeave={e => (e.currentTarget.style.color = "rgba(197,232,74,0.8)")}
+                        >
+                          View all services →
+                        </Link>
+                        <Link
+                          href="/contact"
+                          className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-150"
+                          style={{ background: "#c5e84a", color: "#0d2e1a" }}
+                          onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+                          onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                        >
+                          Get a Free Quote
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ) : (

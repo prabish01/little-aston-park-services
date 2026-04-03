@@ -83,13 +83,13 @@ const projects = [
     image: "/before-after/after5.jpeg",
   },
   {
-    title: "Garden Lawn Care",
-    category: "Lawn Care",
+    title: "Property Care",
+    category: "Jet Wash of Stairs",
     image: "/services-hero-card1.png",
   },
   {
-    title: "Garden Maintenance",
-    category: "Garden Maintenance",
+    title: "Listed Building Clean",
+    category: "Jet Wash of Local Church",
     image: "/services-hero-card2.png",
   },
 ];
@@ -248,7 +248,12 @@ export default function WorkSection() {
                 enjoy, as well as adding value to a property.
               </p>
               <p>We relish every project we take on, thriving on the opportunity to bring a space back to life and we take pride in delivering visible, lasting improvements for every homeowner. Whether you want to reclaim your space or refine an already well-kept space, we&apos;re here to help.</p>
-              <p><Link href="/about#testimonials-cards" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">But don&apos;t just take our word for it</Link>, take a look at some of our recent work and see the difference yourself. Simply slide across to see some before and after shots of our recent transformations…</p>
+              <p>
+                <Link href="/about#testimonials-cards" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">
+                  But don&apos;t just take our word for it
+                </Link>
+                , take a look at some of our recent work and see the difference yourself. Simply slide across to see some before and after shots of our recent transformations…
+              </p>
             </div>
           </div>
           <div className="bg-white rounded-3xl shadow-sm overflow-hidden">
@@ -289,8 +294,11 @@ export default function WorkSection() {
             </h3>
             <div className="text-gray-500 text-sm leading-relaxed mt-1 flex flex-col gap-3">
               <p>
-                Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of <Link href="/services" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">our services</Link>. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our
-                commitment to detail and professionalism.
+                Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of{" "}
+                <Link href="/services" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">
+                  our services
+                </Link>
+                . From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our commitment to detail and professionalism.
               </p>
               <p>
                 We&apos;ve also worked on planting schemes and garden design improvements, helping clients create spaces that are not only tidy but also visually appealing and functional. In addition, our patio and driveway jet washing services restore hard surfaces, bringing them back to their

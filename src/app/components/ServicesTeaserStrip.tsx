@@ -8,72 +8,93 @@ const services = [
   {
     label: "Lawn Care",
     description: "Regular mowing, edging, and feeding to keep your lawn lush, green, and perfectly manicured all year round.",
-    // num: "01",
     accent: "#c5e84a",
     image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80",
     icon: (
+      // Lawnmower
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C9 2 6 5 6 9c0 2 .7 3.5 1.8 4.7M12 2c3 0 6 3 6 7 0 2-.7 3.5-1.8 4.7M12 2v20" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 17h2m14 0h2M5 17a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 17V11h10v6M7 11l2-5h6l2 5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l2-4" />
       </svg>
     ),
   },
   {
     label: "Jet Washing",
     description: "Professional high-pressure cleaning of patios, driveways, decking and paths — restoring them to like-new condition.",
-    // num: "02",
     accent: "#34d399",
     image: "/pressure-washing.png",
     icon: (
+      // Pressure washer spray nozzle
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12H3m18 0h-2M12 5V3m0 18v-2m4.95-13.95-1.41 1.41M6.46 17.54l-1.41 1.41M17.54 17.54l1.41 1.41M6.46 6.46 5.05 5.05M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h6v4H4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6h4l2 2v2h-6V6z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 10l4 4" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 14l1.5 1.5M19.5 12l1.5 1.5M16.5 15.5L18 17" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 8v8a2 2 0 002 2h4" />
       </svg>
     ),
   },
   {
     label: "Hedge Trimming",
     description: "Precise shaping and cutting of hedges, shrubs, and borders to give your garden clean, defined lines.",
-    // num: "03",
     accent: "#6ee7b7",
     image: "/hedge-trimming.png",
     icon: (
+      // Hedge shears / clippers
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M14.12 14.12L19 19m-7-7 7-7m-7 7-2.88 2.88M12 12 9.12 9.12m0 5.76a3 3 0 10-4.24-4.24 3 3 0 004.24 4.24z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 3l12 12" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 3L6 15" />
+        <circle cx="4.5" cy="16.5" r="2.5" />
+        <circle cx="19.5" cy="16.5" r="2.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.8 15H17.2" />
       </svg>
     ),
   },
   {
     label: "Garden Design",
     description: "From planting plans to full redesigns — we create beautiful, functional outdoor spaces tailored to your lifestyle.",
-    // num: "04",
     accent: "#a3e635",
     image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
     icon: (
+      // 4-petal flower
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.45-2.72A1 1 0 013 16.38V5.62a1 1 0 011.45-.9L9 7m0 13 6-3m-6-10 6-3m6 3-5.45-2.72A1 1 0 0015 5.62v10.76a1 1 0 001.45.9L21 15V5.62" />
+        <ellipse cx="12" cy="7" rx="2.5" ry="4" />
+        <ellipse cx="12" cy="17" rx="2.5" ry="4" />
+        <ellipse cx="7" cy="12" rx="4" ry="2.5" />
+        <ellipse cx="17" cy="12" rx="4" ry="2.5" />
+        <circle cx="12" cy="12" r="2.5" />
+        <line x1="12" y1="21" x2="12" y2="24" strokeLinecap="round" />
       </svg>
     ),
   },
   {
     label: "Seasonal Clean-Up",
     description: "Autumn leaf clearance, spring tidy-ups, and everything in between — we keep your garden pristine year-round.",
-    // num: "05",
     accent: "#86efac",
     image: "/seasonal-cleanup.png",
     icon: (
+      // Garden rake
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.43 15.43a2 2 0 00-1.02-.55l-2.39-.48a6 6 0 00-3.86.52l-.32.16a6 6 0 01-3.86.52l-1.93-.39a2 2 0 00-1.81.55M8 4h8l-1 1v5.17a2 2 0 00.59 1.42l5 5c1.26 1.26.37 3.41-1.41 3.41H4.83c-1.78 0-2.68-2.15-1.42-3.41l5-5A2 2 0 009 10.17V5L8 4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 20V10" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 10h10" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 10l1-4M9 10l.5-4M12 10V6M15 10l-.5-4M18 10l-1-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 20h4" />
       </svg>
     ),
   },
   {
     label: "Drainage",
     description: "Effective solutions to prevent waterlogging, flooding and water damage — protecting your garden and property.",
-    // num: "06",
     accent: "#4ade80",
     image: "/drainage.png",
     icon: (
+      // Drain grate — rectangular frame with horizontal vent bars
       <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <line x1="3" y1="9" x2="21" y2="9" strokeLinecap="round" />
+        <line x1="3" y1="12" x2="21" y2="12" strokeLinecap="round" />
+        <line x1="3" y1="15" x2="21" y2="15" strokeLinecap="round" />
       </svg>
     ),
   },

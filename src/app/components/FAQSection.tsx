@@ -98,7 +98,7 @@ export default function FAQSection() {
           </h2>
           <div className="text-gray-500 text-base max-w-4xl flex flex-col gap-4">
             <p>Use the form or contact information above to get in touch with our team and ask any questions you may have. Our team of gardening experts are always on hand to provide you with the information you need and guide you through any services we offer.</p>
-            <p>Alternatively, you can find a series of commonly asked questions below about our services.</p>
+            <p>Alternatively, you can find a series of commonly asked questions below about <Link href="/services" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">our services</Link>.</p>
           </div>
         </FadeIn>
 

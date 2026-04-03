@@ -32,12 +32,15 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-bold mb-5 uppercase" style={{ fontSize: "clamp(2.2rem, 7vw, 4.5rem)", lineHeight: 1.05 }}>
+          <h1 className="font-bold mb-5 uppercase" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)", lineHeight: 1.1 }}>
             <span className="block" style={{ color: "#0d2e1a" }}>
-              Your Garden
+              Outdoor Maintenance
+            </span>
+            <span className="block" style={{ color: "#0d2e1a" }}>
+              That is Built on Trust,
             </span>
             <span className="block" style={{ color: "#3a8c52" }}>
-              Deserves Better
+              Backed by Results.
             </span>
           </h1>
 
@@ -79,21 +82,14 @@ export default function Hero() {
           <div className="w-full flex flex-col gap-4" style={{ maxWidth: "420px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/hero-canvas.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
-            <div className="grid grid-cols-3 gap-1.5">
-              {[
-                "Lawn Care", "Hedge Trimming", "Garden Clearance", "Seasonal Maintenance",
-                "Weeding", "Pruning", "General Tidying", "Planting",
-                "Garden Design", "Vegetable Growing", "Patio & Path Work",
-                "Fencing & Gates", "Turfing", "Pond Maintenance",
-                "Tree Surgery", "Disease Control", "Fertilising",
-                "Waste Removal", "Seasonal Extras", "Garden Consulting", "Container Gardening",
-              ].map((s) => (
+            <div className="grid grid-cols-2 gap-2">
+              {["Garden Maintenance", "Planting & Design", "Hard Landscaping", "Specialist Services"].map((category) => (
                 <Link
-                  key={s}
+                  key={category}
                   href="/services"
-                  className="px-3 py-1 text-[11px] font-medium text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-200 text-center truncate"
+                  className="px-3 py-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-200"
                 >
-                  {s}
+                  {category}
                 </Link>
               ))}
             </div>

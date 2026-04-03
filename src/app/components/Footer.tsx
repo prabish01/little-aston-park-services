@@ -68,19 +68,35 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Services — 4 category boxes */}
+          {/* Services — 3-column sub-items */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Services</h4>
-            <div className="flex flex-col gap-3">
-              {serviceCategories.map((cat) => (
-                <Link
-                  key={cat.heading}
-                  href={`/services#${cat.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
-                  className="text-white/40 text-xs hover:text-emerald-400 transition-colors"
-                >
-                  {cat.heading}
-                </Link>
-              ))}
+            <div className="grid grid-cols-3 gap-x-6 gap-y-6">
+              {/* Col 1: Garden Maintenance */}
+              <div className="flex flex-col gap-1.5">
+                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[0].heading}</p>
+                {serviceCategories[0].links.map((label) => (
+                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                ))}
+              </div>
+              {/* Col 2: Planting & Design + Hard Landscaping */}
+              <div className="flex flex-col gap-5">
+                {[serviceCategories[1], serviceCategories[2]].map((cat) => (
+                  <div key={cat.heading} className="flex flex-col gap-1.5">
+                    <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{cat.heading}</p>
+                    {cat.links.map((label) => (
+                      <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              {/* Col 3: Specialist Services */}
+              <div className="flex flex-col gap-1.5">
+                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[3].heading}</p>
+                {serviceCategories[3].links.map((label) => (
+                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
+                ))}
+              </div>
             </div>
           </div>
 

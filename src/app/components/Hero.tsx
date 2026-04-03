@@ -82,14 +82,72 @@ export default function Hero() {
           <div className="w-full flex flex-col gap-4" style={{ maxWidth: "420px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/hero-canvas.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
-            <div className="grid grid-cols-2 gap-2">
-              {["Garden Maintenance", "Planting & Design", "Hard Landscaping", "Specialist Services"].map((category) => (
+            <style>{`
+              @keyframes cardReveal {
+                from { opacity:0; transform: scale(0.9) translateY(10px); }
+                to   { opacity:1; transform: scale(1) translateY(0); }
+              }
+              @keyframes shimmer {
+                from { transform: translateX(-100%) skewX(-15deg); }
+                to   { transform: translateX(250%) skewX(-15deg); }
+              }
+              @keyframes floatDot {
+                0%,100% { transform: translateY(0); }
+                50%      { transform: translateY(-4px); }
+              }
+              .cx-card { animation: cardReveal 0.5s cubic-bezier(0.22,1,0.36,1) both; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease; }
+              .cx-card:hover { transform: translateY(-4px) scale(1.02); }
+              .cx-card:hover .cx-shimmer { animation: shimmer 0.7s ease forwards; }
+              .cx-card:hover .cx-num { color: #c5e84a; }
+              .cx-dot { animation: floatDot 2.5s ease-in-out infinite; }
+            `}</style>
+            <div className="grid grid-cols-2 gap-2.5">
+              {[
+                {
+                  label: "Garden\nMaintenance", num: "07", delay: "0ms",
+                  grad: "linear-gradient(145deg,#0a2318 0%,#1a5c33 100%)",
+                  accent: "#c5e84a",
+                  pattern: <><circle cx="80" cy="10" r="25" fill="white" fillOpacity="0.04"/><circle cx="95" cy="35" r="12" fill="white" fillOpacity="0.04"/><circle cx="60" cy="50" r="18" fill="white" fillOpacity="0.03"/></>
+                },
+                {
+                  label: "Planting\n& Design", num: "03", delay: "80ms",
+                  grad: "linear-gradient(145deg,#042f2e 0%,#0d9488 100%)",
+                  accent: "#5eead4",
+                  pattern: <><rect x="60" y="5" width="40" height="40" rx="8" fill="white" fillOpacity="0.04" transform="rotate(20 80 25)"/><rect x="75" y="30" width="25" height="25" rx="5" fill="white" fillOpacity="0.03" transform="rotate(20 80 45)"/></>
+                },
+                {
+                  label: "Hard\nLandscaping", num: "04", delay: "160ms",
+                  grad: "linear-gradient(145deg,#1c1917 0%,#44403c 100%)",
+                  accent: "#c5e84a",
+                  pattern: <><polygon points="90,5 110,35 70,35" fill="white" fillOpacity="0.05"/><polygon points="75,30 90,55 60,55" fill="white" fillOpacity="0.03"/></>
+                },
+                {
+                  label: "Specialist\nServices", num: "08", delay: "240ms",
+                  grad: "linear-gradient(145deg,#0d2e1a 0%,#166534 100%)",
+                  accent: "#86efac",
+                  pattern: <><line x1="55" y1="5" x2="105" y2="55" stroke="white" strokeOpacity="0.06" strokeWidth="1"/><line x1="70" y1="5" x2="110" y2="45" stroke="white" strokeOpacity="0.04" strokeWidth="1"/><line x1="60" y1="20" x2="100" y2="60" stroke="white" strokeOpacity="0.04" strokeWidth="1"/></>
+                },
+              ].map(({ label, num, delay, grad, accent, pattern }) => (
                 <Link
-                  key={category}
+                  key={label}
                   href="/services"
-                  className="px-3 py-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 rounded-full border border-emerald-200 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-200"
+                  className="cx-card group relative flex flex-col justify-between p-4 rounded-2xl overflow-hidden cursor-pointer"
+                  style={{ background: grad, minHeight: "100px", animationDelay: delay, boxShadow: "0 4px 20px -4px rgba(0,0,0,0.3)" }}
                 >
-                  {category}
+                  {/* Decorative SVG pattern */}
+                  <svg className="absolute top-0 right-0 w-28 h-28 pointer-events-none" viewBox="0 0 110 70">{pattern}</svg>
+
+                  {/* Shimmer sweep */}
+                  <div className="cx-shimmer absolute inset-0 w-1/3 pointer-events-none" style={{ background: "linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent)" }} />
+
+                  {/* Top row: accent dot + number */}
+                  <div className="flex items-center justify-between">
+                    <span className="cx-dot w-2 h-2 rounded-full shrink-0" style={{ background: accent }} />
+                    <span className="cx-num text-lg font-black leading-none transition-colors duration-300" style={{ color: "rgba(255,255,255,0.15)" }}>{num}</span>
+                  </div>
+
+                  {/* Label */}
+                  <span className="relative text-xs font-bold text-white leading-snug whitespace-pre-line mt-2">{label}</span>
                 </Link>
               ))}
             </div>

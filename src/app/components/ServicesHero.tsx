@@ -33,11 +33,11 @@ export default function ServicesHero() {
           {/* Heading */}
           <div>
             <h1 className="font-bold text-emerald-950 uppercase" style={{ fontSize: "clamp(2.2rem, 7vw, 4.5rem)", lineHeight: 1.05 }}>
-              Your Garden
+              LAPS bespoke
             </h1>
-            <h1 className="font-bold text-emerald-600 uppercase" style={{ fontSize: "clamp(2.2rem, 7vw, 4.5rem)", lineHeight: 1.05 }}>
-              Deserves Better
-            </h1>
+            <span className="font-bold text-emerald-600 uppercase" style={{ fontSize: "clamp(2.2rem, 7vw, 4.5rem)", lineHeight: 1.05 }}>
+              and reliable services
+            </span>
           </div>
 
           {/* Description */}

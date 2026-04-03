@@ -94,7 +94,7 @@ export default function ServicesSection() {
           </h2>
           <div className="text-gray-500 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
             <p>
-              We offer a wide range of garden and outdoor maintenance services designed to keep your space looking its best right across the year. From routine care like mowing and hedge trimming to more involved projects like garden clearances, planting and landscaping, our expert team is here to
+              We offer a wide range of garden and outdoor maintenance services designed to keep your space looking its best right across the year. From routine care like mowing and hedge trimming to more involved projects like garden clearances, planting and landscaping, <Link href="/about" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">our expert team</Link> is here to
               provide you with a tailored and high-quality service.
             </p>
             <p>Take a look at some of the services we specialise in below and understand how we can transform, refine and maintain your green space, no matter how big or small.</p>

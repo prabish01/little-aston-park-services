@@ -289,7 +289,7 @@ export default function WorkSection() {
             </h3>
             <div className="text-gray-500 text-sm leading-relaxed mt-1 flex flex-col gap-3">
               <p>
-                Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of our services. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our
+                Our portfolio showcases a wide range of work carried out across the Midlands, highlighting the versatility and quality of <Link href="/services" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">our services</Link>. From large-scale garden clearances that completely reset outdoor spaces, to precise hedge trimming and ongoing lawn care, each project reflects our
                 commitment to detail and professionalism.
               </p>
               <p>

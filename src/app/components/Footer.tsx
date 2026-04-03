@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* Main row */}
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_140px_1fr_200px] gap-10 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-10 pb-8 border-b border-white/10">
 
           {/* Brand */}
           <div className="flex flex-col gap-4">
@@ -56,16 +56,6 @@ export default function Footer() {
             >
               Get a Free Quote →
             </Link>
-          </div>
-
-          {/* Company */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Company</h4>
-            {companyLinks.map((l) => (
-              <Link key={l.label} href={l.href} className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
-                {l.label}
-              </Link>
-            ))}
           </div>
 
           {/* Services — 3 cols: Garden Maintenance | Planting + Hard Landscaping | Specialist */}
@@ -106,6 +96,13 @@ export default function Footer() {
             <div>
               <p className="text-white font-bold text-sm">Little Aston Park Services</p>
               <p className="text-white/40 text-xs mt-0.5">Sutton Coldfield, West Midlands</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              {companyLinks.map((l) => (
+                <Link key={l.label} href={l.href} className="text-white/40 text-xs hover:text-emerald-400 transition-colors">
+                  {l.label}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-col gap-3">
               <a href="tel:+447500732083" className="inline-flex items-center gap-2 text-white/40 text-xs hover:text-emerald-400 transition-colors group">

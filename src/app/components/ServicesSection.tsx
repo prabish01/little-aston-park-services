@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "./FadeIn";
 
 const blobs = [
@@ -88,6 +89,7 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <FadeIn className="text-center mb-14">
+          <Image src="/laps.svg" alt="Little Aston Park Services" width={56} height={56} className="h-14 w-auto mx-auto mb-4" />
           <h2 className="font-bold uppercase mb-4" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
             <span style={{ color: "#0d2e1a" }}>Little Aston</span>
             <span style={{ color: "#3a8c52" }}> Park Services</span>

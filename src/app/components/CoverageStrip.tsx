@@ -57,7 +57,7 @@ export default function CoverageStrip() {
             {areas.map((area, i) => (
               <FadeIn key={area} delay={i * 0.05}>
                 <span
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium cursor-default w-full"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium cursor-default w-full whitespace-nowrap"
                   style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.80)" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-emerald-400" />

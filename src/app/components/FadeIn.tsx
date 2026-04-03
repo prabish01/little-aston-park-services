@@ -13,6 +13,7 @@ interface Props {
 export default function FadeIn({ children, className, delay = 0, y = 32, x = 0 }: Props) {
   return (
     <motion.div
+      suppressHydrationWarning
       className={className}
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}

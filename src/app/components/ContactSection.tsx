@@ -62,7 +62,7 @@ export default function ContactSection() {
           <FadeIn className="flex flex-col gap-4 max-w-2xl">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Get In Touch</span>
             <h1 className="font-bold" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.08, color: "#ffffff" }}>
-              Straightforward Garden
+              Straightforward Gardening
               <br />
               <span style={{ color: "#6ee7b7" }}>&amp; Exterior Cleaning</span>
             </h1>

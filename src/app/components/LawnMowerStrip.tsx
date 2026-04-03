@@ -6,7 +6,6 @@ const SVG_W = 1000;
 const SVG_H = 160;
 const BASE_Y = SVG_H - 8;
 const BLADE_COUNT = 110;
-const SCROLL_RANGE = 700;
 
 // seeded pseudo-random so blades are consistent on every render
 function sr(seed: number) {
@@ -37,11 +36,14 @@ const COLORS: [string, string][] = [
   ["#1a6b40", "#a7f3d0"],
 ];
 
+// SVG units per frame at ~60fps — 1.8 ≈ ~7 seconds to cross
+const MOWER_SPEED = 1.8;
+
 export default function LawnMowerStrip() {
   const ref = useRef<HTMLDivElement>(null);
   const [mowerX, setMowerX] = useState(-90); // px in SVG coords (1000 wide)
-  const targetX = useRef(-90);
   const currentX = useRef(-90);
+  const started = useRef(false);
   const rafId = useRef<number | null>(null);
 
   // generate static blade data once
@@ -73,29 +75,26 @@ export default function LawnMowerStrip() {
   );
 
   useEffect(() => {
-    const onScroll = () => {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const trigger = window.innerHeight * 0.9;
-      const dist = trigger - rect.top;
-      const p = Math.max(0, Math.min(dist / SCROLL_RANGE, 1));
-      targetX.current = -90 + p * 1210;
-    };
-
     const tick = () => {
-      // lerp factor: 0.025 = very slow catch-up regardless of scroll speed
-      currentX.current += (targetX.current - currentX.current) * 0.025;
-      setMowerX(Math.round(currentX.current * 10) / 10);
+      const el = ref.current;
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (inView && !started.current) {
+          started.current = true;
+        }
+
+        if (started.current && currentX.current < 1120) {
+          currentX.current += MOWER_SPEED;
+          setMowerX(Math.round(currentX.current * 10) / 10);
+        }
+      }
       rafId.current = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
     rafId.current = requestAnimationFrame(tick);
-
     return () => {
-      window.removeEventListener("scroll", onScroll);
       if (rafId.current !== null) cancelAnimationFrame(rafId.current);
     };
   }, []);

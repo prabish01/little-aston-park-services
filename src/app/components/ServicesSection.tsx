@@ -61,7 +61,11 @@ const serviceGroups = [
       { title: "Fertilising and Feeding", description: "We apply the correct nutrients to lawns and plants to support healthy growth and long-term vitality.", image: "/service-card-thumbnail/fertilising.png" },
       { title: "Waste Removal and Green Waste Disposal", description: "We responsibly collect and dispose of all garden waste, leaving your property clean and tidy.", image: "/service-card-thumbnail/greenWasteRemoval.png" },
       { title: "Seasonal Extras", description: "We offer additional services such as hanging baskets, seasonal planting, and maintenance for residential or commercial outdoor spaces.", image: "/service-card-thumbnail/seasonalExtras.png" },
-      { title: "Exterior Cleaning Services", description: "Keep your property looking clean with our professional exterior cleaning. We remove dirt, algae, and buildup from windows, walls, and outdoor surfaces to deliver a streak-free finish.", image: "/service-card-thumbnail/patioWork.png" },
+      {
+        title: "Exterior Cleaning Services",
+        description: "Keep your property looking clean with our professional exterior cleaning. We remove dirt, algae, and buildup from windows, walls, and outdoor surfaces to deliver a streak-free finish.",
+        image: "/service-card-thumbnail/exteriorCleaning.png",
+      },
       { title: "Garden Consulting and Advice", description: "We provide expert guidance on plant selection, garden improvements, and maintenance planning to help you get the most from your outdoor space.", image: "/service-card-thumbnail/softLandscaping.png" },
       { title: "Container and Small-Space Gardening", description: "We maintain and enhance balconies, courtyards, and container gardens, ensuring even smaller spaces are attractive and well cared for.", image: "/service-card-thumbnail/container.png" },
     ],
@@ -100,7 +104,13 @@ export default function ServicesSection() {
         {/* Service groups */}
         <div className="flex flex-col gap-16">
           {serviceGroups.map((group) => (
-            <div key={group.category} id={group.category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}>
+            <div
+              key={group.category}
+              id={group.category
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "")}
+            >
               {/* Category heading */}
               <FadeIn className="mb-8">
                 <div className="flex items-center gap-4">
@@ -120,7 +130,10 @@ export default function ServicesSection() {
                   return (
                     <FadeIn key={key} delay={(i % 4) * 0.1} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-16px)]">
                       <div
-                        id={service.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}
+                        id={service.title
+                          .toLowerCase()
+                          .replace(/[^a-z0-9]+/g, "-")
+                          .replace(/(^-|-$)/g, "")}
                         onMouseEnter={() => setHovered(key)}
                         onMouseLeave={() => setHovered(null)}
                         className="rounded-3xl overflow-hidden flex flex-col cursor-default transition-colors duration-300 h-full"

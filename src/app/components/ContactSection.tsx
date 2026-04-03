@@ -61,10 +61,10 @@ export default function ContactSection() {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <FadeIn className="flex flex-col gap-4 max-w-2xl">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Get In Touch</span>
-            <h1 className="font-bold" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.08, color: "#ffffff" }}>
+            <h1 className="font-bold uppercase" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.08, color: "#ffffff" }}>
               Straightforward Gardening
               <br />
-              <span style={{ color: "#6ee7b7" }}>&amp; Exterior Cleaning</span>
+              <span style={{ color: "#6ee7b7" }}>And Exterior Cleaning</span>
             </h1>
             <p className="text-white/70 text-base leading-relaxed max-w-xl">
               Whether you&apos;re planning improvements to transform your garden into a relaxing new green space, or you simply need a friendly, reliable and good value team to keep on top of your garden maintenance, then our team at Little Aston Park Services is here to help.

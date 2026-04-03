@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const pages = [
   {
@@ -64,20 +65,15 @@ const pages = [
 
 export default function SiteMapPage() {
   return (
-    <main className="min-h-screen w-full" style={{ backgroundColor: "#f8f9f3" }}>
+    <>
+    <Navbar />
+    <main className="min-h-screen w-full pt-16" style={{ backgroundColor: "#f8f9f3" }}>
 
       {/* Header banner */}
       <div className="w-full py-20 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f3320 0%, #1a4731 50%, #2d7a4f 100%)" }}>
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 pointer-events-none" style={{ background: "radial-gradient(circle, #c5e84a, transparent 70%)" }} />
         <div className="absolute -bottom-24 -left-12 w-64 h-64 rounded-full opacity-10 pointer-events-none" style={{ background: "radial-gradient(circle, #6ee7b7, transparent 70%)" }} />
         <div className="max-w-7xl mx-auto relative z-10">
-          <Link href="/" className="inline-flex items-center gap-3 mb-10">
-            <Image src="/laps.svg" alt="Little Aston Park Services" width={40} height={40} className="h-10 w-auto" />
-            <span className="text-white font-bold text-sm leading-tight">
-              Little Aston<br />
-              <span className="text-emerald-400 font-medium tracking-widest uppercase text-xs">Park Services</span>
-            </span>
-          </Link>
           <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-3">Navigation</span>
           <h1 className="font-bold text-white uppercase mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.08 }}>
             Site Map
@@ -157,5 +153,7 @@ export default function SiteMapPage() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }

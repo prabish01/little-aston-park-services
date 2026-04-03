@@ -201,13 +201,13 @@ export default function ServicesTeaserStrip() {
         {/* ── Mobile: 2-col grid ── */}
         <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-3">
           {services.map((s) => (
-            <Link key={s.label} href="/services" className="relative flex flex-col items-end justify-end gap-2 p-4 rounded-2xl overflow-hidden" style={{ minHeight: "140px" }}>
+            <Link key={s.label} href="/services" className="relative flex flex-col justify-between p-4 rounded-2xl overflow-hidden" style={{ minHeight: "140px" }}>
               <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${s.image})` }} />
               <div className="absolute inset-0 rounded-2xl" style={{ background: "rgba(5,20,12,0.72)" }} />
-              <span className="relative w-10 h-10 rounded-xl flex items-center justify-center self-start" style={{ background: `${s.accent}25`, color: s.accent }}>
+              <span className="relative w-10 h-10 rounded-xl flex items-center justify-center shrink-0 self-end" style={{ background: `${s.accent}25`, color: s.accent }}>
                 {s.icon}
               </span>
-              <span className="relative text-white font-semibold text-sm leading-snug self-start">{s.label}</span>
+              <span className="relative text-white font-semibold text-sm whitespace-nowrap">{s.label}</span>
             </Link>
           ))}
         </div>

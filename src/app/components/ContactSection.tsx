@@ -100,7 +100,7 @@ export default function ContactSection() {
           {/* Description cards */}
           <div className="rounded-3xl bg-white border border-gray-100 p-7 flex flex-col gap-4 shadow-sm">
             <h3 className="font-bold text-emerald-950 text-lg">How we can help</h3>
-            <p className="text-gray-500 text-sm leading-relaxed">We&apos;ve helped hundreds of customers across the Midlands and have developed many long-standing relationships, keeping gardens looking spotless right across the year.</p>
+            <p className="text-gray-500 text-sm leading-relaxed">We&apos;ve helped <a href="/about#testimonials-cards" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">hundreds of customers across the Midlands</a> and have developed many long-standing relationships, keeping gardens looking spotless right across the year.</p>
             <p className="text-gray-500 text-sm leading-relaxed">Get in touch today and we&apos;ll take the time to understand your needs and provide you with a free, no-obligation quote.</p>
           </div>
 

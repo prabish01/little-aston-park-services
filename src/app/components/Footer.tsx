@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* Main row */}
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_130px_1fr_220px] gap-10 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_1fr_1fr] gap-10 pb-8 border-b border-white/10">
 
           {/* Brand */}
           <div className="flex flex-col gap-4">
@@ -68,53 +68,55 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Services — 4 sub-columns */}
+          {/* Services — 4 category boxes */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Services</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-6">
-              {/* Col 1: Garden Maintenance */}
-              <div className="flex flex-col gap-1.5">
-                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[0].heading}</p>
-                {serviceCategories[0].links.map((label) => (
-                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
-                ))}
-              </div>
-
-              {/* Col 2: Planting & Design + Hard Landscaping */}
-              <div className="flex flex-col gap-5">
-                {[serviceCategories[1], serviceCategories[2]].map((cat) => (
-                  <div key={cat.heading} className="flex flex-col gap-1.5">
-                    <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{cat.heading}</p>
-                    {cat.links.map((label) => (
-                      <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
-                    ))}
-                  </div>
-                ))}
-              </div>
-
-              {/* Col 3: Specialist Services */}
-              <div className="flex flex-col gap-1.5">
-                <p className="text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-1">{serviceCategories[3].heading}</p>
-                {serviceCategories[3].links.map((label) => (
-                  <Link key={label} href="/services" className="text-white/40 text-xs hover:text-emerald-400 transition-colors leading-snug">{label}</Link>
-                ))}
-              </div>
+            <div className="flex flex-col gap-3">
+              {serviceCategories.map((cat) => (
+                <Link
+                  key={cat.heading}
+                  href={`/services#${cat.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                  className="text-white/40 text-xs hover:text-emerald-400 transition-colors"
+                >
+                  {cat.heading}
+                </Link>
+              ))}
             </div>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-2">Get In Touch</h4>
-            <a href="tel:+447500732083" className="text-white/40 text-xs hover:text-emerald-400 transition-colors">+44 7500 732083</a>
-            <a href="mailto:nik.gardenservices@gmail.com" className="text-white/40 text-xs hover:text-emerald-400 transition-colors whitespace-nowrap">nik.gardenservices@gmail.com</a>
+            <p className="text-white/60 text-xs font-semibold">Little Aston Park Services</p>
+
+            <a href="tel:+447500732083" className="inline-flex items-center gap-2 text-white/40 text-xs hover:text-emerald-400 transition-colors group">
+              <span className="w-6 h-6 rounded-md bg-white/5 group-hover:bg-emerald-500/20 flex items-center justify-center shrink-0 transition-colors">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </span>
+              +44 7500 732083
+            </a>
+
+            <a href="mailto:nik.gardenservices@gmail.com" className="inline-flex items-center gap-2 text-white/40 text-xs hover:text-emerald-400 transition-colors whitespace-nowrap group">
+              <span className="w-6 h-6 rounded-md bg-white/5 group-hover:bg-emerald-500/20 flex items-center justify-center shrink-0 transition-colors">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
+              nik.gardenservices@gmail.com
+            </a>
+
             <a
               href="https://www.instagram.com/littleastonparkservices/"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/40 text-xs hover:text-emerald-400 transition-colors mt-1"
+              className="inline-flex items-center gap-2 text-white/40 text-xs hover:text-emerald-400 transition-colors group"
             >
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-              </svg>
+              <span className="w-6 h-6 rounded-md bg-white/5 group-hover:bg-emerald-500/20 flex items-center justify-center shrink-0 transition-colors">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </span>
               @littleastonparkservices
             </a>
           </div>
@@ -127,6 +129,7 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             <Link href="/terms-and-conditions" className="hover:text-emerald-400 transition-colors">Terms &amp; Conditions</Link>
             <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Sitemap</a>
           </div>
         </div>
 

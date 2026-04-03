@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 
 interface Slide {
@@ -247,7 +248,7 @@ export default function WorkSection() {
                 enjoy, as well as adding value to a property.
               </p>
               <p>We relish every project we take on, thriving on the opportunity to bring a space back to life and we take pride in delivering visible, lasting improvements for every homeowner. Whether you want to reclaim your space or refine an already well-kept space, we&apos;re here to help.</p>
-              <p>But don&apos;t just take our word for it, take a look at some of our recent work and see the difference yourself. Simply slide across to see some before and after shots of our recent transformations…</p>
+              <p><Link href="/about#testimonials-cards" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">But don&apos;t just take our word for it</Link>, take a look at some of our recent work and see the difference yourself. Simply slide across to see some before and after shots of our recent transformations…</p>
             </div>
           </div>
           <div className="bg-white rounded-3xl shadow-sm overflow-hidden">

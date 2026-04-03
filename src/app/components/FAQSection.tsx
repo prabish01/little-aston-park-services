@@ -1,16 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 
-const faqs = [
+const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "What areas do you cover?",
     a: "We cover Sutton Coldfield, Lichfield, Tamworth, and all surrounding areas across the West Midlands. If you're unsure whether we service your postcode, just give us a call and we'll let you know.",
   },
   {
     q: "How do I get a quote?",
-    a: "Simply contact us via phone, email, or the contact form on this page. We'll arrange a convenient time to visit your property and provide a free, no-obligation quote.",
+    a: <>Simply <Link href="/contact" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">contact us via phone, email, or the contact form</Link> on this page. We&apos;ll arrange a convenient time to visit your property and provide a free, no-obligation quote.</>,
   },
   {
     q: "Do you offer one-off services or only ongoing contracts?",
@@ -26,7 +27,7 @@ const faqs = [
   },
   {
     q: "Do you provide jet washing services?",
-    a: "Yes — jet washing of patios, driveways, paths, and decking is one of our most popular services. We use professional-grade equipment to deliver outstanding results.",
+    a: <>Yes — <Link href="/services#patio-and-path-work" className="font-bold text-emerald-700 hover:text-emerald-900 transition-colors underline underline-offset-2">jet washing of patios, driveways, paths, and decking</Link> is one of our most popular services. We use professional-grade equipment to deliver outstanding results.</>,
   },
 ];
 
@@ -35,7 +36,7 @@ function FAQItem({
   a,
 }: {
   q: string;
-  a: string;
+  a: React.ReactNode;
   index: number;
 }) {
   const [open, setOpen] = useState(false);

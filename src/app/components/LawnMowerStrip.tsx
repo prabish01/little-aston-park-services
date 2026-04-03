@@ -6,7 +6,7 @@ const SVG_W = 1000;
 const SVG_H = 160;
 const BASE_Y = SVG_H - 8;
 const BLADE_COUNT = 110;
-const SCROLL_RANGE = 200;
+const SCROLL_RANGE = 500;
 
 // seeded pseudo-random so blades are consistent on every render
 function sr(seed: number) {
@@ -74,7 +74,7 @@ export default function LawnMowerStrip() {
       const el = ref.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      const trigger = window.innerHeight * 0.65;
+      const trigger = window.innerHeight * 0.9;
       const dist = trigger - rect.top;
       const p = Math.max(0, Math.min(dist / SCROLL_RANGE, 1));
       // -90 = off left, 1120 = off right (SVG coords)
@@ -89,7 +89,7 @@ export default function LawnMowerStrip() {
   const mowerPct = (mowerX / SVG_W) * 100;
 
   return (
-    <div ref={ref} className="w-full relative" aria-hidden="true">
+    <div ref={ref} className="w-full relative bg-white" aria-hidden="true">
       {/* CSS for grass sway */}
       <style>{`
         .grass-g {

@@ -162,7 +162,7 @@ export default function Navbar() {
                             <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
                           </div>
                           {cat.items.map((item) => (
-                            <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                            <Link key={item} href={`/services#${item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
                               <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
                               <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
                             </Link>
@@ -178,7 +178,7 @@ export default function Navbar() {
                               <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
                             </div>
                             {cat.items.map((item) => (
-                              <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                              <Link key={item} href={`/services#${item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
                                 <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
                                 <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
                               </Link>
@@ -194,7 +194,7 @@ export default function Navbar() {
                             <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: "#c5e84a" }}>{cat.category}</span>
                           </div>
                           {cat.items.map((item) => (
-                            <Link key={item} href="/services" className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
+                            <Link key={item} href={`/services#${item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="group flex items-center gap-2.5 text-sm transition-all duration-150" style={{ color: "rgba(255,255,255,0.9)" }}>
                               <span className="w-1 h-1 rounded-full shrink-0 transition-all duration-150 group-hover:scale-[2]" style={{ background: "rgba(197,232,74,0.4)" }} />
                               <span className="group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150 inline-block leading-snug">{item}</span>
                             </Link>

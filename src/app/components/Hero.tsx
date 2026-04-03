@@ -18,7 +18,7 @@ export default function Hero() {
         <line x1="60" y1="55" x2="75" y2="65" stroke="#1a5c33" strokeWidth="1" opacity="0.3" />
       </svg>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-col-reverse lg:flex-row items-center min-h-screen gap-6 lg:gap-16 pt-20 pb-10 lg:py-0">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen gap-6 lg:gap-16 pt-20 pb-10 lg:py-0">
         {/* ── LEFT: text ── */}
         <div className="w-full lg:flex-1 flex flex-col items-start">
           {/* Brand lockup */}

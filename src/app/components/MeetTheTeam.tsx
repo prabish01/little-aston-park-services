@@ -52,7 +52,7 @@ export default function MeetTheTeam() {
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
         {/* Heading */}
         <FadeIn className="flex flex-col gap-2">
-          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">The People Behind The Work</span>
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Crafted with Care, Led by Expertise</span>
           <h2 className="font-bold uppercase" style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", lineHeight: 1.05 }}>
             <span style={{ color: "#0d2e1a" }}>Meet </span>
             <span style={{ color: "#3a8c52" }}>Nikos</span>

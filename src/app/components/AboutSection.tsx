@@ -67,8 +67,7 @@ export default function AboutSection() {
           {/* Description */}
           <div className="text-gray-500 text-base leading-relaxed flex flex-col gap-4">
             <p>
-              With over a decade in the business, we&apos;ve been committed to delivering highly functional, visually striking outdoor spaces from day 1, with our approach combining practical garden maintenance with a keen eye for detail to ensure total balance of your green space, keeping it both
-              natural and enjoyable to use and spend time in.
+              With over a decade in the business, we&apos;ve been committed to delivering highly functional, visually striking outdoor spaces from day one. Our approach combines practical garden maintenance with a keen eye for detail to ensure total balance of your space, keeping it both natural and enjoyable to use and spend time in.
             </p>
             <p>We&apos;ve developed a strong reputation across the Midlands, priding ourselves on reliability, quality workmanship and allowing our genuine passion for what we do shine through. We&apos;re always approachable, value your input and respect your home.</p>
             <p>Every project we take on, whether large or small, is approached with the same level of care and professionalism and we enjoy the pay-off of a well-maintained or completely transformed green space as much as you do - the people that will get to enjoy it year-round.</p>

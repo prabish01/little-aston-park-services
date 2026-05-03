@@ -40,14 +40,30 @@ const contactItems = [
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to send.");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -233,16 +249,27 @@ export default function ContactSection() {
                     />
                   </div>
 
+                  {/* Error message */}
+                  {error && (
+                    <p className="text-red-500 text-sm font-medium">{error}</p>
+                  )}
+
                   {/* Submit */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-1">
                     <p className="text-gray-400 text-xs">
                       Fields marked <span className="text-emerald-500 font-semibold">*</span> are required. We&apos;ll never share your details.
                     </p>
-                    <button type="submit" className="shrink-0 flex items-center gap-2 px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 transition-colors text-white font-semibold text-sm">
-                      Send Message
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="shrink-0 flex items-center gap-2 px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed transition-colors text-white font-semibold text-sm"
+                    >
+                      {loading ? "Sending..." : "Send Message"}
+                      {!loading && (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      )}
                     </button>
                   </div>
                 </form>

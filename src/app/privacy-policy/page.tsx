@@ -2,7 +2,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Privacy Policy | Little Aston Park Services",
+  title: "Privacy Policy",
+  description: "Read the privacy policy for Little Aston Park Services. We are committed to protecting your personal data and being transparent about how we use it.",
+  alternates: {
+    canonical: "https://www.littleastonparkservices.co.uk/privacy-policy",
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function PrivacyPage() {

@@ -2,7 +2,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Terms & Conditions | Little Aston Park Services",
+  title: "Terms & Conditions",
+  description: "Read the terms and conditions for Little Aston Park Services. These terms govern the use of our website and the services we provide.",
+  alternates: {
+    canonical: "https://www.littleastonparkservices.co.uk/terms-and-conditions",
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function TermsPage() {

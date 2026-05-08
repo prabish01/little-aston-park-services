@@ -1,4 +1,11 @@
 export default function LocalBusinessSchema() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Little Aston Park Services",
+    url: "https://www.littleastonparkservices.co.uk",
+  };
+
   const schema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "LandscapingBusiness"],
@@ -46,9 +53,15 @@ export default function LocalBusinessSchema() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    </>
   );
 }

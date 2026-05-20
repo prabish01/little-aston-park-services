@@ -109,7 +109,7 @@ export default function InstagramSection() {
 
         {/* Post grid */}
         <FadeIn delay={0.1}>
-          <div data-behold-id="uPXsAM2Pr16f9OLJwTN4"></div>
+          <div data-behold-id="GhIHUXgibLI3Dyo47euc"></div>
         </FadeIn>
 
         {/* Bottom nudge */}

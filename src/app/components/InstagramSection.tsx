@@ -60,7 +60,8 @@ export default function InstagramSection() {
   // }, []);
 
   useEffect(() => {
-    const d = document, s = d.createElement("script");
+    const d = document,
+      s = d.createElement("script");
     s.type = "module";
     s.src = "https://w.behold.so/widget.js";
     d.head.append(s);
@@ -109,7 +110,7 @@ export default function InstagramSection() {
         {/* Post grid */}
         <FadeIn delay={0.1}>
           {/* @ts-expect-error custom element */}
-          <behold-widget feed-id="GhIHUXgibLI3Dyo47euc"></behold-widget>
+          <behold-widget feed-id="uPXsAM2Pr16f9OLJwTN4"></behold-widget>
         </FadeIn>
 
         {/* Bottom nudge */}

@@ -21,10 +21,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  cursor: url("/cursor-spade.svg") 5 5, auto;
+  cursor: url("/cursor-spade.svg") 5 5, default;
 }
 
 /* Force custom cursor on every element — no exceptions */
 * {
-  cursor: url("/cursor-spade.svg") 5 5, auto !important;
+  cursor: url("/cursor-spade.svg") 5 5, default !important;
 }

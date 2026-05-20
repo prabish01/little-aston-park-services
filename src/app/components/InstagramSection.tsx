@@ -1,79 +1,69 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import FadeIn from "./FadeIn";
 
-const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL!;
-const HANDLE = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE!;
-const FEED_URL = process.env.NEXT_PUBLIC_BEHOLD_FEED_URL!;
+const INSTAGRAM_URL = "https://www.instagram.com/littleastonparkservices/";
+const HANDLE = "@littleastonparkservices";
 
-type BeholdPost = {
-  id: string;
-  mediaType: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
-  mediaUrl: string;
-  thumbnailUrl?: string | null;
-  permalink: string;
-  caption?: string | null;
-};
-
-function PostTile({ post }: { post: BeholdPost }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const isVideo = post.mediaType === "VIDEO";
-
-  return (
-    <a
-      href={post.permalink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="relative rounded-2xl overflow-hidden bg-gray-100 group block"
-      style={{ aspectRatio: "1/1" }}
-      aria-label="View on Instagram"
-      onMouseEnter={() => { videoRef.current?.play().catch(() => {}); }}
-      onMouseLeave={() => {
-        if (videoRef.current) {
-          videoRef.current.pause();
-          videoRef.current.currentTime = 0;
-        }
-      }}
-    >
-      {isVideo ? (
-        <video ref={videoRef} src={post.mediaUrl} poster={post.thumbnailUrl ?? undefined} muted loop playsInline className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={post.thumbnailUrl ?? post.mediaUrl} alt={post.caption?.slice(0, 80) ?? "Instagram post"} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-      )}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, #833ab480 0%, #fd1d1d80 50%, #fcb04580 100%)" }}>
-        <svg className="w-8 h-8 text-white drop-shadow" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-        </svg>
-      </div>
-    </a>
-  );
-}
-
-function SkeletonGrid() {
-  return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-      {Array.from({ length: 9 }).map((_, i) => (
-        <div key={i} className="rounded-2xl bg-gray-200 animate-pulse" style={{ aspectRatio: "1/1" }} />
-      ))}
-    </div>
-  );
-}
+// /*
+// import { useEffect, useRef, useState } from "react";
+// const FEED_URL = process.env.NEXT_PUBLIC_BEHOLD_FEED_URL!;
+//
+// type BeholdPost = {
+//   id: string;
+//   mediaType: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
+//   mediaUrl: string;
+//   thumbnailUrl?: string | null;
+//   permalink: string;
+//   caption?: string | null;
+// };
+//
+// function PostTile({ post }: { post: BeholdPost }) {
+//   const videoRef = useRef<HTMLVideoElement>(null);
+//   const isVideo = post.mediaType === "VIDEO";
+//   return (
+//     <a href={post.permalink} target="_blank" rel="noopener noreferrer"
+//       className="relative rounded-2xl overflow-hidden bg-gray-100 group block"
+//       style={{ aspectRatio: "1/1" }} aria-label="View on Instagram"
+//       onMouseEnter={() => { videoRef.current?.play().catch(() => {}); }}
+//       onMouseLeave={() => { if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; } }}
+//     >
+//       {isVideo ? (
+//         <video ref={videoRef} src={post.mediaUrl} poster={post.thumbnailUrl ?? undefined} muted loop playsInline className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+//       ) : (
+//         <img src={post.thumbnailUrl ?? post.mediaUrl} alt={post.caption?.slice(0, 80) ?? "Instagram post"} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+//       )}
+//     </a>
+//   );
+// }
+//
+// function SkeletonGrid() {
+//   return (
+//     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+//       {Array.from({ length: 9 }).map((_, i) => (
+//         <div key={i} className="rounded-2xl bg-gray-200 animate-pulse" style={{ aspectRatio: "1/1" }} />
+//       ))}
+//     </div>
+//   );
+// }
+// */
 
 export default function InstagramSection() {
-  const [posts, setPosts] = useState<BeholdPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  // const [posts, setPosts] = useState<BeholdPost[]>([]);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   fetch(FEED_URL).then(r => r.json()).then(data => {
+  //     const arr: BeholdPost[] = Array.isArray(data) ? data : Array.isArray(data?.posts) ? data.posts : Array.isArray(data?.data) ? data.data : [];
+  //     setPosts(arr.slice(0, 9));
+  //   }).catch(() => {}).finally(() => setLoading(false));
+  // }, []);
 
   useEffect(() => {
-    fetch(FEED_URL)
-      .then((r) => r.json())
-      .then((data) => {
-        const arr: BeholdPost[] = Array.isArray(data) ? data : Array.isArray(data?.posts) ? data.posts : Array.isArray(data?.data) ? data.data : [];
-        setPosts(arr.slice(0, 9));
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    const d = document, s = d.createElement("script");
+    s.type = "module";
+    s.src = "https://w.behold.so/widget.js";
+    d.head.append(s);
   }, []);
 
   return (
@@ -118,15 +108,8 @@ export default function InstagramSection() {
 
         {/* Post grid */}
         <FadeIn delay={0.1}>
-          {loading ? (
-            <SkeletonGrid />
-          ) : posts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {posts.map((post) => (
-                <PostTile key={post.id} post={post} />
-              ))}
-            </div>
-          ) : null}
+          {/* @ts-expect-error custom element */}
+          <behold-widget feed-id="GhIHUXgibLI3Dyo47euc"></behold-widget>
         </FadeIn>
 
         {/* Bottom nudge */}

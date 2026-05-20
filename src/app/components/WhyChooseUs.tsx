@@ -22,8 +22,11 @@ const usps = [
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
+        <text x="12" y="16" textAnchor="middle" fontSize="12" fontWeight={700} fill="currentColor" style={{ fontFamily: "inherit" }}>
+          £
+        </text>
       </svg>
     ),
     title: "Free No-Obligation Quotes",
@@ -68,17 +71,17 @@ export default function WhyChooseUs() {
       {/* Decorative spade — top right */}
       <svg className="absolute top-8 right-10 w-24 h-24 opacity-[0.08] pointer-events-none" viewBox="0 0 100 120" fill="none">
         {/* Spade blade */}
-        <path d="M50 5 Q80 15 82 45 Q82 70 50 80 Q18 70 18 45 Q20 15 50 5Z" fill="#2d7a47"/>
+        <path d="M50 5 Q80 15 82 45 Q82 70 50 80 Q18 70 18 45 Q20 15 50 5Z" fill="#2d7a47" />
         {/* Spade handle */}
-        <rect x="46" y="78" width="8" height="30" rx="4" fill="#2d7a47"/>
+        <rect x="46" y="78" width="8" height="30" rx="4" fill="#2d7a47" />
         {/* Handle grip */}
-        <rect x="36" y="104" width="28" height="8" rx="4" fill="#2d7a47"/>
+        <rect x="36" y="104" width="28" height="8" rx="4" fill="#2d7a47" />
       </svg>
       {/* Decorative leaves — bottom left */}
       <svg className="absolute bottom-6 left-8 w-36 h-36 opacity-[0.07] pointer-events-none" viewBox="0 0 150 150" fill="none">
-        <path d="M20 130 Q30 80 75 45 Q110 20 130 25 Q135 30 120 65 Q95 105 35 130Z" fill="#3a8c52"/>
-        <line x1="20" y1="130" x2="120" y2="30" stroke="#2d7a47" strokeWidth="1.5"/>
-        <path d="M5 100 Q15 60 55 35 Q85 18 100 22" stroke="#4a9e6b" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M20 130 Q30 80 75 45 Q110 20 130 25 Q135 30 120 65 Q95 105 35 130Z" fill="#3a8c52" />
+        <line x1="20" y1="130" x2="120" y2="30" stroke="#2d7a47" strokeWidth="1.5" />
+        <path d="M5 100 Q15 60 55 35 Q85 18 100 22" stroke="#4a9e6b" strokeWidth="2" strokeLinecap="round" fill="none" />
       </svg>
 
       <div className="max-w-7xl mx-auto">
@@ -89,7 +92,10 @@ export default function WhyChooseUs() {
             <span style={{ color: "#3a8c52" }}>Garden Care</span>
           </h2>
           <div className="text-gray-500 text-base mt-3 max-w-4xl mx-auto leading-relaxed flex flex-col gap-4">
-            <p>We&apos;re a small, dedicated team with years in the business. We&apos;ve built a strong reputation built on trust, consistency and quality results. Every garden we work on gets our full care and attention, regardless of size or scope and our approach is simple - we turn up when we say we will, we do the job properly and we make sure we leave your outdoor space looking its absolute best!</p>
+            <p>
+              We&apos;re a small, dedicated business with years in the business. We&apos;ve built a strong reputation built on trust, consistency and quality results. Every garden we work on gets our full care and attention, regardless of size or scope and our approach is simple - we turn up when we
+              say we will, we do the job properly and we make sure we leave your outdoor space looking its absolute best!
+            </p>
             <p>We don&apos;t just take pride in the finished result, but the entire experience, keeping communication clear, pricing fair and showing your home the respect we show our own. It&apos;s this commitment that keeps our customers coming back time and again.</p>
           </div>
         </FadeIn>
@@ -108,7 +114,13 @@ export default function WhyChooseUs() {
             );
             return (
               <FadeIn key={u.title} delay={i * 0.08} className="h-full">
-                {href ? <Link href={href} className="block h-full">{inner}</Link> : inner}
+                {href ? (
+                  <Link href={href} className="block h-full">
+                    {inner}
+                  </Link>
+                ) : (
+                  inner
+                )}
               </FadeIn>
             );
           })}

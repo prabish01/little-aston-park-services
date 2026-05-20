@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
 
 export default function Hero() {
   const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setExpanded(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section id="hero" className="relative w-full overflow-hidden" style={{ backgroundColor: "#fdfcfc" }}>
@@ -59,7 +65,7 @@ export default function Hero() {
                 transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
               }}
             >
-              <div className="flex flex-col gap-3 pt-1 pb-3 text-[0.95rem] leading-relaxed" style={{ color: "#4a4a4a" }}>
+              <div className="flex flex-col gap-3 pt-1 pb-3 text-base lg:text-[1.05rem] leading-relaxed pl-4" style={{ color: "#4a4a4a", borderLeft: "3px solid #3a8c52" }}>
                 <p>
                   From tired patios and overgrown lawns to unruly hedges and untended gardens that need a complete revamp, we help restore spaces to sanctuaries that you can truly enjoy. Our team has built a reputation as reliable, approachable and completely committed to delivering your visions.
                   And the results speak for themselves.
@@ -67,13 +73,6 @@ export default function Hero() {
                 <p>No job is too big or too small and we tailor our services to suit your needs, schedule and budget. Let us take the stress out of your garden&apos;s maintenance and let you sit back to enjoy the results.</p>
               </div>
             </div>
-
-            <button onClick={() => setExpanded((e) => !e)} className="flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-800 transition-colors">
-              {expanded ? "Read less" : "Read more about us"}
-              <svg className="w-4 h-4 transition-transform duration-300" style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
           </div>
         </div>
 
@@ -81,7 +80,7 @@ export default function Hero() {
         <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
           <div className="w-full flex flex-col gap-4" style={{ maxWidth: "420px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/hero-canvas.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
+            <img src="/hero-art.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
             <style>{`
               @keyframes cardReveal {
                 from { opacity:0; transform: scale(0.9) translateY(10px); }

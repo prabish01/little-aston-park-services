@@ -59,7 +59,7 @@ export default function GrowingPlant() {
 
   return (
     <div
-      className="fixed bottom-5 right-5 z-40 select-none pointer-events-none"
+      className="fixed bottom-5 left-5 sm:left-auto sm:right-5 z-40 select-none pointer-events-none"
       style={{
         filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
       }}

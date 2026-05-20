@@ -1,61 +1,81 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import FadeIn from "./FadeIn";
 
-const INSTAGRAM_URL = "https://www.instagram.com/littleastonparkservices/";
-const HANDLE = "@littleastonparkservices";
+const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL!;
+const HANDLE = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE!;
+const FEED_URL = process.env.NEXT_PUBLIC_BEHOLD_FEED_URL!;
 
-const posts = [
-  "https://www.instagram.com/littleastonparkservices/reel/DVhH4KfDPXS/",
-  "https://www.instagram.com/littleastonparkservices/reel/DVRNqSLDCPv/",
-  "https://www.instagram.com/littleastonparkservices/reel/DVMK-BFDCg9/",
-  "https://www.instagram.com/littleastonparkservices/reel/DU_nWYkjAni/",
-  "https://www.instagram.com/littleastonparkservices/reel/DSgCR-BDGs-/",
-  "https://www.instagram.com/littleastonparkservices/reel/DSVrIm2jKdo/",
-];
+type BeholdPost = {
+  id: string;
+  mediaType: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
+  mediaUrl: string;
+  thumbnailUrl?: string | null;
+  permalink: string;
+  caption?: string | null;
+};
 
-function getEmbedUrl(postUrl: string) {
-  const reel = postUrl.match(/\/reel\/([A-Za-z0-9_-]+)/);
-  if (reel) return `https://www.instagram.com/reel/${reel[1]}/embed/captioned/`;
-  const post = postUrl.match(/\/p\/([A-Za-z0-9_-]+)/);
-  if (post) return `https://www.instagram.com/p/${post[1]}/embed/captioned/`;
-  return "";
+function PostTile({ post }: { post: BeholdPost }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isVideo = post.mediaType === "VIDEO";
+
+  return (
+    <a
+      href={post.permalink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative rounded-2xl overflow-hidden bg-gray-100 group block"
+      style={{ aspectRatio: "1/1" }}
+      aria-label="View on Instagram"
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+      }}
+    >
+      {isVideo ? (
+        <video ref={videoRef} src={post.mediaUrl} poster={post.thumbnailUrl ?? undefined} muted loop playsInline className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={post.thumbnailUrl ?? post.mediaUrl} alt={post.caption?.slice(0, 80) ?? "Instagram post"} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+      )}
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, #833ab480 0%, #fd1d1d80 50%, #fcb04580 100%)" }}>
+        <svg className="w-8 h-8 text-white drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+        </svg>
+      </div>
+    </a>
+  );
 }
 
-function PostTile({ url }: { url: string }) {
-  const embedUrl = getEmbedUrl(url);
+function SkeletonGrid() {
   return (
-    <div className="relative rounded-2xl overflow-hidden bg-gray-100" style={{ aspectRatio: "4/5" }}>
-      {/* Wrapper clips the iframe — negative marginTop hides the Instagram header */}
-      <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-        <iframe
-          src={embedUrl}
-          style={{
-            width: "100%",
-            height: "calc(100% + 136px)",
-            border: "none",
-            marginTop: "-68px",
-            pointerEvents: "none",
-            display: "block",
-          }}
-          scrolling="no"
-          loading="lazy"
-          title="Instagram post"
-        />
-      </div>
-      {/* Transparent click layer — opens post in new tab */}
-      <a href={url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 group" aria-label="View on Instagram">
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, #833ab480 0%, #fd1d1d80 50%, #fcb04580 100%)" }}>
-          <svg className="w-8 h-8 text-white drop-shadow" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-          </svg>
-        </div>
-      </a>
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      {Array.from({ length: 9 }).map((_, i) => (
+        <div key={i} className="rounded-2xl bg-gray-200 animate-pulse" style={{ aspectRatio: "1/1" }} />
+      ))}
     </div>
   );
 }
 
 export default function InstagramSection() {
+  const [posts, setPosts] = useState<BeholdPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(FEED_URL)
+      .then((r) => r.json())
+      .then((data) => {
+        const arr: BeholdPost[] = Array.isArray(data) ? data : Array.isArray(data?.posts) ? data.posts : Array.isArray(data?.data) ? data.data : [];
+        setPosts(arr.slice(0, 9));
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <section className="w-full py-20 overflow-hidden" style={{ backgroundColor: "#f7f8f2" }}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col gap-10">
@@ -70,7 +90,13 @@ export default function InstagramSection() {
             </h2>
             <div className="text-gray-500 text-base max-w-xl leading-relaxed flex flex-col gap-3">
               <p>Stay connected with us on social media to see our latest projects, transformations, and day-to-day work in action. We regularly share before-and-after photos, seasonal gardening tips, and behind-the-scenes insights into how we bring outdoor spaces back to life.</p>
-              <p>Following us is a great way to get inspiration for your own garden and see the standard of work you can expect. Simply search for and follow {HANDLE} to keep up to date.</p>
+              <p>
+                Following us is a great way to get inspiration for your own garden and see the standard of work you can expect. Simply search for and follow{" "}
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-medium">
+                  {HANDLE}
+                </a>{" "}
+                to keep up to date.
+              </p>
               <p>Who knows - your garden could be our next featured transformation!</p>
             </div>
           </div>
@@ -92,11 +118,15 @@ export default function InstagramSection() {
 
         {/* Post grid */}
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {posts.map((url, i) => (
-              <PostTile key={i} url={url} />
-            ))}
-          </div>
+          {loading ? (
+            <SkeletonGrid />
+          ) : posts.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {posts.map((post) => (
+                <PostTile key={post.id} post={post} />
+              ))}
+            </div>
+          ) : null}
         </FadeIn>
 
         {/* Bottom nudge */}

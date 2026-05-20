@@ -28,7 +28,7 @@ function PostTile({ post }: { post: BeholdPost }) {
       className="relative rounded-2xl overflow-hidden bg-gray-100 group block"
       style={{ aspectRatio: "1/1" }}
       aria-label="View on Instagram"
-      onMouseEnter={() => videoRef.current?.play()}
+      onMouseEnter={() => { videoRef.current?.play().catch(() => {}); }}
       onMouseLeave={() => {
         if (videoRef.current) {
           videoRef.current.pause();

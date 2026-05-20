@@ -109,8 +109,7 @@ export default function InstagramSection() {
 
         {/* Post grid */}
         <FadeIn delay={0.1}>
-          {/* @ts-expect-error custom element */}
-          <behold-widget feed-id="uPXsAM2Pr16f9OLJwTN4"></behold-widget>
+          <div data-behold-id="uPXsAM2Pr16f9OLJwTN4"></div>
         </FadeIn>
 
         {/* Bottom nudge */}

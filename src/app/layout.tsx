@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Little Aston Park Services",
   },
   description: "Professional jet washing, garden maintenance, lawn care, hedge trimming, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands. Get a free no-obligation quote today.",
-  keywords: ["garden maintenance", "jet washing", "lawn care", "hedge trimming", "landscaping", "Sutton Coldfield", "Lichfield", "Tamworth", "West Midlands", "outdoor services"],
+  keywords: ["garden maintenance", "jet washing", "lawn care", "hedge trimming", "landscaping", "Sutton Coldfield", "Lichfield", "Tamworth", "West Midlands", "outdoor services", "little aston park services", "landscaping little aston", "lawn care services in edgbaston", "lawn care edgbaston", "pressure washing little aston", "little aston park services reviews", "garden maintenance tamworth", "roof cleaning little aston", "gardening services tamworth", "gardening", "conservatory cleaning little aston", "gutter cleaning little aston"],
   authors: [{ name: "Little Aston Park Services" }],
   alternates: {
     canonical: "https://www.littleastonparkservices.co.uk",

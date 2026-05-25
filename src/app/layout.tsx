@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.littleastonparkservices.co.uk"),
   title: {
-    default: "Little Aston Park Services | Garden & Outdoor Maintenance",
+    default: "Garden & Outdoor Maintenance | Little Aston Park Services",
     template: "%s | Little Aston Park Services",
   },
   description: "Professional jet washing, garden maintenance, lawn care, hedge trimming, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands. Get a free no-obligation quote today.",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Little Aston Park Services | Garden & Outdoor Maintenance",
+    title: "Garden & Outdoor Maintenance | Little Aston Park Services",
     description: "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
     type: "website",
     url: "https://www.littleastonparkservices.co.uk",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Little Aston Park Services | Garden & Outdoor Maintenance",
+    title: "Garden & Outdoor Maintenance | Little Aston Park Services",
     description: "Professional garden care, jet washing, and landscaping services across Sutton Coldfield, Lichfield, Tamworth and the West Midlands.",
   },
   robots: {

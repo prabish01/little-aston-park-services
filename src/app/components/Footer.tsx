@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import LawnMowerStrip from "./LawnMowerStrip";
+import DeveloperCredit from "./DeveloperCredit";
 
 const companyLinks = [
   { label: "About Us",    href: "/about" },
@@ -136,7 +137,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/25">
-          <span>© 2026 Little Aston Park Services. All rights reserved.</span>
+          <div className="flex flex-col items-center gap-1 sm:items-start">
+            <span>© 2026 Little Aston Park Services. All rights reserved.</span>
+            <DeveloperCredit />
+          </div>
           <div className="flex items-center gap-5">
             <Link href="/terms-and-conditions" className="hover:text-emerald-400 transition-colors">Terms &amp; Conditions</Link>
             <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>

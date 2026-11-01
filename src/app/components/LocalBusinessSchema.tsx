@@ -1,9 +1,12 @@
+import { developerPerson } from "@/lib/developer";
+
 export default function LocalBusinessSchema() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Little Aston Park Services",
     url: "https://www.littleastonparkservices.co.uk",
+    creator: developerPerson,
   };
 
   const schema = {

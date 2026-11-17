@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
           <div className="w-full flex flex-col gap-4" style={{ maxWidth: "420px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/hero-art.svg" alt="Garden transformation by Little Aston Park Services" className="w-full h-auto block" />
+            <img src="/hero-gardener.svg" alt="Little Aston Park Services gardener trimming a hedge" className="w-full h-auto block" />
             <style>{`
               @keyframes cardReveal {
                 from { opacity:0; transform: scale(0.9) translateY(10px); }
